@@ -19,6 +19,8 @@
 		C50198722A6905F900B0AAFF /* BasicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198712A6905F900B0AAFF /* BasicModel.swift */; };
 		C50198762A6907DE00B0AAFF /* RecordingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198752A6907DE00B0AAFF /* RecordingViewModel.swift */; };
 		C50198782A690A4600B0AAFF /* TranscribingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198772A690A4600B0AAFF /* TranscribingViewModel.swift */; };
+		C501987E2A691AF100B0AAFF /* DecibelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C501987D2A691AF100B0AAFF /* DecibelViewModel.swift */; };
+		C50198802A691AFA00B0AAFF /* DecibelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C501987F2A691AFA00B0AAFF /* DecibelView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		C50198712A6905F900B0AAFF /* BasicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicModel.swift; sourceTree = "<group>"; };
 		C50198752A6907DE00B0AAFF /* RecordingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingViewModel.swift; sourceTree = "<group>"; };
 		C50198772A690A4600B0AAFF /* TranscribingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscribingViewModel.swift; sourceTree = "<group>"; };
+		C501987D2A691AF100B0AAFF /* DecibelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecibelViewModel.swift; sourceTree = "<group>"; };
+		C501987F2A691AFA00B0AAFF /* DecibelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecibelView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,7 @@
 				C501986A2A67A5F900B0AAFF /* VideoPickerView.swift */,
 				C501986E2A67DA1D00B0AAFF /* TestView.swift */,
 				0734582C2A691169006CEEDE /* TestAudioRecorderView.swift */,
+				C501987F2A691AFA00B0AAFF /* DecibelView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -105,6 +110,7 @@
 				C50198682A67A49200B0AAFF /* UploadingViewModel.swift */,
 				C50198752A6907DE00B0AAFF /* RecordingViewModel.swift */,
 				C50198772A690A4600B0AAFF /* TranscribingViewModel.swift */,
+				C501987D2A691AF100B0AAFF /* DecibelViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -191,8 +197,10 @@
 				C501986F2A67DA1D00B0AAFF /* TestView.swift in Sources */,
 				C50198762A6907DE00B0AAFF /* RecordingViewModel.swift in Sources */,
 				0734582D2A691169006CEEDE /* TestAudioRecorderView.swift in Sources */,
+				C501987E2A691AF100B0AAFF /* DecibelViewModel.swift in Sources */,
 				C50198672A665A9C00B0AAFF /* UploadingView.swift in Sources */,
 				C501986B2A67A5FA00B0AAFF /* VideoPickerView.swift in Sources */,
+				C50198802A691AFA00B0AAFF /* DecibelView.swift in Sources */,
 				C50198692A67A49200B0AAFF /* UploadingViewModel.swift in Sources */,
 				07F97BB72A65195A00149583 /* ContentView.swift in Sources */,
 				C50198722A6905F900B0AAFF /* BasicModel.swift in Sources */,
@@ -325,7 +333,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MalBal/Preview Content\"";
-				DEVELOPMENT_TEAM = PX9ZAGMV5G;
+				DEVELOPMENT_TEAM = SNYPHGS3ZB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MalBal/Info.plist;
@@ -357,7 +365,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MalBal/Preview Content\"";
-				DEVELOPMENT_TEAM = PX9ZAGMV5G;
+				DEVELOPMENT_TEAM = SNYPHGS3ZB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MalBal/Info.plist;
