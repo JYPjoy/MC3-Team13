@@ -5,16 +5,8 @@
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
-			<key>CFBundleTypeExtensions</key>
-			<array>
-				<string>m4a</string>
-			</array>
-			<key>CFBundleTypeName</key>
-			<string>My Voice Recording</string>
-			<key>LSItemContentTypes</key>
-			<array>
-				<string>public.movie</string>
-			</array>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
 		</dict>
 	</array>
 	<key>CFBundleURLTypes</key>

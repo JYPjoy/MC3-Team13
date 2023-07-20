@@ -7,6 +7,7 @@ import Speech
 struct UploadingView: View {
     //파일 업로드에 필요한 ViewModel 인스턴스 생성
     @StateObject var UploadingViewModel = UplodaingViewModel()
+    @StateObject var transcribingViewModel = TranscribingViewModel()
     
     @State private var isPresentingPicker = false
     @State private var videoURL: URL?
@@ -35,7 +36,7 @@ struct UploadingView: View {
                     Button("Extract Audio") {
                         try! AVAudioSession.sharedInstance().setCategory(.playback, options: [])
                         UploadingViewModel.extractAudio(from: videoURL)
-                        UploadingViewModel.performKoreanSpeechToText(url: videoURL) {_ in
+                        transcribingViewModel.performKoreanSpeechToText(url: videoURL) {_ in
                             print("해치웠나?")
                         }
                     }
@@ -46,7 +47,7 @@ struct UploadingView: View {
                 }
                 
                 //Transcribe된 문장이 써져 있는 EmptyView로 이동
-                NavigationLink(destination: Text(UploadingViewModel.recognizedText)) {
+                NavigationLink(destination: Text(transcribingViewModel.recognizedText)) {
                     Text("wow")
                 }
                 
