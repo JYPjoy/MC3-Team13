@@ -13,8 +13,10 @@ import MobileCoreServices
 
 
 class UplodaingViewModel: ObservableObject {
+    //내부 변수로 번역된 문장 생성
     @Published var recognizedText : String = ""
     
+    //한국어로 STT 구현한 Function (MC2 2중대6소대 Team STT 구현 함수 참고)
     func performKoreanSpeechToText(url: URL, completion: @escaping (Bool) -> Void) {
         guard let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "ko_KR")) else {
             print("Speech recognizer is not available for this locale!")
@@ -22,12 +24,14 @@ class UplodaingViewModel: ObservableObject {
             return
         }
         
+        //SpeechRecognizer가 정상작동되지 않는다면?
         if !speechRecognizer.isAvailable {
             print("Speech recognizer is not available for this device!")
             completion(false)
             return
         }
         
+        //SpeechRecognizer가 정상작동된다!
         SFSpeechRecognizer.requestAuthorization { authStatus in
             print(">> transcripts Waits")
             if (authStatus == .authorized) {
@@ -35,6 +39,7 @@ class UplodaingViewModel: ObservableObject {
                 let request = SFSpeechURLRecognitionRequest(url: fileURL)
                 print(">>>### URL: \(fileURL)")
                 
+                //Request에 맞게 Recognizer가 STT를 시작함.
                 let task = speechRecognizer.recognitionTask(
                     with: request,
                     resultHandler: { (result, error) in
@@ -43,6 +48,7 @@ class UplodaingViewModel: ObservableObject {
                             self.recognizedText = "대화없음"
                             completion(true)
                         } else if (result?.isFinal)! {
+                            //가장 bestTranscription을 뽑아서 설정한다.
                             if let res = result?.bestTranscription.formattedString {
                                 self.recognizedText = res
                                 print(res)
@@ -56,6 +62,7 @@ class UplodaingViewModel: ObservableObject {
         }
     }
     
+    //앱 내 Documents 폴더 안에 있는 M4A Files들을 지움
     func deleteM4AFilesInDocumentsDirectory() {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
         if let documentsURL = documentsDirectory {
@@ -73,6 +80,7 @@ class UplodaingViewModel: ObservableObject {
         }
     }
     
+    //영상에서 추출한 오디오가 정상 작동되는지 테스트해보는 함수
     func playAudio() {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
         if let documentsURL = documentsDirectory {
@@ -99,6 +107,7 @@ class UplodaingViewModel: ObservableObject {
         }
     }
     
+    //영상에서 오디오를 추출하는 함수
     func extractAudio(from videoURL: URL) {
         let asset = AVAsset(url: videoURL)
         
