@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0734582D2A691169006CEEDE /* TestAudioRecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0734582C2A691169006CEEDE /* TestAudioRecorderView.swift */; };
 		07F97BB52A65195A00149583 /* MalBalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F97BB42A65195A00149583 /* MalBalApp.swift */; };
 		07F97BB72A65195A00149583 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F97BB62A65195A00149583 /* ContentView.swift */; };
 		07F97BB92A65195C00149583 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07F97BB82A65195C00149583 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0734582C2A691169006CEEDE /* TestAudioRecorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAudioRecorderView.swift; sourceTree = "<group>"; };
 		07F97BB12A65195A00149583 /* MalBal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MalBal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F97BB42A65195A00149583 /* MalBalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MalBalApp.swift; sourceTree = "<group>"; };
 		07F97BB62A65195A00149583 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				C50198662A665A9C00B0AAFF /* UploadingView.swift */,
 				C501986A2A67A5F900B0AAFF /* VideoPickerView.swift */,
 				C501986E2A67DA1D00B0AAFF /* TestView.swift */,
+				0734582C2A691169006CEEDE /* TestAudioRecorderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 				C50198782A690A4600B0AAFF /* TranscribingViewModel.swift in Sources */,
 				C501986F2A67DA1D00B0AAFF /* TestView.swift in Sources */,
 				C50198762A6907DE00B0AAFF /* RecordingViewModel.swift in Sources */,
+				0734582D2A691169006CEEDE /* TestAudioRecorderView.swift in Sources */,
 				C50198672A665A9C00B0AAFF /* UploadingView.swift in Sources */,
 				C501986B2A67A5FA00B0AAFF /* VideoPickerView.swift in Sources */,
 				C50198692A67A49200B0AAFF /* UploadingViewModel.swift in Sources */,
@@ -321,7 +325,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MalBal/Preview Content\"";
-				DEVELOPMENT_TEAM = SNYPHGS3ZB;
+				DEVELOPMENT_TEAM = PX9ZAGMV5G;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MalBal/Info.plist;
@@ -353,7 +357,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MalBal/Preview Content\"";
-				DEVELOPMENT_TEAM = SNYPHGS3ZB;
+				DEVELOPMENT_TEAM = PX9ZAGMV5G;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MalBal/Info.plist;
