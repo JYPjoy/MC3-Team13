@@ -36,5 +36,4 @@ extension Color {
         let b = Double((rgb >>  0) & 0xFF) / 255.0
         self.init(red: r, green: g, blue: b)
     }
-    
 }
