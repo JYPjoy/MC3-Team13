@@ -25,7 +25,7 @@ struct FontManager {
     /// - Parameter Request: type , size
     /// - Returns: 애플산돌고딕폰트의  type, size에 따른 커스텀 폰트 생성
     func appleSDGothicNeo(_ type:  AppleSDGothicNeo, _ size: CGFloat) -> Font {
-        let name = "AppleSDGothicNeo" + type.rawValue
+        let name = "AppleSDGothicNeo" + type.rawValue + "00"
         return Font.custom(name, size: size)
     }
 }
