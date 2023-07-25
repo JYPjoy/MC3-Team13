@@ -13,7 +13,22 @@ import MobileCoreServices
 
 
 class UplodaingViewModel: ObservableObject {
+    @Published var outputURL: URL?
     
+    //앱 내 임시디렉토리 안에 Segment된 파일들을 다 지워줌
+    func removeAllTempM4AFiles() {
+        do {
+            let tempDirURL = URL(fileURLWithPath: NSTemporaryDirectory())
+            let tempM4AFiles = try FileManager.default.contentsOfDirectory(at: tempDirURL, includingPropertiesForKeys: nil, options: .skipsHiddenFiles).filter { $0.pathExtension == "m4a" }
+
+            for fileURL in tempM4AFiles {
+                try FileManager.default.removeItem(at: fileURL)
+                print("Removed temporary file: \(fileURL.lastPathComponent)")
+            }
+        } catch {
+            print("Error removing temporary files: \(error.localizedDescription)")
+        }
+    }
     //앱 내 Documents 폴더 안에 있는 M4A Files들을 지움
     func deleteM4AFilesInDocumentsDirectory() {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
@@ -60,7 +75,7 @@ class UplodaingViewModel: ObservableObject {
     }
     
     //영상에서 오디오를 추출하는 함수
-    func extractAudio(from videoURL: URL) {
+    func extractAudio(from videoURL: URL) -> URL {
         let asset = AVAsset(url: videoURL)
         
         let exportSession = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetAppleM4A)
@@ -89,5 +104,7 @@ class UplodaingViewModel: ObservableObject {
                 break
             }
         })
+        return outputURL
     }
+    
 }

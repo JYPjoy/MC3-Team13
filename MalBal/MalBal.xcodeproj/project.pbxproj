@@ -15,7 +15,6 @@
 		C50198672A665A9C00B0AAFF /* UploadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198662A665A9C00B0AAFF /* UploadingView.swift */; };
 		C50198692A67A49200B0AAFF /* UploadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198682A67A49200B0AAFF /* UploadingViewModel.swift */; };
 		C501986B2A67A5FA00B0AAFF /* VideoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C501986A2A67A5F900B0AAFF /* VideoPickerView.swift */; };
-		C501986F2A67DA1D00B0AAFF /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C501986E2A67DA1D00B0AAFF /* TestView.swift */; };
 		C50198722A6905F900B0AAFF /* BasicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198712A6905F900B0AAFF /* BasicModel.swift */; };
 		C50198762A6907DE00B0AAFF /* RecordingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198752A6907DE00B0AAFF /* RecordingViewModel.swift */; };
 		C50198782A690A4600B0AAFF /* TranscribingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198772A690A4600B0AAFF /* TranscribingViewModel.swift */; };
@@ -33,7 +32,6 @@
 		C50198662A665A9C00B0AAFF /* UploadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingView.swift; sourceTree = "<group>"; };
 		C50198682A67A49200B0AAFF /* UploadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingViewModel.swift; sourceTree = "<group>"; };
 		C501986A2A67A5F900B0AAFF /* VideoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPickerView.swift; sourceTree = "<group>"; };
-		C501986E2A67DA1D00B0AAFF /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		C50198702A68EDD700B0AAFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C50198712A6905F900B0AAFF /* BasicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicModel.swift; sourceTree = "<group>"; };
 		C50198752A6907DE00B0AAFF /* RecordingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingViewModel.swift; sourceTree = "<group>"; };
@@ -97,7 +95,6 @@
 				07F97BB62A65195A00149583 /* ContentView.swift */,
 				C50198662A665A9C00B0AAFF /* UploadingView.swift */,
 				C501986A2A67A5F900B0AAFF /* VideoPickerView.swift */,
-				C501986E2A67DA1D00B0AAFF /* TestView.swift */,
 				0734582C2A691169006CEEDE /* TestAudioRecorderView.swift */,
 				C501987F2A691AFA00B0AAFF /* DecibelView.swift */,
 			);
@@ -194,7 +191,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C50198782A690A4600B0AAFF /* TranscribingViewModel.swift in Sources */,
-				C501986F2A67DA1D00B0AAFF /* TestView.swift in Sources */,
 				C50198762A6907DE00B0AAFF /* RecordingViewModel.swift in Sources */,
 				0734582D2A691169006CEEDE /* TestAudioRecorderView.swift in Sources */,
 				C501987E2A691AF100B0AAFF /* DecibelViewModel.swift in Sources */,
@@ -337,8 +333,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MalBal/Info.plist;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "마이크가 필요해요";
-				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "음성을 텍스트로 변환하기 위해 오디오에 접근합니다";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "we need mic";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "to Transcribe";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -369,8 +365,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MalBal/Info.plist;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "마이크가 필요해요";
-				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "음성을 텍스트로 변환하기 위해 오디오에 접근합니다";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "we need mic";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "to Transcribe";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
