@@ -15,11 +15,13 @@
 		C50198672A665A9C00B0AAFF /* UploadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198662A665A9C00B0AAFF /* UploadingView.swift */; };
 		C50198692A67A49200B0AAFF /* UploadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198682A67A49200B0AAFF /* UploadingViewModel.swift */; };
 		C501986B2A67A5FA00B0AAFF /* VideoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C501986A2A67A5F900B0AAFF /* VideoPickerView.swift */; };
-		C50198722A6905F900B0AAFF /* BasicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198712A6905F900B0AAFF /* BasicModel.swift */; };
+		C50198722A6905F900B0AAFF /* RecorderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198712A6905F900B0AAFF /* RecorderModel.swift */; };
 		C50198762A6907DE00B0AAFF /* RecordingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198752A6907DE00B0AAFF /* RecordingViewModel.swift */; };
 		C50198782A690A4600B0AAFF /* TranscribingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198772A690A4600B0AAFF /* TranscribingViewModel.swift */; };
 		C501987E2A691AF100B0AAFF /* DecibelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C501987D2A691AF100B0AAFF /* DecibelViewModel.swift */; };
 		C50198802A691AFA00B0AAFF /* DecibelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C501987F2A691AFA00B0AAFF /* DecibelView.swift */; };
+		C50198822A6FB9C400B0AAFF /* PresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198812A6FB9C400B0AAFF /* PresentationModel.swift */; };
+		C50198842A6FB9D300B0AAFF /* DirectoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198832A6FB9D300B0AAFF /* DirectoryModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,11 +35,13 @@
 		C50198682A67A49200B0AAFF /* UploadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingViewModel.swift; sourceTree = "<group>"; };
 		C501986A2A67A5F900B0AAFF /* VideoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPickerView.swift; sourceTree = "<group>"; };
 		C50198702A68EDD700B0AAFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		C50198712A6905F900B0AAFF /* BasicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicModel.swift; sourceTree = "<group>"; };
+		C50198712A6905F900B0AAFF /* RecorderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderModel.swift; sourceTree = "<group>"; };
 		C50198752A6907DE00B0AAFF /* RecordingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingViewModel.swift; sourceTree = "<group>"; };
 		C50198772A690A4600B0AAFF /* TranscribingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscribingViewModel.swift; sourceTree = "<group>"; };
 		C501987D2A691AF100B0AAFF /* DecibelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecibelViewModel.swift; sourceTree = "<group>"; };
 		C501987F2A691AFA00B0AAFF /* DecibelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecibelView.swift; sourceTree = "<group>"; };
+		C50198812A6FB9C400B0AAFF /* PresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationModel.swift; sourceTree = "<group>"; };
+		C50198832A6FB9D300B0AAFF /* DirectoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +119,9 @@
 		C50198652A651A6000B0AAFF /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C50198712A6905F900B0AAFF /* BasicModel.swift */,
+				C50198712A6905F900B0AAFF /* RecorderModel.swift */,
+				C50198812A6FB9C400B0AAFF /* PresentationModel.swift */,
+				C50198832A6FB9D300B0AAFF /* DirectoryModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -191,6 +197,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C50198782A690A4600B0AAFF /* TranscribingViewModel.swift in Sources */,
+				C50198822A6FB9C400B0AAFF /* PresentationModel.swift in Sources */,
+				C50198842A6FB9D300B0AAFF /* DirectoryModel.swift in Sources */,
 				C50198762A6907DE00B0AAFF /* RecordingViewModel.swift in Sources */,
 				0734582D2A691169006CEEDE /* TestAudioRecorderView.swift in Sources */,
 				C501987E2A691AF100B0AAFF /* DecibelViewModel.swift in Sources */,
@@ -199,7 +207,7 @@
 				C50198802A691AFA00B0AAFF /* DecibelView.swift in Sources */,
 				C50198692A67A49200B0AAFF /* UploadingViewModel.swift in Sources */,
 				07F97BB72A65195A00149583 /* ContentView.swift in Sources */,
-				C50198722A6905F900B0AAFF /* BasicModel.swift in Sources */,
+				C50198722A6905F900B0AAFF /* RecorderModel.swift in Sources */,
 				07F97BB52A65195A00149583 /* MalBalApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
