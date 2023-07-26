@@ -24,12 +24,14 @@
 		C50198692A67A49200B0AAFF /* UploadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198682A67A49200B0AAFF /* UploadingViewModel.swift */; };
 		C501986B2A67A5FA00B0AAFF /* VideoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C501986A2A67A5F900B0AAFF /* VideoPickerView.swift */; };
 		C50198722A6905F900B0AAFF /* RecorderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198712A6905F900B0AAFF /* RecorderModel.swift */; };
-		C50198762A6907DE00B0AAFF /* RecordingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198752A6907DE00B0AAFF /* RecordingViewModel.swift */; };
+		C50198762A6907DE00B0AAFF /* mainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198752A6907DE00B0AAFF /* mainViewModel.swift */; };
 		C50198782A690A4600B0AAFF /* TranscribingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198772A690A4600B0AAFF /* TranscribingViewModel.swift */; };
 		C501987E2A691AF100B0AAFF /* DecibelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C501987D2A691AF100B0AAFF /* DecibelViewModel.swift */; };
 		C50198802A691AFA00B0AAFF /* DecibelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C501987F2A691AFA00B0AAFF /* DecibelView.swift */; };
 		C50198822A6FB9C400B0AAFF /* PresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198812A6FB9C400B0AAFF /* PresentationModel.swift */; };
 		C50198842A6FB9D300B0AAFF /* DirectoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198832A6FB9D300B0AAFF /* DirectoryModel.swift */; };
+		C501988C2A6FC0B700B0AAFF /* mainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C501988B2A6FC0B700B0AAFF /* mainView.swift */; };
+		C50198B52A703E0800B0AAFF /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C50198B42A703E0800B0AAFF /* music.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,12 +54,15 @@
 		C501986A2A67A5F900B0AAFF /* VideoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPickerView.swift; sourceTree = "<group>"; };
 		C50198702A68EDD700B0AAFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C50198712A6905F900B0AAFF /* RecorderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderModel.swift; sourceTree = "<group>"; };
-		C50198752A6907DE00B0AAFF /* RecordingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingViewModel.swift; sourceTree = "<group>"; };
+		C50198752A6907DE00B0AAFF /* mainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainViewModel.swift; sourceTree = "<group>"; };
 		C50198772A690A4600B0AAFF /* TranscribingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscribingViewModel.swift; sourceTree = "<group>"; };
 		C501987D2A691AF100B0AAFF /* DecibelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecibelViewModel.swift; sourceTree = "<group>"; };
 		C501987F2A691AFA00B0AAFF /* DecibelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecibelView.swift; sourceTree = "<group>"; };
 		C50198812A6FB9C400B0AAFF /* PresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationModel.swift; sourceTree = "<group>"; };
 		C50198832A6FB9D300B0AAFF /* DirectoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryModel.swift; sourceTree = "<group>"; };
+		C501988B2A6FC0B700B0AAFF /* mainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainView.swift; sourceTree = "<group>"; };
+		C50198B42A703E0800B0AAFF /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = music.mp3; path = ../../../../../../Downloads/music.mp3; sourceTree = "<group>"; };
+		C50198B62A703E1100B0AAFF /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +101,8 @@
 				C50198632A651A5300B0AAFF /* Views */,
 				07F97BB42A65195A00149583 /* MalBalApp.swift */,
 				07F97BB82A65195C00149583 /* Assets.xcassets */,
-				A836B19E2A6E4AA800D9F02F /* Resources */,
+                A836B19E2A6E4AA800D9F02F /* Resources */,
+                C50198B62A703E1100B0AAFF /* music.mp3 */,
 				07F97BBA2A65195C00149583 /* Preview Content */,
 			);
 			path = MalBal;
@@ -106,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				07F97BBB2A65195C00149583 /* Preview Assets.xcassets */,
+				C50198B42A703E0800B0AAFF /* music.mp3 */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -157,6 +164,7 @@
 				C501986A2A67A5F900B0AAFF /* VideoPickerView.swift */,
 				0734582C2A691169006CEEDE /* TestAudioRecorderView.swift */,
 				C501987F2A691AFA00B0AAFF /* DecibelView.swift */,
+				C501988B2A6FC0B700B0AAFF /* mainView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -165,7 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				C50198682A67A49200B0AAFF /* UploadingViewModel.swift */,
-				C50198752A6907DE00B0AAFF /* RecordingViewModel.swift */,
+				C50198752A6907DE00B0AAFF /* mainViewModel.swift */,
 				C50198772A690A4600B0AAFF /* TranscribingViewModel.swift */,
 				C501987D2A691AF100B0AAFF /* DecibelViewModel.swift */,
 			);
@@ -245,8 +253,12 @@
 				07F97BBC2A65195C00149583 /* Preview Assets.xcassets in Resources */,
 				A836B1C82A6E6C4500D9F02F /* AppleSDGothicNeoB.ttf in Resources */,
 				07F97BB92A65195C00149583 /* Assets.xcassets in Resources */,
+<<<<<<< Updated upstream
 				A836B1D12A6E6FF300D9F02F /* AppleSDGothicNeoEB.ttf in Resources */,
 				A836B1C42A6E6C3500D9F02F /* AppleSDGothicNeoR.ttf in Resources */,
+=======
+				C50198B52A703E0800B0AAFF /* music.mp3 in Resources */,
+>>>>>>> Stashed changes
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +272,8 @@
 				C50198782A690A4600B0AAFF /* TranscribingViewModel.swift in Sources */,
 				C50198822A6FB9C400B0AAFF /* PresentationModel.swift in Sources */,
 				C50198842A6FB9D300B0AAFF /* DirectoryModel.swift in Sources */,
-				C50198762A6907DE00B0AAFF /* RecordingViewModel.swift in Sources */,
+				C501988C2A6FC0B700B0AAFF /* mainView.swift in Sources */,
+				C50198762A6907DE00B0AAFF /* mainViewModel.swift in Sources */,
 				0734582D2A691169006CEEDE /* TestAudioRecorderView.swift in Sources */,
 				C501987E2A691AF100B0AAFF /* DecibelViewModel.swift in Sources */,
 				C50198672A665A9C00B0AAFF /* UploadingView.swift in Sources */,
