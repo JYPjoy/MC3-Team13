@@ -59,8 +59,7 @@ class TranscribingViewModel: ObservableObject {
             }
         }
     }
-    
-    //영상을 1분 짜리로 여러 개로 짜르는 함수
+
     func splitM4AFileIntoOneMinuteSegments(inputFileURL: URL) {
         let asset = AVAsset(url: inputFileURL)
         let duration = CMTimeGetSeconds(asset.duration)
@@ -89,7 +88,7 @@ class TranscribingViewModel: ObservableObject {
         }
     }
 
-    //Temporary Folder 안에 있는 파일들을 지우는 함수
+    
     func removeFile(at url: URL) {
         do {
             try FileManager.default.removeItem(at: url)
@@ -99,7 +98,6 @@ class TranscribingViewModel: ObservableObject {
         }
     }
     
-    //Temporary Folder 안에 있는 M4A 파일들을 STT하는 함수
     func performSTTM4AFiles() {
         do {
             let tempDirURL = URL(fileURLWithPath: NSTemporaryDirectory())
