@@ -16,6 +16,7 @@ class AnalysisViewModel: ObservableObject {
     
     private var audioPlayer: AVAudioPlayer?
     @Published var isPlaying = false
+    @Published var totalTime: Double = 0
     @Published var currentTime: Double = 0
     
     @Published var isAnalysisComplete: Bool = false
@@ -27,7 +28,7 @@ class AnalysisViewModel: ObservableObject {
     
     /// 녹음 파일 분석 : STT & set CPM
     func analyzeRecord() {
-        self.transcribe(url: record.fileURL!) { success in
+        self.transcribe(url: record.fileURL) { success in
             if success {
                 self.isAnalysisComplete = true
                 self.setRecordWPM()
@@ -40,22 +41,22 @@ class AnalysisViewModel: ObservableObject {
     private func setRecordWPM() {
         let wordCount = Double(transcripts.split(separator: " ").count)
         
-        guard let duration = record.duration, duration > 0 else {
-            self.record.cpm = -1
+        guard self.totalTime > 0 else {
+            self.record.wpm = -1
             return
         }
-        let wps = wordCount/duration
-        self.record.cpm = Int(wps * 60)
+        
+        let wps = wordCount/self.totalTime
+        self.record.wpm = Int(wps * 60)
     }
     
     
     /// CPM 계산
     private func setRecordCPM() {
         
-        if let duration = record.duration, duration != 0 {
+        if totalTime != 0 {
             let length = Double(calculateLength(of: transcripts))
-            let cpm = Int(length / duration * 60)
-            record.cpm = cpm
+            record.wpm = Int(length / totalTime * 60)
         } else {
             print("Error : Record Duration 0")
         }
@@ -132,12 +133,8 @@ class AnalysisViewModel: ObservableObject {
     /// set audioPlayer & record.duration
     func setupAudioPlayer() {
         do {
-            guard let url = record.fileURL else {
-                print("Error: Record fileURL nil")
-                return
-            }
-            audioPlayer = try AVAudioPlayer(contentsOf: url)
-            record.duration = audioPlayer?.duration ?? 0
+            audioPlayer = try AVAudioPlayer(contentsOf: record.fileURL)
+            self.totalTime = audioPlayer?.duration ?? 0
         } catch {
             print("Error: Set up Audio Player")
         }
@@ -165,7 +162,7 @@ class AnalysisViewModel: ObservableObject {
     func updatePlaybackTime() {
         if isPlaying {
             currentTime = audioPlayer?.currentTime ?? 0
-            if let duration = self.record.duration, currentTime >= duration {
+            if currentTime >= totalTime {
                 // 음원 재생이 끝났을 때, 정지하고 초기화합니다.
                 audioPlayer?.stop()
                 audioPlayer?.currentTime = 0

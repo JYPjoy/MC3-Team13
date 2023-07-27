@@ -149,7 +149,7 @@ struct TestRecordAnalysisView: View {
                 .foregroundColor(.blue)
                 .padding()
             
-            Slider(value: $vm.currentTime, in: 0...(vm.record.duration ?? 0), onEditingChanged: { editing in
+            Slider(value: $vm.currentTime, in: 0...vm.totalTime, onEditingChanged: { editing in
                 if !editing {
                     vm.seekAudio()
                 }
@@ -158,11 +158,11 @@ struct TestRecordAnalysisView: View {
             HStack{
                 Text("\(formatTime(vm.currentTime))")
                 Spacer()
-                Text("\(formatTime(vm.record.duration ?? 0))")
+                Text("\(formatTime(vm.totalTime))")
             }
             .padding(.horizontal)
             
-            Text(String(vm.record.cpm ?? 0))
+            Text(String(vm.record.wpm))
             
             Button(action: {
                 vm.togglePlayer()
@@ -179,7 +179,7 @@ struct TestRecordAnalysisView: View {
             }
             
             .padding(.horizontal)
-            List(0..<Int(vm.record.duration ?? 0) / 60, id: \.self) { minute in
+            List(0..<Int(vm.totalTime) / 60, id: \.self) { minute in
                 Button(action: {
                     vm.seekToMinute(minute)
                 }) {
