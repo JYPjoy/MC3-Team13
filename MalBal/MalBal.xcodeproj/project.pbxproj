@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0734582D2A691169006CEEDE /* TestAudioRecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0734582C2A691169006CEEDE /* TestAudioRecorderView.swift */; };
+		075666C32A72170000AB5777 /* AnalysisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075666C22A72170000AB5777 /* AnalysisViewModel.swift */; };
+		075666C62A72192300AB5777 /* M4A_SampleFile.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 075666C52A72192100AB5777 /* M4A_SampleFile.m4a */; };
 		07F97BB52A65195A00149583 /* MalBalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F97BB42A65195A00149583 /* MalBalApp.swift */; };
 		07F97BB72A65195A00149583 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F97BB62A65195A00149583 /* ContentView.swift */; };
 		07F97BB92A65195C00149583 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07F97BB82A65195C00149583 /* Assets.xcassets */; };
@@ -35,10 +37,16 @@
 		C50198802A691AFA00B0AAFF /* DecibelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C501987F2A691AFA00B0AAFF /* DecibelView.swift */; };
 		C50198822A6FB9C400B0AAFF /* PresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198812A6FB9C400B0AAFF /* PresentationModel.swift */; };
 		C50198842A6FB9D300B0AAFF /* DirectoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198832A6FB9D300B0AAFF /* DirectoryModel.swift */; };
+		C50198B82A7102BD00B0AAFF /* mainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198B72A7102BD00B0AAFF /* mainViewModel.swift */; };
+		C50198BA2A7102CA00B0AAFF /* mainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198B92A7102CA00B0AAFF /* mainView.swift */; };
+		C5D183722A711107009407C6 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D183712A711107009407C6 /* ModalView.swift */; };
+		C5D183772A71454B009407C6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D183762A71454B009407C6 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0734582C2A691169006CEEDE /* TestAudioRecorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAudioRecorderView.swift; sourceTree = "<group>"; };
+		075666C22A72170000AB5777 /* AnalysisViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisViewModel.swift; sourceTree = "<group>"; };
+		075666C52A72192100AB5777 /* M4A_SampleFile.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = M4A_SampleFile.m4a; sourceTree = "<group>"; };
 		07F97BB12A65195A00149583 /* MalBal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MalBal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F97BB42A65195A00149583 /* MalBalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MalBalApp.swift; sourceTree = "<group>"; };
 		07F97BB62A65195A00149583 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -66,6 +74,10 @@
 		C501987F2A691AFA00B0AAFF /* DecibelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecibelView.swift; sourceTree = "<group>"; };
 		C50198812A6FB9C400B0AAFF /* PresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationModel.swift; sourceTree = "<group>"; };
 		C50198832A6FB9D300B0AAFF /* DirectoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryModel.swift; sourceTree = "<group>"; };
+		C50198B72A7102BD00B0AAFF /* mainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainViewModel.swift; sourceTree = "<group>"; };
+		C50198B92A7102CA00B0AAFF /* mainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainView.swift; sourceTree = "<group>"; };
+		C5D183712A711107009407C6 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
+		C5D183762A71454B009407C6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +118,7 @@
 				C50198632A651A5300B0AAFF /* Views */,
 				07F97BB42A65195A00149583 /* MalBalApp.swift */,
 				07F97BB82A65195C00149583 /* Assets.xcassets */,
+				075666C52A72192100AB5777 /* M4A_SampleFile.m4a */,
 				A836B19E2A6E4AA800D9F02F /* Resources */,
 				07F97BBA2A65195C00149583 /* Preview Content */,
 			);
@@ -169,6 +182,8 @@
 				0734582C2A691169006CEEDE /* TestAudioRecorderView.swift */,
 				C501987F2A691AFA00B0AAFF /* DecibelView.swift */,
 				A871A75F2A7189B600DD7F8B /* ArchiveView.swift */,
+				C50198B92A7102CA00B0AAFF /* mainView.swift */,
+				C5D183712A711107009407C6 /* ModalView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -180,6 +195,8 @@
 				C50198752A6907DE00B0AAFF /* RecordingViewModel.swift */,
 				C50198772A690A4600B0AAFF /* TranscribingViewModel.swift */,
 				C501987D2A691AF100B0AAFF /* DecibelViewModel.swift */,
+				C50198B72A7102BD00B0AAFF /* mainViewModel.swift */,
+				075666C22A72170000AB5777 /* AnalysisViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -191,6 +208,7 @@
 				C50198812A6FB9C400B0AAFF /* PresentationModel.swift */,
 				C50198832A6FB9D300B0AAFF /* DirectoryModel.swift */,
 				A871A75D2A71881100DD7F8B /* ArchiveModel.swift */,
+				C5D183762A71454B009407C6 /* Extensions.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -265,6 +283,7 @@
 				07F97BBC2A65195C00149583 /* Preview Assets.xcassets in Resources */,
 				A836B1C82A6E6C4500D9F02F /* AppleSDGothicNeoB.ttf in Resources */,
 				07F97BB92A65195C00149583 /* Assets.xcassets in Resources */,
+				075666C62A72192300AB5777 /* M4A_SampleFile.m4a in Resources */,
 				A836B1D12A6E6FF300D9F02F /* AppleSDGothicNeoEB.ttf in Resources */,
 				A836B1C42A6E6C3500D9F02F /* AppleSDGothicNeoR.ttf in Resources */,
 			);
@@ -289,11 +308,16 @@
 				C501986B2A67A5FA00B0AAFF /* VideoPickerView.swift in Sources */,
 				C50198802A691AFA00B0AAFF /* DecibelView.swift in Sources */,
 				A871A75E2A71881100DD7F8B /* ArchiveModel.swift in Sources */,
+				C50198BA2A7102CA00B0AAFF /* mainView.swift in Sources */,
 				A836B1A32A6E4E6300D9F02F /* GLPopupView.swift in Sources */,
+				C5D183722A711107009407C6 /* ModalView.swift in Sources */,
 				A836B1A02A6E4AE200D9F02F /* Colors.swift in Sources */,
 				A836B1B12A6E567B00D9F02F /* FontManager.swift in Sources */,
+				075666C32A72170000AB5777 /* AnalysisViewModel.swift in Sources */,
 				C50198692A67A49200B0AAFF /* UploadingViewModel.swift in Sources */,
+				C5D183772A71454B009407C6 /* Extensions.swift in Sources */,
 				07F97BB72A65195A00149583 /* ContentView.swift in Sources */,
+				C50198B82A7102BD00B0AAFF /* mainViewModel.swift in Sources */,
 				C50198722A6905F900B0AAFF /* RecorderModel.swift in Sources */,
 				07F97BB52A65195A00149583 /* MalBalApp.swift in Sources */,
 			);
@@ -424,7 +448,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MalBal/Preview Content\"";
-				DEVELOPMENT_TEAM = XGHDQG66U5;
+				DEVELOPMENT_TEAM = SNYPHGS3ZB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MalBal/Info.plist;
@@ -456,7 +480,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MalBal/Preview Content\"";
-				DEVELOPMENT_TEAM = XGHDQG66U5;
+				DEVELOPMENT_TEAM = SNYPHGS3ZB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MalBal/Info.plist;

@@ -6,61 +6,128 @@
 //
 
 import Foundation
-import AVFoundation
+import SwiftUI
+import AVKit
 
 class RecordingViewModel: ObservableObject {
-    @Published var audioRecorder: AVAudioRecorder!
-    @Published var audioPlayer: AVAudioPlayer!
-    @Published var isRecording: Bool = false
-    @Published var audioURL: URL?
     
-    func startRecording() {
-        let audioSession = AVAudioSession.sharedInstance()
-        do {
-            try audioSession.setCategory(.record, mode: .default)
-            try audioSession.setActive(true)
-
-            let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            let audioFilename = documentsPath.appendingPathComponent("recording.m4a")
-
-            let settings = [
+    @Published var record: Record?
+    @Published var isRecording: Bool = false
+    
+    private var session: AVAudioSession?
+    private var audioRecorder: AVAudioRecorder?
+    
+    let recordedFileURL: URL = {
+        let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        return url.appendingPathComponent("MalBal.m4a")
+    }()
+    
+    /// 권한 요청 함수 : 권한 여부 반환
+    func prepareRecording(completion: @escaping (Bool) -> Void) {
+        
+        do{
+            self.session = AVAudioSession.sharedInstance()
+            try self.session?.setCategory(.playAndRecord)
+            
+            // 녹음 권한 요청
+            self.session?.requestRecordPermission { (status) in
+                completion(status)
+            }
+        }
+        catch{
+            print("Error: Preparing Recording- \(error.localizedDescription)")
+        }
+    }
+    
+    /// 녹음 시작
+    func startRecord() {
+        
+        if record == nil {
+            
+            let settings: [String : Any] = [
+                
                 AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
                 AVSampleRateKey: 44100.0,
                 AVNumberOfChannelsKey: 2,
                 AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
-            ] as [String : Any]
-
-            audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
-            audioRecorder.record()
-            isRecording = true
-            audioURL = nil
-        } catch {
-            print("Error starting recording: \(error.localizedDescription)")
+                
+            ]
+            
+            do{
+                self.audioRecorder = try AVAudioRecorder(url: recordedFileURL, settings: settings)
+                self.audioRecorder?.record()
+                isRecording = true
+            }catch {
+                print(error.localizedDescription)
+            }
+            
+        } else {
+            resumeRecord()
         }
+        
     }
-
-    func stopRecording() {
-        audioRecorder.stop()
-        let audioSession = AVAudioSession.sharedInstance()
+    
+    /// 녹음 일시정지
+    func pauseRecord() {
+        self.audioRecorder?.pause()
+        isRecording = false
+    }
+    
+    /// 녹음 끝마치기
+    func stopRecord() {
+        self.audioRecorder?.stop()
+        isRecording = false
+        saveRecord()
+    }
+    
+    /// 녹음 삭제
+    func deleteRecord() {
+        
         do {
-            try audioSession.setActive(false)
-            isRecording = false
-            audioURL = audioRecorder.url
-            audioRecorder = nil
+            if FileManager.default.fileExists(atPath: recordedFileURL.path) {
+                try FileManager.default.removeItem(at: recordedFileURL)
+                self.audioRecorder = nil
+                self.isRecording = false
+                self.record = nil
+            }
         } catch {
-            print("Error stopping recording: \(error.localizedDescription)")
+            print("Error: Deleting file - \(error.localizedDescription)")
         }
+        
     }
-
-    func prepareAudioPlayer(url: URL) {
+    
+    func saveRecord() {
+        self.record = Record(createdAt: Date())
+    }
+    
+    /// 녹음 재개 (pause 후에 녹음하는 경우)
+    private func resumeRecord() {
+        self.audioRecorder?.record()
+        isRecording = true
+    }
+    
+    /// 번들에 있는 m4a파일을 recordedFileURL에 저장하는 함수
+    /// for testing
+    func setTestAudioFileFromBundle() {
+        self.stopRecord()
+        self.deleteRecord()
+        self.record = Record(fileURL: recordedFileURL, createdAt: Date())
+        let bundle = Bundle.main
+        guard let bundleAudioURL = bundle.url(forResource: "M4A_SampleFile", withExtension: "m4a") else {
+            print("Error: Bundle audio file not found.")
+            return
+        }
+        
         do {
-            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            if FileManager.default.fileExists(atPath: recordedFileURL.path) {
+                try FileManager.default.removeItem(at: recordedFileURL)
+            }
+            try FileManager.default.copyItem(at: bundleAudioURL, to: recordedFileURL)
+            saveRecord()
         } catch {
-            print("Error preparing audio player: \(error.localizedDescription)")
+            print("Error: Copying test audio file - \(error.localizedDescription)")
         }
     }
-
-    func isPlaying() -> Bool {
-        return audioPlayer?.isPlaying ?? false
-    }
+    
 }
+
