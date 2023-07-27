@@ -6,7 +6,7 @@ import Speech
 
 struct UploadingView: View {
     //파일 업로드에 필요한 ViewModel 인스턴스 생성
-    @StateObject var UploadingViewModel = UplodaingViewModel()
+    @StateObject var uploadingViewModel = UploadingViewModel()
     @StateObject var transcribingViewModel = TranscribingViewModel()
     
     @State private var isPresentingPicker = false
@@ -36,7 +36,7 @@ struct UploadingView: View {
                     
                     Button("Extract Audio") {
                         try! AVAudioSession.sharedInstance().setCategory(.playback, options: [])
-                    audioURL = UploadingViewModel.extractAudio(from: videoURL)
+                    audioURL = uploadingViewModel.extractAudio(from: videoURL)
                         print(audioURL!)
                     }
                     .padding()
@@ -74,7 +74,7 @@ struct UploadingView: View {
                 
                 //앱 내 Documents 폴더 안에 추출된 오디오, 영상 파일 삭제 버튼
                 Button("delete the all the m4a file") {
-                    UploadingViewModel.deleteM4AFilesInDocumentsDirectory()
+                    uploadingViewModel.deleteM4AFilesInDocumentsDirectory()
                 }
                 .padding()
                 .background(Color.blue)

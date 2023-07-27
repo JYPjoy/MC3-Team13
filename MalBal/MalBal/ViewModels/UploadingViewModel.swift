@@ -12,7 +12,7 @@ import Speech
 import MobileCoreServices
 
 
-class UplodaingViewModel: ObservableObject {
+class UploadingViewModel: ObservableObject {
     @Published var outputURL: URL?
     
     //앱 내 임시디렉토리 안에 Segment된 파일들을 다 지워줌
@@ -82,7 +82,7 @@ class UplodaingViewModel: ObservableObject {
         exportSession?.outputFileType = .m4a
         
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let outputURL = documentsDirectory.appendingPathComponent("e1.m4a")
+        let outputURL = documentsDirectory.appendingPathComponent("test.m4a")
         
         exportSession?.outputURL = outputURL
         
