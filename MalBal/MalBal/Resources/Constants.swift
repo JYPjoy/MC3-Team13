@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct Constants {
+struct GLConstants {
     static let glScreenWidth: CGFloat = UIScreen.main.bounds.size.width
     static let glScreenHeight: CGFloat = UIScreen.main.bounds.size.height
 }
