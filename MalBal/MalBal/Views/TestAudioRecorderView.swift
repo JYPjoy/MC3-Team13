@@ -4,158 +4,220 @@
 //
 //  Created by Eric Lee on 2023/07/20.
 //
-
 import SwiftUI
-import AVKit
 
-struct TestAudioRecorderView: View{
+// Test View For
+struct TestRecordingView: View{
     
-    @StateObject var vm = TranscribingViewModel()
-    
-    @State var record = false
-    // creating instance for recording
-    
-    //AVAudioSession : OS 단에서 관리하는 오디오 모듈과 통신할 수 있도록 돕는 객체
-    @State var session: AVAudioSession!
-    @State var recorder: AVAudioRecorder!
-    @State var audioPlayer: AVAudioPlayer?
     @State var alert = false
-    // Fetch Audios
-    @State var audios: [URL] = []
-    @State var time: TimeInterval = 100
+    @StateObject var vm = RecordingViewModel()
     
     var body: some View{
         NavigationView{
             VStack {
                 
-                List(self.audios, id: \.self){i in
+                Text(vm.record != nil ? "파일 있음" : "파일 없음")
+                    .padding()
+                
+                HStack{
                     
-                    Button(action: {
-                        // Play the selected audio
-                        self.playAudio(url: i)
-                        vm.performKoreanSpeechToText(url: i) { _ in
-                            print(vm.recognizedText)
-                        }
-                    }) {
-                        Text(i.lastPathComponent)
-                        Text(vm.recognizedText)
-                        Text("\(calculateWPM(time:self.time))")
+                    Spacer()
+                    
+                    Button {
+                        vm.deleteRecord()
+                    } label: {
+                        Image(systemName: "trash.circle.fill")
+                            .resizable()
+                            .frame(width: 70, height: 70)
                     }
+                    
+                    Spacer()
+                    
+                    Button {
+                        if vm.isRecording {
+                            vm.pauseRecord()
+                            return
+                        }else {
+                            vm.startRecord()
+                        }
+                        
+                    } label: {
+                        ZStack{
+                            if vm.isRecording{
+                                Image(systemName: "pause.circle.fill")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 70, height: 70)
+                            } else {
+                                Image(systemName: "record.circle.fill")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 70, height: 70)
+                            }
+                            
+                        }
+                    }
+                    
+                    Spacer()
+                    
+                    Button {
+                        vm.setTestAudioFileFromBundle()
+                    } label: {
+                        Image(systemName: "square.and.arrow.down.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 70, height: 70)
+                    }
+
+                    Spacer()
+
                 }
                 
                 Button {
-                    do{
-                        if self.record{
-                            // Already Started Recording means stopping and saving...
-                            self.recorder.stop()
-                            self.record.toggle()
-                            // updating data for every rcd...
-                            self.setAudios()
-                            return
-                        }
-                        
-                        let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-                        
-                        // same file name...
-                        // so were updating based on audio count
-                        let fileName = url.appendingPathComponent("myRcd\(self.audios.count + 1).m4a")
-                        
-                        let settings = [
-                            
-                            AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
-                            AVSampleRateKey: 12000,
-                            AVNumberOfChannelsKey: 1,
-                            AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
-                            
-                        ]
-                        self.recorder = try AVAudioRecorder(url: fileName, settings: settings)
-                        self.recorder.record()
-                        self.record.toggle()
-                    }
-                    catch{
-                        print(error.localizedDescription)
-                    }
+                    vm.stopRecord()
                 } label: {
-                    ZStack{
-                        Circle()
-                            .fill(Color.red)
-                            .frame(width: 70, height: 70)
-                        
-                        if self.record{
-                            Circle()
-                                .stroke(Color.white, lineWidth: 6)
-                                .frame(width: 85, height: 85)
-                        }
-                        
-                    }
+                    Text("녹음 저장 / StopAudioPlayer")
+                        .foregroundColor(.white)
+                        .font(.headline)
+                        .padding()
+                        .padding(.horizontal)
+                        .background(Color.blue)
+                        .cornerRadius(10)
                 }
-                .padding(.vertical, 25)
+                .padding(.vertical)
+                
+                if let record = vm.record{
+                    NavigationLink {
+                        TestRecordAnalysisView(record: record)
+                    } label: {
+                        Text("분석하기")
+                            .foregroundColor(.white)
+                            .font(.headline)
+                            .padding()
+                            .padding(.horizontal)
+                            .background(Color.green)
+                            .cornerRadius(10)
+                            .padding(.vertical)
+                    }
+                }else {
+                    Text("분석 불가")
+                        .padding()
+                        .foregroundColor(.white)
+                        .font(.headline)
+                        .padding()
+                        .padding(.horizontal)
+                        .background(Color.red)
+                        .cornerRadius(10)
+                        .padding(.vertical)
+                }
+
             }
-            .navigationTitle("Record Audio")
+            .navigationTitle("말발")
         }
         .alert("Error", isPresented: self.$alert){
             Button("Enable Access", role: .cancel){}
         }
         .onAppear{
-            do{
-                self.session = AVAudioSession.sharedInstance()
-                try self.session.setCategory(.playAndRecord)
-                
-                // 녹음 권한 요청
-                self.session.requestRecordPermission { (status) in
-                    if !status{
-                        self.alert.toggle()
-                    }else{
-                        self.setAudios()
+            vm.prepareRecording { status in
+                if !status{
+                    self.alert.toggle()
+                }
+            }
+        }
+        .onDisappear{
+            vm.stopRecord()
+        }
+    }
+    
+}
+
+
+struct TestRecordAnalysisView: View {
+    
+    @StateObject var vm: AnalysisViewModel
+    
+    init(record: Record) {
+        _vm = StateObject(wrappedValue: AnalysisViewModel(record: record))
+    }
+    
+    var body: some View {
+        VStack {
+            
+            
+            Rectangle()
+                .frame(height: 200)
+                .foregroundColor(.blue)
+                .padding()
+            
+            Slider(value: $vm.currentTime, in: 0...(vm.record.duration ?? 0), onEditingChanged: { editing in
+                if !editing {
+                    vm.seekAudio()
+                }
+            })
+            
+            HStack{
+                Text("\(formatTime(vm.currentTime))")
+                Spacer()
+                Text("\(formatTime(vm.record.duration ?? 0))")
+            }
+            .padding(.horizontal)
+            
+            Text(String(vm.record.cpm ?? 0))
+            
+            Button(action: {
+                vm.togglePlayer()
+            }) {
+                Image(systemName: vm.isPlaying ? "pause.circle.fill" : "play.circle.fill")
+                    .resizable()
+                    .frame(width: 75, height: 75)
+            }
+            
+            HStack{
+                Text("구간")
+                Spacer()
+                Text("속도")
+            }
+            
+            .padding(.horizontal)
+            List(0..<Int(vm.record.duration ?? 0) / 60, id: \.self) { minute in
+                Button(action: {
+                    vm.seekToMinute(minute)
+                }) {
+                    HStack{
+                        Text("\(minute)-\(minute + 1)분")
+                        Spacer()
+                        Text("빠름")
                     }
                 }
             }
-            catch{
-                print(error.localizedDescription)
-            }
+            .listStyle(.plain)
+            
+            
         }
+        .padding()
+        .onAppear{
+            vm.setupAudioPlayer()
+            vm.analyzeRecord()
+        }
+        .onDisappear(perform: vm.stopAudioPlayer)
+        .onReceive(Timer.publish(every: 0.1, on: .main, in: .common).autoconnect(), perform: { _ in
+            vm.updatePlaybackTime()
+        })
     }
     
-    func setAudios(){
-        do{
-            let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            
-            //fetch all data
-            let result = try FileManager.default.contentsOfDirectory(at: url, includingPropertiesForKeys: nil, options: .producesRelativePathURLs)
-            
-           
-            //updated means remove all old data..
-            self.audios.removeAll()
-            
-            for i in result{
-                self.audios.append(i)
-            }
-            
-        }catch{
-            print(error.localizedDescription)
-        }
+    // 음원 재생 시간을 포맷하는 함수
+    private func formatTime(_ time: Double) -> String {
+        let minutes = Int(time) / 60
+        let seconds = Int(time) % 60
+        return String(format: "%02d:%02d", minutes, seconds)
     }
     
-    // Play audio function
-    func playAudio(url: URL) {
-        do {
-            self.audioPlayer = try AVAudioPlayer(contentsOf: url)
-            self.audioPlayer?.play()
-            self.time = self.audioPlayer?.duration ?? 1
-        } catch {
-            print("Error playing audio: \(error.localizedDescription)")
-        }
-    }
-    
-    func calculateWPM(time: TimeInterval) -> Double{
-        let wordCount = Double(vm.recognizedText.split(separator: " ").count)
-        let wps = wordCount/time
-        return wps*60
+}
+
+
+struct RecordingView_Previews: PreviewProvider {
+    static var previews: some View {
+        TestRecordingView()
     }
 }
 
-struct TestAudioRecorderView_Previews: PreviewProvider {
-    static var previews: some View {
-        TestAudioRecorderView()
-    }
-}
