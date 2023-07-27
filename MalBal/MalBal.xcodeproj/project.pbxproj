@@ -173,17 +173,41 @@
 			path = AppleSDGothicNeo;
 			sourceTree = "<group>";
 		};
-		C50198632A651A5300B0AAFF /* Views */ = {
+		A84E0B322A724A9500B0B6E8 /* Analysis */ = {
+			isa = PBXGroup;
+			children = (
+				0734582C2A691169006CEEDE /* TestAudioRecorderView.swift */,
+			);
+			path = Analysis;
+			sourceTree = "<group>";
+		};
+		A84E0B332A724A9D00B0B6E8 /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				07F97BB62A65195A00149583 /* ContentView.swift */,
 				C50198662A665A9C00B0AAFF /* UploadingView.swift */,
 				C501986A2A67A5F900B0AAFF /* VideoPickerView.swift */,
-				0734582C2A691169006CEEDE /* TestAudioRecorderView.swift */,
 				C501987F2A691AFA00B0AAFF /* DecibelView.swift */,
-				A871A75F2A7189B600DD7F8B /* ArchiveView.swift */,
-				C50198B92A7102CA00B0AAFF /* mainView.swift */,
 				C5D183712A711107009407C6 /* ModalView.swift */,
+				C50198B92A7102CA00B0AAFF /* mainView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		A84E0B342A724AA200B0B6E8 /* Archive */ = {
+			isa = PBXGroup;
+			children = (
+				A871A75F2A7189B600DD7F8B /* ArchiveView.swift */,
+			);
+			path = Archive;
+			sourceTree = "<group>";
+		};
+		C50198632A651A5300B0AAFF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A84E0B342A724AA200B0B6E8 /* Archive */,
+				A84E0B332A724A9D00B0B6E8 /* Main */,
+				A84E0B322A724A9500B0B6E8 /* Analysis */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -192,10 +216,10 @@
 			isa = PBXGroup;
 			children = (
 				C50198682A67A49200B0AAFF /* UploadingViewModel.swift */,
-				C50198752A6907DE00B0AAFF /* RecordingViewModel.swift */,
 				C50198772A690A4600B0AAFF /* TranscribingViewModel.swift */,
 				C501987D2A691AF100B0AAFF /* DecibelViewModel.swift */,
 				C50198B72A7102BD00B0AAFF /* mainViewModel.swift */,
+				C50198752A6907DE00B0AAFF /* RecordingViewModel.swift */,
 				075666C22A72170000AB5777 /* AnalysisViewModel.swift */,
 			);
 			path = ViewModels;
@@ -448,7 +472,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MalBal/Preview Content\"";
-				DEVELOPMENT_TEAM = SNYPHGS3ZB;
+				DEVELOPMENT_TEAM = XGHDQG66U5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MalBal/Info.plist;
@@ -480,7 +504,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MalBal/Preview Content\"";
-				DEVELOPMENT_TEAM = SNYPHGS3ZB;
+				DEVELOPMENT_TEAM = XGHDQG66U5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MalBal/Info.plist;

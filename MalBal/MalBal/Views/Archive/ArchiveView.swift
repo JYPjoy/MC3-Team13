@@ -35,7 +35,7 @@ struct ArchiveView: View {
                                 ForEach(0..<5){ index in
                                     Rectangle()
                                         .fill(Color(UIColor(Color.main4)))
-                                        .frame(width: Constants.glScreenWidth - 48, height:80)
+                                        .frame(width: GLConstants.glScreenWidth - 48, height:80)
                                         .cornerRadius(16)
                                         .overlay(
                                             contentView
@@ -47,7 +47,7 @@ struct ArchiveView: View {
                         
                         Rectangle()
                             .fill(Color(UIColor(Color.main4)))
-                            .frame(width: Constants.glScreenWidth - 48, height:80)
+                            .frame(width: GLConstants.glScreenWidth - 48, height:80)
                             .cornerRadius(16)
                             .overlay(Image("plus"))
                     }
@@ -88,7 +88,7 @@ struct ArchiveView: View {
                         .foregroundColor(.white.opacity(0.4))
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
-                .frame(width: Constants.glScreenWidth*0.7)
+                .frame(width: GLConstants.glScreenWidth*0.7)
                 Image(systemName: "chevron.right").foregroundColor(Color.white).opacity(0.3)
             }
             Spacer().frame(width:24)
