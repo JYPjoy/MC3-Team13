@@ -22,6 +22,11 @@
 		A836B1CC2A6E6C6A00D9F02F /* AppleSDGothicNeoM.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A836B1CB2A6E6C6A00D9F02F /* AppleSDGothicNeoM.ttf */; };
 		A836B1D12A6E6FF300D9F02F /* AppleSDGothicNeoEB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A836B1D02A6E6FF200D9F02F /* AppleSDGothicNeoEB.ttf */; };
 		A836B1D32A6E6FFF00D9F02F /* AppleSDGothicNeoSB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A836B1D22A6E6FFE00D9F02F /* AppleSDGothicNeoSB.ttf */; };
+		A871A75A2A71876000DD7F8B /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = A871A7592A71876000DD7F8B /* Realm */; };
+		A871A75C2A71876000DD7F8B /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A871A75B2A71876000DD7F8B /* RealmSwift */; };
+		A871A75E2A71881100DD7F8B /* ArchiveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A871A75D2A71881100DD7F8B /* ArchiveModel.swift */; };
+		A871A7602A7189B600DD7F8B /* ArchiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A871A75F2A7189B600DD7F8B /* ArchiveView.swift */; };
+		A871A7622A72161100DD7F8B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A871A7612A72161100DD7F8B /* Constants.swift */; };
 		C50198672A665A9C00B0AAFF /* UploadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198662A665A9C00B0AAFF /* UploadingView.swift */; };
 		C50198692A67A49200B0AAFF /* UploadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198682A67A49200B0AAFF /* UploadingViewModel.swift */; };
 		C501986B2A67A5FA00B0AAFF /* VideoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C501986A2A67A5F900B0AAFF /* VideoPickerView.swift */; };
@@ -55,6 +60,9 @@
 		A836B1CB2A6E6C6A00D9F02F /* AppleSDGothicNeoM.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoM.ttf; sourceTree = "<group>"; };
 		A836B1D02A6E6FF200D9F02F /* AppleSDGothicNeoEB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoEB.ttf; sourceTree = "<group>"; };
 		A836B1D22A6E6FFE00D9F02F /* AppleSDGothicNeoSB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoSB.ttf; sourceTree = "<group>"; };
+		A871A75D2A71881100DD7F8B /* ArchiveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveModel.swift; sourceTree = "<group>"; };
+		A871A75F2A7189B600DD7F8B /* ArchiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveView.swift; sourceTree = "<group>"; };
+		A871A7612A72161100DD7F8B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C50198662A665A9C00B0AAFF /* UploadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingView.swift; sourceTree = "<group>"; };
 		C50198682A67A49200B0AAFF /* UploadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingViewModel.swift; sourceTree = "<group>"; };
 		C501986A2A67A5F900B0AAFF /* VideoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPickerView.swift; sourceTree = "<group>"; };
@@ -77,6 +85,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A871A75C2A71876000DD7F8B /* RealmSwift in Frameworks */,
+				A871A75A2A71876000DD7F8B /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +139,7 @@
 				A836B1A42A6E554300D9F02F /* Fonts */,
 				A836B1A12A6E4C4900D9F02F /* Components */,
 				A836B19F2A6E4AE200D9F02F /* Colors.swift */,
+				A871A7612A72161100DD7F8B /* Constants.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -162,16 +173,41 @@
 			path = AppleSDGothicNeo;
 			sourceTree = "<group>";
 		};
-		C50198632A651A5300B0AAFF /* Views */ = {
+		A84E0B322A724A9500B0B6E8 /* Analysis */ = {
+			isa = PBXGroup;
+			children = (
+				0734582C2A691169006CEEDE /* TestAudioRecorderView.swift */,
+			);
+			path = Analysis;
+			sourceTree = "<group>";
+		};
+		A84E0B332A724A9D00B0B6E8 /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				07F97BB62A65195A00149583 /* ContentView.swift */,
 				C50198662A665A9C00B0AAFF /* UploadingView.swift */,
 				C501986A2A67A5F900B0AAFF /* VideoPickerView.swift */,
-				0734582C2A691169006CEEDE /* TestAudioRecorderView.swift */,
 				C501987F2A691AFA00B0AAFF /* DecibelView.swift */,
-				C50198B92A7102CA00B0AAFF /* mainView.swift */,
 				C5D183712A711107009407C6 /* ModalView.swift */,
+				C50198B92A7102CA00B0AAFF /* mainView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		A84E0B342A724AA200B0B6E8 /* Archive */ = {
+			isa = PBXGroup;
+			children = (
+				A871A75F2A7189B600DD7F8B /* ArchiveView.swift */,
+			);
+			path = Archive;
+			sourceTree = "<group>";
+		};
+		C50198632A651A5300B0AAFF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A84E0B342A724AA200B0B6E8 /* Archive */,
+				A84E0B332A724A9D00B0B6E8 /* Main */,
+				A84E0B322A724A9500B0B6E8 /* Analysis */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -180,10 +216,10 @@
 			isa = PBXGroup;
 			children = (
 				C50198682A67A49200B0AAFF /* UploadingViewModel.swift */,
-				C50198752A6907DE00B0AAFF /* RecordingViewModel.swift */,
 				C50198772A690A4600B0AAFF /* TranscribingViewModel.swift */,
 				C501987D2A691AF100B0AAFF /* DecibelViewModel.swift */,
 				C50198B72A7102BD00B0AAFF /* mainViewModel.swift */,
+				C50198752A6907DE00B0AAFF /* RecordingViewModel.swift */,
 				075666C22A72170000AB5777 /* AnalysisViewModel.swift */,
 			);
 			path = ViewModels;
@@ -195,6 +231,7 @@
 				C50198712A6905F900B0AAFF /* RecorderModel.swift */,
 				C50198812A6FB9C400B0AAFF /* PresentationModel.swift */,
 				C50198832A6FB9D300B0AAFF /* DirectoryModel.swift */,
+				A871A75D2A71881100DD7F8B /* ArchiveModel.swift */,
 				C5D183762A71454B009407C6 /* Extensions.swift */,
 			);
 			path = Models;
@@ -217,6 +254,8 @@
 			);
 			name = MalBal;
 			packageProductDependencies = (
+				A871A7592A71876000DD7F8B /* Realm */,
+				A871A75B2A71876000DD7F8B /* RealmSwift */,
 			);
 			productName = MalBal;
 			productReference = 07F97BB12A65195A00149583 /* MalBal.app */;
@@ -247,7 +286,7 @@
 			);
 			mainGroup = 07F97BA82A65195A00149583;
 			packageReferences = (
-				C5D183732A71397D009407C6 /* XCRemoteSwiftPackageReference "PartialSheet" */,
+				A871A7582A71876000DD7F8B /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 07F97BB22A65195A00149583 /* Products */;
 			projectDirPath = "";
@@ -282,14 +321,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				C50198782A690A4600B0AAFF /* TranscribingViewModel.swift in Sources */,
+				A871A7622A72161100DD7F8B /* Constants.swift in Sources */,
 				C50198822A6FB9C400B0AAFF /* PresentationModel.swift in Sources */,
 				C50198842A6FB9D300B0AAFF /* DirectoryModel.swift in Sources */,
 				C50198762A6907DE00B0AAFF /* RecordingViewModel.swift in Sources */,
 				0734582D2A691169006CEEDE /* TestAudioRecorderView.swift in Sources */,
 				C501987E2A691AF100B0AAFF /* DecibelViewModel.swift in Sources */,
 				C50198672A665A9C00B0AAFF /* UploadingView.swift in Sources */,
+				A871A7602A7189B600DD7F8B /* ArchiveView.swift in Sources */,
 				C501986B2A67A5FA00B0AAFF /* VideoPickerView.swift in Sources */,
 				C50198802A691AFA00B0AAFF /* DecibelView.swift in Sources */,
+				A871A75E2A71881100DD7F8B /* ArchiveModel.swift in Sources */,
 				C50198BA2A7102CA00B0AAFF /* mainView.swift in Sources */,
 				A836B1A32A6E4E6300D9F02F /* GLPopupView.swift in Sources */,
 				C5D183722A711107009407C6 /* ModalView.swift in Sources */,
@@ -430,7 +472,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MalBal/Preview Content\"";
-				DEVELOPMENT_TEAM = SNYPHGS3ZB;
+				DEVELOPMENT_TEAM = XGHDQG66U5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MalBal/Info.plist;
@@ -462,7 +504,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MalBal/Preview Content\"";
-				DEVELOPMENT_TEAM = SNYPHGS3ZB;
+				DEVELOPMENT_TEAM = XGHDQG66U5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MalBal/Info.plist;
@@ -510,15 +552,28 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		C5D183732A71397D009407C6 /* XCRemoteSwiftPackageReference "PartialSheet" */ = {
+		A871A7582A71876000DD7F8B /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AndreaMiotto/PartialSheet";
+			repositoryURL = "https://github.com/realm/realm-swift";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
+				minimumVersion = 10.25.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A871A7592A71876000DD7F8B /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A871A7582A71876000DD7F8B /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		A871A75B2A71876000DD7F8B /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A871A7582A71876000DD7F8B /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 07F97BA92A65195A00149583 /* Project object */;
 }
