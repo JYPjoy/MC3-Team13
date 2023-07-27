@@ -14,6 +14,7 @@ struct ArchiveView: View {
     
     let columns: [GridItem] = [GridItem(.flexible(), spacing: 6, alignment: nil)]
     
+    // MARK: body
     var body: some View {
         NavigationView {
             ZStack{
@@ -37,30 +38,26 @@ struct ArchiveView: View {
                                         .fill(Color(UIColor(Color.main4)))
                                         .frame(width: GLConstants.glScreenWidth - 48, height:80)
                                         .cornerRadius(16)
-                                        .overlay(
-                                            contentView
-                                        )
+                                        .overlay(contentView)
                                 }
                             }
                         }
+                        
                         Spacer().frame(height: 16)
                         
-                        Rectangle()
-                            .fill(Color(UIColor(Color.main4)))
-                            .frame(width: GLConstants.glScreenWidth - 48, height:80)
-                            .cornerRadius(16)
-                            .overlay(Image("plus"))
+                        Button {
+                            // TODO: Grid 요소 추가 필요
+                        } label: {
+                            Rectangle()
+                                .fill(Color(UIColor(Color.main4)))
+                                .frame(width: GLConstants.glScreenWidth - 48, height:80)
+                                .cornerRadius(16)
+                                .overlay(Image(systemName: "plus").foregroundColor(Color.white.opacity(0.4)))
+                        }
                     }
-       
                 }
-                
                 NavigationLink {
-                    
-                    
-                    
-                    
-                    
-                    
+                
                 } label: {
 
                 }
@@ -75,23 +72,28 @@ struct ArchiveView: View {
         }
     }
     
+    // MARK: 내부 contentView
     var contentView: some View {
-        HStack {
-            HStack{
-                Spacer().frame(width:16)
-                VStack(spacing: 6){
-                    Text("보관함1")
-                        .font(FontManager.shared.appleSDGothicNeo(.semibold, 20))
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("보관함2")
-                        .foregroundColor(.white.opacity(0.4))
-                        .frame(maxWidth: .infinity, alignment: .leading)
+        Button{
+            // TODO: 화면 전환 이벤트 필요
+        }label: {
+            HStack {
+                HStack{
+                    Spacer().frame(width:16)
+                    VStack(spacing: 6){
+                        Text("보관함1")
+                            .font(FontManager.shared.appleSDGothicNeo(.semibold, 20))
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        Text("보관함2")
+                            .foregroundColor(.white.opacity(0.4))
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                    .frame(width: GLConstants.glScreenWidth*0.7)
+                    Image(systemName: "chevron.right").foregroundColor(Color.white).opacity(0.3)
                 }
-                .frame(width: GLConstants.glScreenWidth*0.7)
-                Image(systemName: "chevron.right").foregroundColor(Color.white).opacity(0.3)
+                Spacer().frame(width:24)
             }
-            Spacer().frame(width:24)
         }
     }
 }
