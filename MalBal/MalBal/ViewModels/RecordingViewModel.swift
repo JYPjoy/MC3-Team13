@@ -43,7 +43,6 @@ class RecordingViewModel: ObservableObject {
     func startRecord() {
         
         if record == nil {
-            self.record = Record(fileURL: recordedFileURL, createdAt: Date())
             
             let settings: [String : Any] = [
                 
@@ -78,6 +77,7 @@ class RecordingViewModel: ObservableObject {
     func stopRecord() {
         self.audioRecorder?.stop()
         isRecording = false
+        saveRecord()
     }
     
     /// 녹음 삭제
@@ -94,6 +94,10 @@ class RecordingViewModel: ObservableObject {
             print("Error: Deleting file - \(error.localizedDescription)")
         }
         
+    }
+    
+    func saveRecord() {
+        self.record = Record(createdAt: Date())
     }
     
     /// 녹음 재개 (pause 후에 녹음하는 경우)
@@ -119,6 +123,7 @@ class RecordingViewModel: ObservableObject {
                 try FileManager.default.removeItem(at: recordedFileURL)
             }
             try FileManager.default.copyItem(at: bundleAudioURL, to: recordedFileURL)
+            saveRecord()
         } catch {
             print("Error: Copying test audio file - \(error.localizedDescription)")
         }
