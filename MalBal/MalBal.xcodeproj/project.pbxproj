@@ -34,6 +34,8 @@
 		C50198842A6FB9D300B0AAFF /* DirectoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198832A6FB9D300B0AAFF /* DirectoryModel.swift */; };
 		C50198B82A7102BD00B0AAFF /* mainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198B72A7102BD00B0AAFF /* mainViewModel.swift */; };
 		C50198BA2A7102CA00B0AAFF /* mainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198B92A7102CA00B0AAFF /* mainView.swift */; };
+		C5D183722A711107009407C6 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D183712A711107009407C6 /* ModalView.swift */; };
+		C5D183772A71454B009407C6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D183762A71454B009407C6 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +68,8 @@
 		C50198832A6FB9D300B0AAFF /* DirectoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryModel.swift; sourceTree = "<group>"; };
 		C50198B72A7102BD00B0AAFF /* mainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainViewModel.swift; sourceTree = "<group>"; };
 		C50198B92A7102CA00B0AAFF /* mainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainView.swift; sourceTree = "<group>"; };
+		C5D183712A711107009407C6 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
+		C5D183762A71454B009407C6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +171,7 @@
 				0734582C2A691169006CEEDE /* TestAudioRecorderView.swift */,
 				C501987F2A691AFA00B0AAFF /* DecibelView.swift */,
 				C50198B92A7102CA00B0AAFF /* mainView.swift */,
+				C5D183712A711107009407C6 /* ModalView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -190,6 +195,7 @@
 				C50198712A6905F900B0AAFF /* RecorderModel.swift */,
 				C50198812A6FB9C400B0AAFF /* PresentationModel.swift */,
 				C50198832A6FB9D300B0AAFF /* DirectoryModel.swift */,
+				C5D183762A71454B009407C6 /* Extensions.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -210,6 +216,8 @@
 			dependencies = (
 			);
 			name = MalBal;
+			packageProductDependencies = (
+			);
 			productName = MalBal;
 			productReference = 07F97BB12A65195A00149583 /* MalBal.app */;
 			productType = "com.apple.product-type.application";
@@ -238,6 +246,9 @@
 				Base,
 			);
 			mainGroup = 07F97BA82A65195A00149583;
+			packageReferences = (
+				C5D183732A71397D009407C6 /* XCRemoteSwiftPackageReference "PartialSheet" */,
+			);
 			productRefGroup = 07F97BB22A65195A00149583 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -281,10 +292,12 @@
 				C50198802A691AFA00B0AAFF /* DecibelView.swift in Sources */,
 				C50198BA2A7102CA00B0AAFF /* mainView.swift in Sources */,
 				A836B1A32A6E4E6300D9F02F /* GLPopupView.swift in Sources */,
+				C5D183722A711107009407C6 /* ModalView.swift in Sources */,
 				A836B1A02A6E4AE200D9F02F /* Colors.swift in Sources */,
 				A836B1B12A6E567B00D9F02F /* FontManager.swift in Sources */,
 				075666C32A72170000AB5777 /* AnalysisViewModel.swift in Sources */,
 				C50198692A67A49200B0AAFF /* UploadingViewModel.swift in Sources */,
+				C5D183772A71454B009407C6 /* Extensions.swift in Sources */,
 				07F97BB72A65195A00149583 /* ContentView.swift in Sources */,
 				C50198B82A7102BD00B0AAFF /* mainViewModel.swift in Sources */,
 				C50198722A6905F900B0AAFF /* RecorderModel.swift in Sources */,
@@ -417,7 +430,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MalBal/Preview Content\"";
-				DEVELOPMENT_TEAM = XGHDQG66U5;
+				DEVELOPMENT_TEAM = SNYPHGS3ZB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MalBal/Info.plist;
@@ -449,7 +462,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MalBal/Preview Content\"";
-				DEVELOPMENT_TEAM = XGHDQG66U5;
+				DEVELOPMENT_TEAM = SNYPHGS3ZB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MalBal/Info.plist;
@@ -495,6 +508,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C5D183732A71397D009407C6 /* XCRemoteSwiftPackageReference "PartialSheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AndreaMiotto/PartialSheet";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 07F97BA92A65195A00149583 /* Project object */;
 }

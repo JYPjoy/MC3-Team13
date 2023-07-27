@@ -21,7 +21,6 @@ enum Constants {
 
 
 class mainViewModel: ObservableObject {
-    static var shared: mainViewModel = .init()
     @Published var isPlaying: Bool = false
     
     private let engine = AVAudioEngine()
@@ -33,35 +32,50 @@ class mainViewModel: ObservableObject {
     let player = AVAudioPlayerNode()
     var fftMagnitudes: [Float] = []
     
-    init() {
-        _ = engine.mainMixerNode
+    func replaying() {
+        guard let documentDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            return
+        }
         
-        engine.prepare()
-        try! engine.start()
-        
-        let audioFile = try! AVAudioFile(
-            forReading: Bundle.main.url(forResource: "music", withExtension: "mp3")!
-        )
-        let format = audioFile.processingFormat
+        do {
+            // Append the file name (m4a file) to the Document directory URL
+            let fileURL = documentDirectoryURL.appendingPathComponent("test.m4a")
             
-        engine.attach(player)
-        engine.connect(player, to: engine.mainMixerNode, format: format)
+            _ = engine.mainMixerNode
             
-        player.scheduleFile(audioFile, at: nil)
+            engine.prepare()
+            try engine.start()
             
-        let fftSetup = vDSP_DFT_zop_CreateSetup(
-            nil,
-            UInt(bufferSize),
-            vDSP_DFT_Direction.FORWARD
-        )
+            let audioFile = try AVAudioFile(
+                forReading: fileURL
+            )
             
-        engine.mainMixerNode.installTap(
-            onBus: 0,
-            bufferSize: UInt32(bufferSize),
-            format: nil
-        ) { [self] buffer, _ in
-            let channelData = buffer.floatChannelData?[0]
-            fftMagnitudes = fft(data: channelData!, setup: fftSetup!)
+            let format = audioFile.processingFormat
+            
+            engine.attach(player)
+            engine.connect(player, to: engine.mainMixerNode, format: format)
+            
+            player.scheduleFile(audioFile, at: nil) {
+                audioFile.framePosition = 0
+                self.player.play()
+            }
+            
+            let fftSetup = vDSP_DFT_zop_CreateSetup(
+                nil,
+                UInt(bufferSize),
+                vDSP_DFT_Direction.FORWARD
+            )
+            
+            engine.mainMixerNode.installTap(
+                onBus: 0,
+                bufferSize: UInt32(bufferSize),
+                format: nil
+            ) { [self] buffer, _ in
+                let channelData = buffer.floatChannelData?[0]
+                fftMagnitudes = fft(data: channelData!, setup: fftSetup!)
+            }
+        } catch {
+            print(error)
         }
     }
     
