@@ -164,13 +164,27 @@ struct TestRecordAnalysisView: View {
             
             Text(String(vm.record.wpm))
             
-            Button(action: {
-                vm.togglePlayer()
-            }) {
-                Image(systemName: vm.isPlaying ? "pause.circle.fill" : "play.circle.fill")
-                    .resizable()
-                    .frame(width: 75, height: 75)
+            HStack{
+                Spacer()
+                Button {
+                    vm.clearFiles()
+                } label: {
+                    Image(systemName: "trash.circle.fill")
+                        .resizable()
+                        .frame(width: 75, height: 75)
+                }
+                Spacer()
+                Button {
+                    vm.togglePlayer()
+                } label: {
+                    Image(systemName: vm.isPlaying ? "pause.circle.fill" : "play.circle.fill")
+                        .resizable()
+                        .frame(width: 75, height: 75)
+                }
+                Spacer()
+                
             }
+
             
             HStack{
                 Text("구간")
@@ -179,14 +193,14 @@ struct TestRecordAnalysisView: View {
             }
             
             .padding(.horizontal)
-            List(0..<Int(vm.totalTime) / 60, id: \.self) { minute in
+            List(0..<(Int(vm.totalTime) / 60 + 1), id: \.self) { minute in
                 Button(action: {
                     vm.seekToMinute(minute)
                 }) {
                     HStack{
                         Text("\(minute)-\(minute + 1)분")
                         Spacer()
-                        Text("빠름")
+                        Text("\(vm.record.detailWpms.indices.contains(minute) ? vm.record.detailWpms[minute] : -1)")
                     }
                 }
             }
@@ -197,12 +211,18 @@ struct TestRecordAnalysisView: View {
         .padding()
         .onAppear{
             vm.setupAudioPlayer()
-            vm.analyzeRecord()
+            vm.setDetailWPMs()
         }
         .onDisappear(perform: vm.stopAudioPlayer)
         .onReceive(Timer.publish(every: 0.1, on: .main, in: .common).autoconnect(), perform: { _ in
             vm.updatePlaybackTime()
         })
+        .onChange(of: vm.isAnalysisComplete) { newValue in
+            if newValue {
+                vm.setRecordWPM()
+                print(vm.transcripts)
+            }
+        }
     }
     
     // 음원 재생 시간을 포맷하는 함수
