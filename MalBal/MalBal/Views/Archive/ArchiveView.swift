@@ -30,13 +30,15 @@ struct ArchiveView: View {
                         LazyVStack(spacing: 16) {
                             ForEach(archiveData.items) { item in
                                 ContainerView(item: $archiveData.items[getIndex(item: item)], items: $archiveData.items)
+                                    
                             }
                         }
                     
                         Spacer().frame(height: 16)
                         
+                        // 추가 버튼
                         Button {
-                            // TODO: Grid 요소 추가 필요
+        
                         } label: {
                             RoundedRectangle(cornerRadius: 16)
                                 .fill(Color(UIColor(Color.main4)))
@@ -63,16 +65,10 @@ struct ArchiveView: View {
     }
                                               
       func getIndex(item: ArchiveModel)->Int{
-          
           return archiveData.items.firstIndex { (item1) -> Bool in
               return item.id == item1.id
           } ?? 0
       }
 }
 
-struct ArchiveView_Previews: PreviewProvider {
-    static var previews: some View {
-        ArchiveView()
-    }
-}
 
