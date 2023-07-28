@@ -11,6 +11,7 @@
 		075666C32A72170000AB5777 /* AnalysisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075666C22A72170000AB5777 /* AnalysisViewModel.swift */; };
 		075666C62A72192300AB5777 /* M4A_SampleFile.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 075666C52A72192100AB5777 /* M4A_SampleFile.m4a */; };
 		075666C82A738A1900AB5777 /* AnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075666C72A738A1900AB5777 /* AnalysisView.swift */; };
+		075666CA2A7392C300AB5777 /* AnalysisCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075666C92A7392C300AB5777 /* AnalysisCardView.swift */; };
 		07F97BB52A65195A00149583 /* MalBalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F97BB42A65195A00149583 /* MalBalApp.swift */; };
 		07F97BB72A65195A00149583 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F97BB62A65195A00149583 /* ContentView.swift */; };
 		07F97BB92A65195C00149583 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07F97BB82A65195C00149583 /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		075666C22A72170000AB5777 /* AnalysisViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisViewModel.swift; sourceTree = "<group>"; };
 		075666C52A72192100AB5777 /* M4A_SampleFile.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = M4A_SampleFile.m4a; sourceTree = "<group>"; };
 		075666C72A738A1900AB5777 /* AnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisView.swift; sourceTree = "<group>"; };
+		075666C92A7392C300AB5777 /* AnalysisCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisCardView.swift; sourceTree = "<group>"; };
 		07F97BB12A65195A00149583 /* MalBal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MalBal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F97BB42A65195A00149583 /* MalBalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MalBalApp.swift; sourceTree = "<group>"; };
 		07F97BB62A65195A00149583 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			children = (
 				0734582C2A691169006CEEDE /* TestAudioRecorderView.swift */,
 				075666C72A738A1900AB5777 /* AnalysisView.swift */,
+				075666C92A7392C300AB5777 /* AnalysisCardView.swift */,
 			);
 			path = Analysis;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				A836B1B12A6E567B00D9F02F /* FontManager.swift in Sources */,
 				075666C32A72170000AB5777 /* AnalysisViewModel.swift in Sources */,
 				C50198692A67A49200B0AAFF /* UploadingViewModel.swift in Sources */,
+				075666CA2A7392C300AB5777 /* AnalysisCardView.swift in Sources */,
 				C5D183772A71454B009407C6 /* Extensions.swift in Sources */,
 				07F97BB72A65195A00149583 /* ContentView.swift in Sources */,
 				C50198B82A7102BD00B0AAFF /* mainViewModel.swift in Sources */,
