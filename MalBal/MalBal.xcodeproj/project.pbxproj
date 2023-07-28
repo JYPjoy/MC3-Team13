@@ -14,6 +14,7 @@
 		07F97BB72A65195A00149583 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F97BB62A65195A00149583 /* ContentView.swift */; };
 		07F97BB92A65195C00149583 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07F97BB82A65195C00149583 /* Assets.xcassets */; };
 		07F97BBC2A65195C00149583 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07F97BBB2A65195C00149583 /* Preview Assets.xcassets */; };
+		A82E49602A736AEB00082608 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82E495F2A736AEB00082608 /* ContainerView.swift */; };
 		A836B1A02A6E4AE200D9F02F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836B19F2A6E4AE200D9F02F /* Colors.swift */; };
 		A836B1A32A6E4E6300D9F02F /* GLPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836B1A22A6E4E6300D9F02F /* GLPopupView.swift */; };
 		A836B1B12A6E567B00D9F02F /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836B1B02A6E567B00D9F02F /* FontManager.swift */; };
@@ -52,6 +53,7 @@
 		07F97BB62A65195A00149583 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		07F97BB82A65195C00149583 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07F97BBB2A65195C00149583 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A82E495F2A736AEB00082608 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		A836B19F2A6E4AE200D9F02F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A836B1A22A6E4E6300D9F02F /* GLPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLPopupView.swift; sourceTree = "<group>"; };
 		A836B1B02A6E567B00D9F02F /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				A871A75F2A7189B600DD7F8B /* ArchiveView.swift */,
+				A82E495F2A736AEB00082608 /* ContainerView.swift */,
 			);
 			path = Archive;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				C50198672A665A9C00B0AAFF /* UploadingView.swift in Sources */,
 				A871A7602A7189B600DD7F8B /* ArchiveView.swift in Sources */,
 				C501986B2A67A5FA00B0AAFF /* VideoPickerView.swift in Sources */,
+				A82E49602A736AEB00082608 /* ContainerView.swift in Sources */,
 				C50198802A691AFA00B0AAFF /* DecibelView.swift in Sources */,
 				A871A75E2A71881100DD7F8B /* ArchiveModel.swift in Sources */,
 				C50198BA2A7102CA00B0AAFF /* mainView.swift in Sources */,
