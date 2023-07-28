@@ -16,13 +16,13 @@ struct Record{
     
     init(fileURL: URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("MalBal.m4a"),
          createdAt: Date,
-         cpm: Int = -1,
-         detailCpms: [Int] = []) {
+         wpm: Int = -1,
+         detailWpms: [Int] = []) {
         
         self.fileURL = fileURL
         self.createdAt = createdAt
-        self.wpm = cpm
-        self.detailWpms = detailCpms
+        self.wpm = wpm
+        self.detailWpms = detailWpms
         
     }
     
