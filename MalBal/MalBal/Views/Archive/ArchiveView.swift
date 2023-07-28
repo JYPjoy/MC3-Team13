@@ -10,6 +10,8 @@ import SwiftUI
 struct ArchiveView: View {
     
     // MARK: body
+    @StateObject var archiveData = ArchiveViewModel()
+
     var body: some View {
         NavigationView {
             ZStack{
@@ -24,10 +26,10 @@ struct ArchiveView: View {
                             .frame(maxWidth:.infinity, alignment: .leading)
                     }
                     
-                    ScrollView{
+                    ScrollView {
                         LazyVStack(spacing: 16) {
-                            ForEach(0..<5) { item in
-                                ContainerView()
+                            ForEach(archiveData.items) { item in
+                                ContainerView(item: $archiveData.items[getIndex(item: item)], items: $archiveData.items)
                             }
                         }
                     
@@ -59,6 +61,13 @@ struct ArchiveView: View {
             }
         }
     }
+                                              
+      func getIndex(item: ArchiveModel)->Int{
+          
+          return archiveData.items.firstIndex { (item1) -> Bool in
+              return item.id == item1.id
+          } ?? 0
+      }
 }
 
 struct ArchiveView_Previews: PreviewProvider {
