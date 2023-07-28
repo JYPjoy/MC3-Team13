@@ -21,4 +21,6 @@ struct ArchiveModel: Identifiable {
     var id = UUID().uuidString
     var title: String
     var date: String
+    var offset: CGFloat
+    var isSwiped: Bool
 }

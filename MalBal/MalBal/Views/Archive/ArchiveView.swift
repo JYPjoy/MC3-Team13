@@ -38,7 +38,7 @@ struct ArchiveView: View {
                         Button {
                             // TODO: Grid 요소 추가 필요
                         } label: {
-                            Rectangle()
+                            RoundedRectangle(cornerRadius: 16)
                                 .fill(Color(UIColor(Color.main4)))
                                 .frame(width: GLConstants.glScreenWidth - 48, height:80)
                                 .cornerRadius(16)
