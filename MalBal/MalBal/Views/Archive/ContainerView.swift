@@ -11,16 +11,16 @@ struct ContainerView: View {
     
     @Binding var item: ArchiveModel
     @Binding var items: [ArchiveModel]
+    @State var showActionSheet: Bool = false
     
     var body: some View {
         Button{
             // TODO: 화면 전환 이벤트 필요
-        }label: {
+        } label: {
             RoundedRectangle(cornerRadius: 16)
                 .fill(Color(UIColor(Color.main4)))
                 .frame(width: GLConstants.glScreenWidth - 48, height:80)
                 .overlay(buttonContainerView)
-           
         }
     }
     
@@ -44,7 +44,7 @@ struct ContainerView: View {
             HStack() {
                 Spacer().frame(width: 20)
                 Button(action: {
-                    withAnimation(.easeIn){ deleteItem() }
+                    withAnimation(.easeIn){ showActionSheet.toggle() } // deleteItem()
                 }) {
                     Image(systemName: "trash")
                         .font(.title2)
@@ -73,7 +73,23 @@ struct ContainerView: View {
             }
             .offset(x: item.offset)
             .gesture(DragGesture().onChanged(onChanged(value:)).onEnded(onEnd(value:)))
+            .actionSheet(isPresented: $showActionSheet) {
+                getActionSheet()
+            }
         }
+    }
+    
+    func getActionSheet() -> ActionSheet {
+        let deleteButton: ActionSheet.Button = .destructive(Text("삭제하기")) {
+            deleteItem()
+        }
+        let cancelButton: ActionSheet.Button = .cancel()
+        
+        return ActionSheet(
+        title: Text("보관함 삭제"),
+        message: Text("보관함 안에 있는 모든 연습리스트가 삭제돼버려요."),
+        buttons: [ deleteButton, cancelButton ]
+        )
     }
 
     func onChanged(value: DragGesture.Value){
