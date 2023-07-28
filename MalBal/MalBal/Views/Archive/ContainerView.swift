@@ -27,12 +27,17 @@ struct ContainerView: View {
     var buttonContainerView: some View {
         ZStack{
             // 맨 뒤에 색깔 배경
+            RoundedRectangle(cornerRadius: 16).fill(Color(UIColor(Color.main2)))
+            
             HStack(spacing: 8) {
                 RoundedRectangle(cornerRadius: 17)
                     .fill(Color(UIColor(Color.main5)))
                     .frame(width: 64, height: 80)
-                    .opacity(item.offset > 0 ? 1 : 0) 
-                Spacer()
+                    .opacity(item.offset > 0 ? 1 : 0)
+                
+                RoundedRectangle(cornerRadius: 17)
+                    .fill(Color(UIColor(Color.main4)))
+                    .opacity(item.offset > 0 ? 1 : 0)
             }
             
             // 쓰레기 아이콘
