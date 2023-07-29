@@ -40,11 +40,11 @@ struct ContainerView: View {
                     .opacity(item.offset > 0 ? 1 : 0)
             }
             
-            // 쓰레기 아이콘
+            // 쓰레기통 아이콘
             HStack() {
                 Spacer().frame(width: 20)
                 Button(action: {
-                    withAnimation(.easeIn){ showActionSheet.toggle() } // deleteItem()
+                    withAnimation(.easeIn){ showActionSheet.toggle() } 
                 }) {
                     Image(systemName: "trash")
                         .font(.title2)

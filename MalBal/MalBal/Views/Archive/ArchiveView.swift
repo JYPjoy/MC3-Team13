@@ -37,21 +37,17 @@ struct ArchiveView: View {
                         Spacer().frame(height: 16)
                         
                         // 추가 버튼
-                        Button {
-        
+                        NavigationLink {
+                            NewPracticeListView()
                         } label: {
                             RoundedRectangle(cornerRadius: 16)
                                 .fill(Color(UIColor(Color.main4)))
                                 .frame(width: GLConstants.glScreenWidth - 48, height:80)
                                 .cornerRadius(16)
                                 .overlay(Image(systemName: "plus").foregroundColor(Color.white.opacity(0.4)))
+                                .font(.system(size: 24, weight: .semibold))
                         }
                     }
-                }
-                NavigationLink {
-                
-                } label: {
-
                 }
             }
             .toolbar {
