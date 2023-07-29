@@ -16,8 +16,9 @@ struct AnalysisView: View {
     
     var body: some View {
         VStack{
-            AnalysisCardView(record: vm.record)
+            AnalysisCardView()
         }
+        .environmentObject(self.vm)
     }
 }
 

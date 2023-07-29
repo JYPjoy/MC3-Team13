@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AnalysisCardView: View {
-    private var record: Record
+    @EnvironmentObject var vm: AnalysisViewModel
     
     @State private var frontDegree: Double = 0.0
     @State private var backDegree: Double = 90.0
@@ -18,13 +18,9 @@ struct AnalysisCardView: View {
     private let durationAndDelay : CGFloat
     private let cornerRadius: CGFloat
     
-    init(record: Record = Record(createdAt: Date(),
-                                 wpm: 100,
-                                 detailWpms: [100, 200, 300, 400, 500]),
-         size: CGSize = CGSize(width: 345, height: 200),
+    init(size: CGSize = CGSize(width: 345, height: 200),
          durationAndDelay: CGFloat = 0.3,
          cornerRadius: CGFloat = 16) {
-        self.record = record
         self.size = size
         self.durationAndDelay = durationAndDelay
         self.cornerRadius = cornerRadius
@@ -32,8 +28,8 @@ struct AnalysisCardView: View {
     
     var body: some View {
         ZStack{
-            AnalysisCardFrontView(record: record, degree: $frontDegree, cornerRadius: self.cornerRadius)
-            AnalysisCardBackView(record: record, degree: $backDegree, cornerRadius: self.cornerRadius)
+            AnalysisCardFrontView(degree: $frontDegree, cornerRadius: self.cornerRadius)
+            AnalysisCardBackView(degree: $backDegree, cornerRadius: self.cornerRadius)
         }.onTapGesture {
             flipCard ()
         }
@@ -64,17 +60,15 @@ struct AnalysisCardView: View {
 //MARK: - AnalysisCardFrontView
 extension AnalysisCardView {
     private struct AnalysisCardFrontView: View {
-        let record: Record
+        @EnvironmentObject var vm: AnalysisViewModel
         
         let size: CGSize
         let cornerRadius: CGFloat
         @Binding var degree : Double
         
-        init(record: Record,
-             degree: Binding<Double>,
+        init(degree: Binding<Double>,
              size: CGSize = CGSize(width: 345, height: 200),
              cornerRadius: CGFloat = 16) {
-            self.record = record
             self._degree = degree
             self.size = size
             self.cornerRadius = cornerRadius
@@ -85,7 +79,7 @@ extension AnalysisCardView {
                 
                 FrontCardBgView()
                 
-                Image(self.speedImageName(record: record))
+                Image(self.speedImageName(record: vm.record))
                     .resizable()
                     .frame(width: 64, height: 64)
                     .offset(x: -66)
@@ -100,7 +94,7 @@ extension AnalysisCardView {
                     VStack(alignment: .leading, spacing: 6){
                         Text("전체 분당 단어수")
                             .foregroundColor(Color(hex: "FFFFFF").opacity(0.4))
-                        Text("424/min")
+                        Text("\(vm.record.wpm)/min")
                             .foregroundColor(Color(hex: "FFFFFF"))
                     }
                     VStack(alignment: .leading, spacing: 6){
@@ -170,17 +164,15 @@ extension AnalysisCardView {
 //MARK: - AnalysisCardBackView
 extension AnalysisCardView {
     private struct AnalysisCardBackView: View {
-        let record: Record
+        @EnvironmentObject var vm: AnalysisViewModel
         
         let size: CGSize
         let cornerRadius: CGFloat
         @Binding var degree : Double
         
-        init(record: Record,
-             degree: Binding<Double>,
+        init(degree: Binding<Double>,
              size: CGSize = CGSize(width: 345, height: 200),
              cornerRadius: CGFloat = 16) {
-            self.record = record
             self._degree = degree
             self.size = size
             self.cornerRadius = cornerRadius
@@ -192,7 +184,7 @@ extension AnalysisCardView {
                     .foregroundColor(.blue)
                     .frame(width: 345, height: 200)
                     .cornerRadius(cornerRadius)
-                Text("Back")
+                Text("\(vm.record.fileURL.lastPathComponent)")
             }
             .rotation3DEffect(Angle(degrees: degree), axis: (x: 0, y: 1, z: 0))
         }
@@ -200,7 +192,13 @@ extension AnalysisCardView {
 }
 
 struct AnalysisCardView_Previews: PreviewProvider {
+    static let testRecord = Record(createdAt: Date(),
+                                   wpm: 100,
+                                   detailWpms: [100, 200, 300, 400, 500])
+    static let testEnvObject = AnalysisViewModel(record: testRecord)
+
     static var previews: some View {
         AnalysisCardView()
+            .environmentObject(testEnvObject)
     }
 }
