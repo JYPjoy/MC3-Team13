@@ -82,14 +82,88 @@ extension AnalysisCardView {
         
         var body: some View {
             ZStack{
-                Rectangle()
-                    .foregroundColor(.blue)
-                    .frame(width: 345, height: 200)
-                    .cornerRadius(cornerRadius)
-                Text("Front")
+                
+                FrontCardBgView()
+                
+                Image(self.speedImageName(record: record))
+                    .resizable()
+                    .frame(width: 64, height: 64)
+                    .offset(x: -66)
+                
+                VStack(alignment: .leading, spacing: 14) {
+                    VStack(alignment: .leading, spacing: 6){
+                        Text("평균 말하기 속도")
+                            .foregroundColor(Color(hex: "FFFFFF").opacity(0.4))
+                        Text("아주 좋아요")
+                            .foregroundColor(Color(hex: "FFFFFF"))
+                    }
+                    VStack(alignment: .leading, spacing: 6){
+                        Text("전체 분당 단어수")
+                            .foregroundColor(Color(hex: "FFFFFF").opacity(0.4))
+                        Text("424/min")
+                            .foregroundColor(Color(hex: "FFFFFF"))
+                    }
+                    VStack(alignment: .leading, spacing: 6){
+                        Text("발표시간")
+                            .foregroundColor(Color(hex: "FFFFFF").opacity(0.4))
+                        Text("10:05.26")
+                            .foregroundColor(Color(hex: "FFFFFF"))
+                    }
+                }
+                .offset(x: 88)
+                
+                Image(systemName: "info.circle.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 19, height: 22)
+                    .foregroundColor(Color(hex: "FFFFFF").opacity(0.3))
+                    .offset(x: 153, y: 81)
+                
             }
+            .frame(width: size.width, height: size.height)
+            .clipShape(RoundedRectangle(cornerRadius: self.cornerRadius))
             .rotation3DEffect(Angle(degrees: degree), axis: (x: 0, y: 1, z: 0))
         }
+        
+        private struct FrontCardBgView: View {
+            var body: some View {
+                ZStack{
+                    Rectangle()
+                        .foregroundColor(Color.main4)
+                    Circle()
+                        .foregroundColor(Color(hex: "052E37").opacity(0.3))
+                        .frame(width: 306, height: 306)
+                        .offset(x: -66, y: 4)
+                    Circle()
+                        .foregroundColor(Color(hex: "052E37").opacity(0.4))
+                        .frame(width: 174, height: 174)
+                        .offset(x: -66, y: 4)
+                    Circle()
+                        .foregroundColor(Color(hex: "052E37"))
+                        .frame(width: 108, height: 108)
+                        .offset(x: -66, y: 4)
+                }
+            }
+        }
+        
+        private func speedImageName(record: Record) -> String {
+            
+            switch record.wpm {
+            case ..<80:
+                return "ic_speed_1"
+            case 80..<90:
+                return "ic_speed_2"
+            case 90..<110:
+                return "ic_speed_3"
+            case 110..<130:
+                return "ic_speed_4"
+            case 130...:
+                return "ic_speed_5"
+            default:
+                return "ic_speed_3"
+            }
+        }
+        
     }
 }
 
