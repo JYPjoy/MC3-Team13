@@ -175,10 +175,12 @@ extension AnalysisCardView {
         var body: some View {
             ZStack{
                 Rectangle()
-                    .foregroundColor(.blue)
+                    .foregroundColor(Color(hex: "F4F4F4"))
                     .frame(width: 345, height: 200)
                     .cornerRadius(cornerRadius)
-                Text("\(vm.record.fileURL.lastPathComponent)")
+                Text("말 빠르기를 측정하는 기준")
+                    .font(FontManager.shared.appleSDGothicNeo(.semibold, 16))
+                    .foregroundColor(Color(hex: "000000"))
             }
             .rotation3DEffect(Angle(degrees: degree), axis: (x: 0, y: 1, z: 0))
         }
