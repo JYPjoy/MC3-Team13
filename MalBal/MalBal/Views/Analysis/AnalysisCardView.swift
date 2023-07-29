@@ -79,7 +79,7 @@ extension AnalysisCardView {
                 
                 FrontCardBgView()
                 
-                Image(self.speedImageName(record: vm.record))
+                Image(vm.wpmImageName())
                     .resizable()
                     .frame(width: 64, height: 64)
                     .offset(x: -66)
@@ -87,20 +87,32 @@ extension AnalysisCardView {
                 VStack(alignment: .leading, spacing: 14) {
                     VStack(alignment: .leading, spacing: 6){
                         Text("평균 말하기 속도")
+                            .font(FontManager.shared.appleSDGothicNeo(.medium, 12))
                             .foregroundColor(Color(hex: "FFFFFF").opacity(0.4))
-                        Text("아주 좋아요")
+                        Text("\(vm.wpmText())")
+                            .font(FontManager.shared.appleSDGothicNeo(.semibold, 20))
                             .foregroundColor(Color(hex: "FFFFFF"))
                     }
                     VStack(alignment: .leading, spacing: 6){
                         Text("전체 분당 단어수")
+                            .font(FontManager.shared.appleSDGothicNeo(.medium, 12))
                             .foregroundColor(Color(hex: "FFFFFF").opacity(0.4))
-                        Text("\(vm.record.wpm)/min")
-                            .foregroundColor(Color(hex: "FFFFFF"))
+                        HStack(alignment: .center, spacing: 2){
+                            Text("\(vm.record.wpm)")
+                                .font(FontManager.shared.appleSDGothicNeo(.semibold, 20))
+                                .foregroundColor(Color(hex: "FFFFFF"))
+                            Text("/min")
+                                .font(FontManager.shared.appleSDGothicNeo(.semibold, 16))
+                                .foregroundColor(Color(hex: "FFFFFF"))
+                        }
+                        
                     }
                     VStack(alignment: .leading, spacing: 6){
                         Text("발표시간")
+                            .font(FontManager.shared.appleSDGothicNeo(.medium, 12))
                             .foregroundColor(Color(hex: "FFFFFF").opacity(0.4))
-                        Text("10:05.26")
+                        Text("\(vm.formatTimeLong())")
+                            .font(FontManager.shared.appleSDGothicNeo(.semibold, 20))
                             .foregroundColor(Color(hex: "FFFFFF"))
                     }
                 }
@@ -137,24 +149,6 @@ extension AnalysisCardView {
                         .frame(width: 108, height: 108)
                         .offset(x: -66, y: 4)
                 }
-            }
-        }
-        
-        private func speedImageName(record: Record) -> String {
-            
-            switch record.wpm {
-            case ..<80:
-                return "ic_speed_1"
-            case 80..<90:
-                return "ic_speed_2"
-            case 90..<110:
-                return "ic_speed_3"
-            case 110..<130:
-                return "ic_speed_4"
-            case 130...:
-                return "ic_speed_5"
-            default:
-                return "ic_speed_3"
             }
         }
         
