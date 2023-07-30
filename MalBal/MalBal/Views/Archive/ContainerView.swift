@@ -60,16 +60,23 @@ struct ContainerView: View {
                 RoundedRectangle(cornerRadius: 16)
                     .fill(Color(UIColor(Color.main4)))
                     .overlay(
-                        VStack(spacing: 6){
-                            Text(item.title)
-                                .font(FontManager.shared.appleSDGothicNeo(.semibold, 20))
-                                .foregroundColor(.white)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                            Text(item.date)
-                                .foregroundColor(.white.opacity(0.4))
-                                .frame(maxWidth: .infinity, alignment: .leading)
+                        HStack(spacing: 16){
+                            VStack(spacing: 6){
+                                Text(item.title)
+                                    .font(FontManager.shared.appleSDGothicNeo(.semibold, 20))
+                                    .foregroundColor(.white)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                Text(item.date)
+                                    .foregroundColor(.white.opacity(0.4))
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                            }
+                            .frame(width: GLConstants.glScreenWidth * 0.7)
+                 
+                            Image(systemName: "chevron.right")
+                                .frame(width: 16, height: 22)
+                                .foregroundColor(Color(hex: "FFFFFF").opacity(0.3))
+                                .font(.system(size: 24, weight: .semibold))
                         }
-                        .frame(width: GLConstants.glScreenWidth * 0.7)
                     )
             }
             .offset(x: item.offset)
