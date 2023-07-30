@@ -1,8 +1,8 @@
 //
-//  Extensions.swift
+//  TimeInterval+.swift
 //  MalBal
 //
-//  Created by kibum on 2023/07/26.
+//  Created by Joy on 2023/07/30.
 //
 
 import Foundation
