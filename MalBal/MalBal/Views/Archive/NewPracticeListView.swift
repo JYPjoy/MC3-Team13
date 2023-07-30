@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct NewPracticeListView: View {
     @Environment(\.dismiss) var dismiss
     @State var practiceTopic: String = ""
     @State var selectedDate: Date = Date() //TODO: Date ➡️ String
+    @ObservedRealmObject var archive: ArchiveRealmModel
     
     // MARK: body
     var body: some View {
@@ -110,8 +112,8 @@ struct NewPracticeListView: View {
     
 }
 
-struct NewPracticeListView_Previews: PreviewProvider {
-    static var previews: some View {
-        NewPracticeListView()
-    }
-}
+//struct NewPracticeListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NewPracticeListView()
+//    }
+//}

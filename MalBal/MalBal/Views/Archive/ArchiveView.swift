@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct ArchiveView: View {
     
-    // MARK: body
-    @StateObject var archiveData = ArchiveViewModel()
+    @Environment(\.realm) var realm
+    @ObservedResults(ArchiveRealmModel.self) var archiveData
+    @ObservedRealmObject var archive: ArchiveRealmModel
 
     var body: some View {
         NavigationView {
@@ -28,9 +30,8 @@ struct ArchiveView: View {
                     
                     ScrollView {
                         LazyVStack(spacing: 16) {
-                            ForEach(archiveData.items) { item in
-                                ContainerView(item: $archiveData.items[getIndex(item: item)], items: $archiveData.items)
-                                    
+                            ForEach(archiveData) { archive in
+                                ContainerView(item: archive)
                             }
                         }
                     
@@ -38,7 +39,7 @@ struct ArchiveView: View {
                         
                         // 추가 버튼
                         NavigationLink {
-                            NewPracticeListView()
+                            NewPracticeListView(archive: ArchiveRealmModel())
                         } label: {
                             RoundedRectangle(cornerRadius: 16)
                                 .fill(Color(UIColor(Color.main4)))
@@ -60,8 +61,8 @@ struct ArchiveView: View {
         }
     }
                                               
-      func getIndex(item: ArchiveModel)->Int{
-          return archiveData.items.firstIndex { (item1) -> Bool in
+      func getIndex(item: ArchiveRealmModel)->Int{
+          return archiveData.firstIndex { (item1) -> Bool in
               return item.id == item1.id
           } ?? 0
       }

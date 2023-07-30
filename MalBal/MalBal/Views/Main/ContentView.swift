@@ -1,9 +1,10 @@
 import SwiftUI
+import RealmSwift
 
 struct ContentView: View {
     var body: some View {
         //mainView()
-        ArchiveView()
+        ArchiveView(archive: ArchiveRealmModel())
     }
 }
 

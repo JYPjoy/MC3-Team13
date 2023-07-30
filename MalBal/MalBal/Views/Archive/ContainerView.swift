@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct ContainerView: View {
     
-    @Binding var item: ArchiveModel
-    @Binding var items: [ArchiveModel]
+    @Environment(\.realm) var realm
     @State var showActionSheet: Bool = false
+    let item: ArchiveRealmModel
     
     var body: some View {
         Button{
@@ -93,16 +94,23 @@ struct ContainerView: View {
     }
 
     func onChanged(value: DragGesture.Value){
-        item.offset = value.translation.width
+        try? realm.write {
+            item.thaw()?.setValue(value.translation.width, forKey: "offset")
+        }
     }
 
     func onEnd(value: DragGesture.Value){
-        withAnimation(.easeOut) { item.offset = value.translation.width > 80 ? 88 : 0 }
+        withAnimation(.easeOut) {
+            let offset = value.translation.width > 80 ? 88 : 0
+            try? realm.write { item.thaw()?.setValue(offset, forKey: "offset") }
+        }
     }
 
-    func deleteItem(){
-        items.removeAll { (item) -> Bool in
-            return self.item.id == item.id
+    func deleteItem() {
+        let thawedItem = item.thaw()
+        if thawedItem?.isInvalidated == false { //☑️ Validation 체크
+            let thawedRealm = thawedItem!.realm! // realm 불러오기
+            try? thawedRealm.write { thawedRealm.delete(thawedItem ?? ArchiveRealmModel()) }
         }
     }
 }

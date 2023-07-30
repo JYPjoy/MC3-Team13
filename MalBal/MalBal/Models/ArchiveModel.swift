@@ -8,6 +8,7 @@
 import Foundation
 import RealmSwift
 
+/// 일반 모델
 struct ArchiveModel: Identifiable {
     var id = UUID().uuidString
     var title: String
@@ -16,6 +17,7 @@ struct ArchiveModel: Identifiable {
     var isSwiped: Bool
 }
 
+/// Realm 사용할 때의 모델
 class ArchiveRealmModel: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var id : ObjectId
     
