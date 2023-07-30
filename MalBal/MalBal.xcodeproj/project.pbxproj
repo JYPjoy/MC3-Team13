@@ -214,9 +214,6 @@
 			children = (
 				A871A75F2A7189B600DD7F8B /* ArchiveView.swift */,
 				A82E495F2A736AEB00082608 /* ContainerView.swift */,
-				A8CA836C2A7451A700D2FC01 /* PracticeListView.swift */,
-				A8CA837F2A7681D700D2FC01 /* PresentationInfoView.swift */,
-				A8CA83812A76863000D2FC01 /* ExerciseListView.swift */,
 			);
 			path = Archive;
 			sourceTree = "<group>";
@@ -230,9 +227,20 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		A8CA83832A76970000D2FC01 /* Practice */ = {
+			isa = PBXGroup;
+			children = (
+				A8CA836C2A7451A700D2FC01 /* PracticeListView.swift */,
+				A8CA837F2A7681D700D2FC01 /* PresentationInfoView.swift */,
+				A8CA83812A76863000D2FC01 /* ExerciseListView.swift */,
+			);
+			path = Practice;
+			sourceTree = "<group>";
+		};
 		C50198632A651A5300B0AAFF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A8CA83832A76970000D2FC01 /* Practice */,
 				A84E0B342A724AA200B0B6E8 /* Archive */,
 				A84E0B332A724A9D00B0B6E8 /* Main */,
 				A84E0B322A724A9500B0B6E8 /* Analysis */,
