@@ -78,6 +78,8 @@ class AnalysisViewModel: ObservableObject {
                 audioPlayer?.currentTime = 0
                 isPlaying = false
             }
+        } else {
+            audioPlayer?.currentTime = currentTime
         }
     }
     
@@ -85,6 +87,36 @@ class AnalysisViewModel: ObservableObject {
     func stopAudioPlayer() {
         audioPlayer?.stop()
         audioPlayer = nil
+    }
+    
+    /// 10초  goBackward
+    func goBackward() {
+        guard let player = audioPlayer else { return }
+        currentTime = player.currentTime - 10.0
+        if currentTime < 0 {
+            player.currentTime = 0
+        } else {
+            player.currentTime = currentTime
+        }
+        
+        if isPlaying {
+            player.play()
+        }
+    }
+    
+    /// 10초 Forward
+    func goForward() {
+        guard let player = audioPlayer else { return }
+        currentTime = player.currentTime + 10.0
+        if currentTime > totalTime {
+            player.currentTime = totalTime
+        } else {
+            player.currentTime = currentTime
+        }
+        
+        if isPlaying {
+            player.play()
+        }
     }
     
     
@@ -295,13 +327,20 @@ class AnalysisViewModel: ObservableObject {
         let minutes = Int(self.totalTime) / 60
         let seconds = Int(self.totalTime) % 60
         let milliseconds = Int((self.totalTime.truncatingRemainder(dividingBy: 1)) * 100)
-        return String(format: "%02d:%02d", minutes, seconds, milliseconds)
+        return String(format: "%02d:%02d.%02d", minutes, seconds, milliseconds)
     }
     
     func formatTimeShort () -> String {
         let minutes = Int(self.totalTime) / 60
         let seconds = Int(self.totalTime) % 60
         return String(format: "%02d:%02d", minutes, seconds)
+    }
+    
+    func formatCurrentTime() -> String {
+        let minutes = Int(self.currentTime) / 60
+        let seconds = Int(self.currentTime) % 60
+        let milliseconds = Int((self.currentTime.truncatingRemainder(dividingBy: 1)) * 100)
+        return String(format: "%02d:%02d.%02d", minutes, seconds, milliseconds)
     }
 
     
