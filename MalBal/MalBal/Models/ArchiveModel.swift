@@ -25,6 +25,8 @@ class ArchiveRealmModel: Object, ObjectKeyIdentifiable {
     @Persisted var date: String
     @Persisted var offset: CGFloat
     @Persisted var isSwiped: Bool
+    
+    @Persisted var practiceList = List<PracticeRealmModel>()
 }
 
 extension CGFloat: CustomPersistable {
@@ -32,3 +34,4 @@ extension CGFloat: CustomPersistable {
    public init(persistedValue: Double) { self.init(persistedValue) }
    public var persistableValue: Double { Double(self) }
 }
+
