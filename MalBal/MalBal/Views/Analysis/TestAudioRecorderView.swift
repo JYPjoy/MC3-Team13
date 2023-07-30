@@ -88,7 +88,7 @@ struct TestRecordingView: View{
                 
                 if let record = vm.record{
                     NavigationLink {
-                        TestRecordAnalysisView(record: record)
+                        AnalysisView(record: record)
                     } label: {
                         Text("분석하기")
                             .foregroundColor(.white)
