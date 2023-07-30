@@ -59,12 +59,6 @@ struct ArchiveView: View {
             }
         }
     }
-                                              
-      func getIndex(item: ArchiveRealmModel)->Int{
-          return archiveData.firstIndex { (item1) -> Bool in
-              return item.id == item1.id
-          } ?? 0
-      }
 }
 
 
