@@ -29,7 +29,7 @@
 		A871A75E2A71881100DD7F8B /* ArchiveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A871A75D2A71881100DD7F8B /* ArchiveModel.swift */; };
 		A871A7602A7189B600DD7F8B /* ArchiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A871A75F2A7189B600DD7F8B /* ArchiveView.swift */; };
 		A871A7622A72161100DD7F8B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A871A7612A72161100DD7F8B /* Constants.swift */; };
-		A8CA836D2A7451A700D2FC01 /* NewPracticeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CA836C2A7451A700D2FC01 /* NewPracticeListView.swift */; };
+		A8CA836D2A7451A700D2FC01 /* PracticeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CA836C2A7451A700D2FC01 /* PracticeListView.swift */; };
 		A8CA83752A76595C00D2FC01 /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CA83742A76595C00D2FC01 /* UIApplication+.swift */; };
 		A8CA837A2A7678A700D2FC01 /* PracticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CA83792A7678A700D2FC01 /* PracticeModel.swift */; };
 		A8CA837E2A76799A00D2FC01 /* TimeInterval+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CA837D2A76799A00D2FC01 /* TimeInterval+.swift */; };
@@ -70,7 +70,7 @@
 		A871A75D2A71881100DD7F8B /* ArchiveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveModel.swift; sourceTree = "<group>"; };
 		A871A75F2A7189B600DD7F8B /* ArchiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveView.swift; sourceTree = "<group>"; };
 		A871A7612A72161100DD7F8B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		A8CA836C2A7451A700D2FC01 /* NewPracticeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPracticeListView.swift; sourceTree = "<group>"; };
+		A8CA836C2A7451A700D2FC01 /* PracticeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeListView.swift; sourceTree = "<group>"; };
 		A8CA83742A76595C00D2FC01 /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
 		A8CA83792A7678A700D2FC01 /* PracticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeModel.swift; sourceTree = "<group>"; };
 		A8CA837D2A76799A00D2FC01 /* TimeInterval+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+.swift"; sourceTree = "<group>"; };
@@ -210,7 +210,7 @@
 			children = (
 				A871A75F2A7189B600DD7F8B /* ArchiveView.swift */,
 				A82E495F2A736AEB00082608 /* ContainerView.swift */,
-				A8CA836C2A7451A700D2FC01 /* NewPracticeListView.swift */,
+				A8CA836C2A7451A700D2FC01 /* PracticeListView.swift */,
 			);
 			path = Archive;
 			sourceTree = "<group>";
@@ -347,7 +347,7 @@
 				A871A7622A72161100DD7F8B /* Constants.swift in Sources */,
 				C50198822A6FB9C400B0AAFF /* PresentationModel.swift in Sources */,
 				C50198842A6FB9D300B0AAFF /* DirectoryModel.swift in Sources */,
-				A8CA836D2A7451A700D2FC01 /* NewPracticeListView.swift in Sources */,
+				A8CA836D2A7451A700D2FC01 /* PracticeListView.swift in Sources */,
 				C50198762A6907DE00B0AAFF /* RecordingViewModel.swift in Sources */,
 				A82E49662A73933500082608 /* ArchiveViewModel.swift in Sources */,
 				0734582D2A691169006CEEDE /* TestAudioRecorderView.swift in Sources */,

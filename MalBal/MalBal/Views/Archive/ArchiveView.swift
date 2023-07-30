@@ -38,7 +38,7 @@ struct ArchiveView: View {
                         
                         // 추가 버튼
                         NavigationLink {
-                            NewPracticeListView(archive: ArchiveRealmModel())
+                            PracticeListView(archive: ArchiveRealmModel())
                         } label: {
                             RoundedRectangle(cornerRadius: 16)
                                 .fill(Color(UIColor(Color.main4)))

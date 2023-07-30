@@ -8,7 +8,7 @@
 import SwiftUI
 import RealmSwift
 
-struct NewPracticeListView: View {
+struct PracticeListView: View {
     @Environment(\.dismiss) var dismiss
     @State var practiceTopic: String = ""
     @State var selectedDate: Date = Date() //TODO: Date ➡️ String
@@ -107,13 +107,5 @@ struct NewPracticeListView: View {
                 .font(FontManager.shared.appleSDGothicNeo(.semibold, 16))
             
         }
-    }
-
-    
+    }    
 }
-
-//struct NewPracticeListView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NewPracticeListView()
-//    }
-//}
