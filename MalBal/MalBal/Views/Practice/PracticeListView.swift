@@ -16,9 +16,9 @@ enum PracticeState {
 
 struct PracticeListView: View {
     @Environment(\.dismiss) var dismiss
+    @State var navBarTitle: String = "보관함 만들기"
     @State var practiceTopic: String = ""
     @State var selectedDate: Date = Date() //TODO: Date ➡️ String
-    @State var navTitle: String = ""
     @ObservedRealmObject var archive: ArchiveRealmModel
     var presentationInfoView: PresentationInfoView?
     
@@ -28,7 +28,7 @@ struct PracticeListView: View {
             ZStack(alignment:.bottom){
                 Color.main2.ignoresSafeArea()
                 VStack(spacing:0) {
-                    headerView.frame(height: 44)
+                    NavigationBar(dismiss: _dismiss, navBarTitle: $navBarTitle).frame(height:44)
                     PresentationInfoView.init(practiceTopic: $practiceTopic).frame(height:216)
                     ExerciseListView().frame(maxHeight: .infinity)
                     Spacer()
@@ -39,30 +39,12 @@ struct PracticeListView: View {
         .navigationBarBackButtonHidden(true)
     }
     
-    // 상단 네비게이션 바 TODO: 따로 공용 뷰로 만들어도 될 듯
-    var headerView: some View {
-        HStack {
-            Button(action: {
-                dismiss()
-            }) {
-                Image(systemName: "chevron.left") 
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 16, height: 22)
-                    .foregroundColor(Color.white)
-            }
-            Spacer()
-            Text("보관함 만들기").foregroundColor(Color.white)
-                .font(FontManager.shared.appleSDGothicNeo(.semibold, 20))
-            Spacer()
-        }.padding()
-    }
-    
     // 하단의 버튼
     var buttonView: some View {
         ZStack {
             Button {
-        
+                //TODO: ArchiveRealmModel 모델 만들기
+                dismiss()
             } label: {
                 RoundedRectangle(cornerRadius: 16)
                     .frame(width: GLConstants.glScreenWidth - 48, height:64)
