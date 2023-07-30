@@ -12,7 +12,6 @@ struct ArchiveView: View {
     
     @Environment(\.realm) var realm
     @ObservedResults(ArchiveRealmModel.self) var archiveData
-    @ObservedRealmObject var archive: ArchiveRealmModel
 
     var body: some View {
         NavigationView {

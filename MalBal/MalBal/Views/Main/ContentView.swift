@@ -4,7 +4,7 @@ import RealmSwift
 struct ContentView: View {
     var body: some View {
         //mainView()
-        ArchiveView(archive: ArchiveRealmModel())
+        ArchiveView()
             .onAppear(perform: UIApplication.shared.addTapGestureRecognizer)
     }
 }
