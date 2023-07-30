@@ -26,7 +26,7 @@ class ArchiveRealmModel: Object, ObjectKeyIdentifiable {
     @Persisted var offset: CGFloat
     @Persisted var isSwiped: Bool
     
-    @Persisted var practiceList = List<PracticeRealmModel>()
+    @Persisted var practiceList = List<PracticeModel>()
 }
 
 extension CGFloat: CustomPersistable {

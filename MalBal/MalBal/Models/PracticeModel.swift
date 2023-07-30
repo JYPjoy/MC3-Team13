@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class PracticeRealmModel: Object, ObjectKeyIdentifiable {
+class PracticeModel: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var id : ObjectId
     
     @Persisted var speedImage: String
