@@ -6,63 +6,48 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct ArchiveView: View {
-    @State var archiveCount: Int = 0
-    @State var title: String = ""
-    @State var date: String = ""
     
-    let columns: [GridItem] = [GridItem(.flexible(), spacing: 6, alignment: nil)]
-    
+    @Environment(\.realm) var realm
+    @ObservedResults(ArchiveRealmModel.self) var archiveData
+
     var body: some View {
         NavigationView {
             ZStack{
                 Color(UIColor(Color.main2)).ignoresSafeArea()
                 VStack {
-                    ScrollView{
-                        LazyVGrid(columns: columns,
-                                  alignment: .center,
-                                  spacing: 16,
-                                  pinnedViews: [.sectionHeaders]) {
-                            
-                            Section(header: Text("보관함")
-                                .foregroundColor(.white)
-                                .font(FontManager.shared.appleSDGothicNeo(.semibold, 40))
-                                .fontWeight(.semibold)
-                                .frame(maxWidth:.infinity, alignment: .leading)
-                                .padding()
-                            ) {
-                                ForEach(0..<5){ index in
-                                    Rectangle()
-                                        .fill(Color(UIColor(Color.main4)))
-                                        .frame(width: GLConstants.glScreenWidth - 48, height:80)
-                                        .cornerRadius(16)
-                                        .overlay(
-                                            contentView
-                                        )
-                                }
+                    HStack{
+                        Spacer().frame(width: 24)
+                        Text("보관함")
+                            .foregroundColor(.white)
+                            .font(FontManager.shared.appleSDGothicNeo(.semibold, 40))
+                            .fontWeight(.semibold)
+                            .frame(maxWidth:.infinity, alignment: .leading)
+                    }
+                    
+                    ScrollView {
+                        LazyVStack(spacing: 16) {
+                            ForEach(archiveData) { archive in
+                                ContainerView(item: archive)
                             }
                         }
+                    
                         Spacer().frame(height: 16)
                         
-                        Rectangle()
-                            .fill(Color(UIColor(Color.main4)))
-                            .frame(width: GLConstants.glScreenWidth - 48, height:80)
-                            .cornerRadius(16)
-                            .overlay(Image("plus"))
+                        // 추가 버튼
+                        NavigationLink {
+                            NewPracticeListView(archive: ArchiveRealmModel())
+                        } label: {
+                            RoundedRectangle(cornerRadius: 16)
+                                .fill(Color(UIColor(Color.main4)))
+                                .frame(width: GLConstants.glScreenWidth - 48, height:80)
+                                .cornerRadius(16)
+                                .overlay(Image(systemName: "plus").foregroundColor(Color.white.opacity(0.4)))
+                                .font(.system(size: 24, weight: .semibold))
+                        }
                     }
-       
-                }
-                
-                NavigationLink {
-                    
-                    
-                    
-                    
-                    
-                    
-                } label: {
-
                 }
             }
             .toolbar {
@@ -74,31 +59,12 @@ struct ArchiveView: View {
             }
         }
     }
-    
-    var contentView: some View {
-        HStack {
-            HStack{
-                Spacer().frame(width:16)
-                VStack(spacing: 6){
-                    Text("보관함1")
-                        .font(FontManager.shared.appleSDGothicNeo(.semibold, 20))
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("보관함2")
-                        .foregroundColor(.white.opacity(0.4))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                }
-                .frame(width: GLConstants.glScreenWidth*0.7)
-                Image(systemName: "chevron.right").foregroundColor(Color.white).opacity(0.3)
-            }
-            Spacer().frame(width:24)
-        }
-    }
+                                              
+      func getIndex(item: ArchiveRealmModel)->Int{
+          return archiveData.firstIndex { (item1) -> Bool in
+              return item.id == item1.id
+          } ?? 0
+      }
 }
 
-struct ArchiveView_Previews: PreviewProvider {
-    static var previews: some View {
-        ArchiveView()
-    }
-}
 
