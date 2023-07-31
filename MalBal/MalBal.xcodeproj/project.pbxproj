@@ -38,6 +38,7 @@
 		A8CA83802A7681D700D2FC01 /* PresentationInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CA837F2A7681D700D2FC01 /* PresentationInfoView.swift */; };
 		A8CA83822A76863000D2FC01 /* ExerciseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CA83812A76863000D2FC01 /* ExerciseListView.swift */; };
 		A8CA83852A76979500D2FC01 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CA83842A76979500D2FC01 /* NavigationBar.swift */; };
+		A8CA83912A778C4F00D2FC01 /* PracticeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CA83902A778C4F00D2FC01 /* PracticeListView.swift */; };
 		C50198672A665A9C00B0AAFF /* UploadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198662A665A9C00B0AAFF /* UploadingView.swift */; };
 		C50198692A67A49200B0AAFF /* UploadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198682A67A49200B0AAFF /* UploadingViewModel.swift */; };
 		C501986B2A67A5FA00B0AAFF /* VideoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C501986A2A67A5F900B0AAFF /* VideoPickerView.swift */; };
@@ -78,13 +79,13 @@
 		A871A75D2A71881100DD7F8B /* ArchiveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveModel.swift; sourceTree = "<group>"; };
 		A871A75F2A7189B600DD7F8B /* ArchiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveView.swift; sourceTree = "<group>"; };
 		A871A7612A72161100DD7F8B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		A8CA836C2A7451A700D2FC01 /* PracticeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeListView.swift; sourceTree = "<group>"; };
 		A8CA83742A76595C00D2FC01 /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
 		A8CA83792A7678A700D2FC01 /* PracticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeModel.swift; sourceTree = "<group>"; };
 		A8CA837D2A76799A00D2FC01 /* TimeInterval+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+.swift"; sourceTree = "<group>"; };
 		A8CA837F2A7681D700D2FC01 /* PresentationInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationInfoView.swift; sourceTree = "<group>"; };
 		A8CA83812A76863000D2FC01 /* ExerciseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListView.swift; sourceTree = "<group>"; };
 		A8CA83842A76979500D2FC01 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		A8CA83902A778C4F00D2FC01 /* PracticeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeListView.swift; sourceTree = "<group>"; };
 		C50198662A665A9C00B0AAFF /* UploadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingView.swift; sourceTree = "<group>"; };
 		C50198682A67A49200B0AAFF /* UploadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingViewModel.swift; sourceTree = "<group>"; };
 		C501986A2A67A5F900B0AAFF /* VideoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPickerView.swift; sourceTree = "<group>"; };
@@ -241,9 +242,9 @@
 		A8CA83832A76970000D2FC01 /* Practice */ = {
 			isa = PBXGroup;
 			children = (
-				A8CA836C2A7451A700D2FC01 /* PracticeListView.swift */,
 				A8CA837F2A7681D700D2FC01 /* PresentationInfoView.swift */,
 				A8CA83812A76863000D2FC01 /* ExerciseListView.swift */,
+				A8CA83902A778C4F00D2FC01 /* PracticeListView.swift */,
 			);
 			path = Practice;
 			sourceTree = "<group>";
@@ -373,7 +374,6 @@
 				A871A7622A72161100DD7F8B /* Constants.swift in Sources */,
 				C50198822A6FB9C400B0AAFF /* PresentationModel.swift in Sources */,
 				C50198842A6FB9D300B0AAFF /* DirectoryModel.swift in Sources */,
-				A8CA836D2A7451A700D2FC01 /* PracticeListView.swift in Sources */,
 				C50198762A6907DE00B0AAFF /* RecordingViewModel.swift in Sources */,
 				A82E49662A73933500082608 /* ArchiveViewModel.swift in Sources */,
 				0734582D2A691169006CEEDE /* TestAudioRecorderView.swift in Sources */,
@@ -387,6 +387,7 @@
 				A8CA837A2A7678A700D2FC01 /* PracticeModel.swift in Sources */,
 				C50198802A691AFA00B0AAFF /* DecibelView.swift in Sources */,
 				A871A75E2A71881100DD7F8B /* ArchiveModel.swift in Sources */,
+				A8CA83912A778C4F00D2FC01 /* PracticeListView.swift in Sources */,
 				075666C82A738A1900AB5777 /* AnalysisView.swift in Sources */,
 				C50198BA2A7102CA00B0AAFF /* mainView.swift in Sources */,
 				A8CA83852A76979500D2FC01 /* NavigationBar.swift in Sources */,
@@ -399,7 +400,6 @@
 				075666C32A72170000AB5777 /* AnalysisViewModel.swift in Sources */,
 				C50198692A67A49200B0AAFF /* UploadingViewModel.swift in Sources */,
 				075666CA2A7392C300AB5777 /* AnalysisCardView.swift in Sources */,
-				C5D183772A71454B009407C6 /* Extensions.swift in Sources */,
 				07F97BB72A65195A00149583 /* ContentView.swift in Sources */,
 				C50198B82A7102BD00B0AAFF /* mainViewModel.swift in Sources */,
 				C50198722A6905F900B0AAFF /* RecorderModel.swift in Sources */,

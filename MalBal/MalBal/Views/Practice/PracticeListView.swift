@@ -1,8 +1,8 @@
 //
-//  NewPracticeListView.swift
+//  PracticeListView.swift
 //  MalBal
 //
-//  Created by Joy on 2023/07/29.
+//  Created by Joy on 2023/07/31.
 //
 
 import SwiftUI
