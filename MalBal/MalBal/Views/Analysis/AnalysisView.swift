@@ -15,10 +15,25 @@ struct AnalysisView: View {
     }
     
     var body: some View {
-        VStack{
+        VStack(spacing: 8) {
             AnalysisCardView()
+            AnalysisAudioView()
         }
         .environmentObject(self.vm)
+        .onAppear{
+            vm.setupAudioPlayer()
+            vm.setDetailWPMs()
+        }
+        .onDisappear(perform: vm.stopAudioPlayer)
+        .onReceive(Timer.publish(every: 0.1, on: .main, in: .common).autoconnect(), perform: { _ in
+            vm.updatePlaybackTime()
+        })
+        .onChange(of: vm.isAnalysisComplete) { newValue in
+            if newValue {
+                vm.setRecordWPM()
+                print(vm.transcripts)
+            }
+        }
     }
 }
 
