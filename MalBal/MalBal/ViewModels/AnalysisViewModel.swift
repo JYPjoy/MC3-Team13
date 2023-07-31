@@ -255,5 +255,54 @@ class AnalysisViewModel: ObservableObject {
         print("Completed: Clear Files")
     }
     
+    //MARK: - AnalysisView UI 관련 메소드
+    
+    func wpmText() -> String {
+        switch record.wpm {
+        case ..<80:
+            return "너무 느려요"
+        case 80..<90:
+            return "조금 느려요"
+        case 90..<110:
+            return "아주 좋아요!"
+        case 110..<130:
+            return "조금 빨라요"
+        case 130...:
+            return "너무 빨라요"
+        default:
+            return "오류"
+        }
+    }
+    
+    func wpmImageName() -> String {
+        switch record.wpm {
+        case ..<80:
+            return "ic_speed_1"
+        case 80..<90:
+            return "ic_speed_2"
+        case 90..<110:
+            return "ic_speed_3"
+        case 110..<130:
+            return "ic_speed_4"
+        case 130...:
+            return "ic_speed_5"
+        default:
+            return "오류"
+        }
+    }
+    
+    func formatTimeLong () -> String {
+        let minutes = Int(self.totalTime) / 60
+        let seconds = Int(self.totalTime) % 60
+        let milliseconds = Int((self.totalTime.truncatingRemainder(dividingBy: 1)) * 100)
+        return String(format: "%02d:%02d", minutes, seconds, milliseconds)
+    }
+    
+    func formatTimeShort () -> String {
+        let minutes = Int(self.totalTime) / 60
+        let seconds = Int(self.totalTime) % 60
+        return String(format: "%02d:%02d", minutes, seconds)
+    }
+
     
 }
