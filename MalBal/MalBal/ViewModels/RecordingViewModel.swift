@@ -13,6 +13,7 @@ class RecordingViewModel: ObservableObject {
     
     @Published var record: Record?
     @Published var isRecording: Bool = false
+    @Published var isRecordingStage: Bool = false
     
     private var session: AVAudioSession?
     private var audioRecorder: AVAudioRecorder?
@@ -48,6 +49,7 @@ class RecordingViewModel: ObservableObject {
         if record == nil {
             
             record = Record(createdAt: Date())
+            isRecordingStage = true
             
             let settings: [String : Any] = [
                 
@@ -98,6 +100,7 @@ class RecordingViewModel: ObservableObject {
                 try FileManager.default.removeItem(at: recordedFileURL)
                 self.audioRecorder = nil
                 self.isRecording = false
+                isRecordingStage = false
                 self.record = nil
             }
         } catch {
@@ -108,10 +111,6 @@ class RecordingViewModel: ObservableObject {
     
     func saveRecord() {
         self.record = Record(createdAt: Date())
-    }
-    
-    func isRecordExist() -> Bool {
-        return record != nil
     }
     
     private func timerStart() {
@@ -158,6 +157,8 @@ class RecordingViewModel: ObservableObject {
         } catch {
             print("Error: Copying test audio file - \(error.localizedDescription)")
         }
+        
+        self.isRecordingStage = true
     }
     
 }

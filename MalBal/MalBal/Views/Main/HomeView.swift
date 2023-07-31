@@ -30,6 +30,7 @@ struct HomeView: View {
                     
                     //Navigation Title
                     homeHeaderView
+                    .frame(width: .infinity, height: 68)
                     .padding(.bottom, 10)
                     
                     //녹음 버튼
@@ -37,12 +38,18 @@ struct HomeView: View {
                     .padding(.bottom, 27)
                     
                     //control button
-                    if recordingVM.isRecordExist() {
+                    if recordingVM.isRecordingStage {
                         recordingControllerButtonView
                     } else {
                         importButtonView
                     }
                     Spacer()
+                }
+                
+                if recordingVM.isRecordingStage {
+                    recordCompleteButtonView
+                } else {
+                    goArchiveViewButtonView
                 }
                 
             }
@@ -65,7 +72,6 @@ struct HomeView: View {
                 .padding(.leading, 24)
             Spacer()
         }
-        .frame(width: .infinity, height: 68)
     }
     
     private var recordButtonView: some View {
@@ -140,7 +146,7 @@ struct HomeView: View {
                 .foregroundColor(.main5)
                 .frame(width: 28, height: 28)
             
-            if !recordingVM.isRecordExist() {
+            if !recordingVM.isRecordingStage {
                 Text("녹음하기")
                     .font(FontManager.shared.appleSDGothicNeo(.semibold, 20))
                     .foregroundColor(Color(hex: "FFFFFF"))
@@ -224,6 +230,7 @@ struct HomeView: View {
                         .foregroundColor(.main4)
                         .frame(width: 81, height: 72)
                     Image(systemName: "trash.fill")
+                        .foregroundColor(Color(hex: "FFFFFF"))
                         .font(FontManager.shared.appleSDGothicNeo(.semibold, 20))
                 }
                 
@@ -244,6 +251,48 @@ struct HomeView: View {
         
     }
     
+    private var recordCompleteButtonView: some View {
+        VStack(spacing: 0) {
+            Spacer()
+            NavigationLink {
+                AnalysisView(record: recordingVM.record ?? Record(createdAt: Date()))
+                    .onAppear{
+                        recordingVM.stopRecord()
+                    }
+            } label: {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 16)
+                        .foregroundColor(.main5)
+                        .frame(width: 345, height: 64)
+                    Text("녹음 마치고 분석하기")
+                        .font(FontManager.shared.appleSDGothicNeo(.semibold, 20))
+                        .foregroundColor(Color(hex: "FFFFFF"))
+                }
+                .padding(.bottom, 55)
+            }
+        }
+        .edgesIgnoringSafeArea(.bottom)
+    }
+    
+    private var goArchiveViewButtonView: some View {
+        VStack(spacing: 0) {
+            Spacer()
+            ZStack {
+                RoundedRectangle(cornerRadius: 20)
+                    .foregroundColor(.main3)
+                    .frame(width: .infinity, height: 145)
+                    .offset(y: 26)
+                
+                Text("연습 보관함")
+                    .font(FontManager.shared.appleSDGothicNeo(.semibold, 20))
+                    .foregroundColor(Color(hex: "FFFFFF"))
+                    .offset(y: -5)
+                
+            }
+            .clipShape(Rectangle())
+        }
+        .edgesIgnoringSafeArea(.bottom)
+    }
 }
 
 struct HomeView_Previews: PreviewProvider {
