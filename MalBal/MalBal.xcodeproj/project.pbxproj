@@ -16,6 +16,8 @@
 		07F97BB72A65195A00149583 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F97BB62A65195A00149583 /* ContentView.swift */; };
 		07F97BB92A65195C00149583 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07F97BB82A65195C00149583 /* Assets.xcassets */; };
 		07F97BBC2A65195C00149583 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07F97BBB2A65195C00149583 /* Preview Assets.xcassets */; };
+		A82E49602A736AEB00082608 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82E495F2A736AEB00082608 /* ContainerView.swift */; };
+		A82E49662A73933500082608 /* ArchiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82E49652A73933500082608 /* ArchiveViewModel.swift */; };
 		A836B1A02A6E4AE200D9F02F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836B19F2A6E4AE200D9F02F /* Colors.swift */; };
 		A836B1A32A6E4E6300D9F02F /* GLPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836B1A22A6E4E6300D9F02F /* GLPopupView.swift */; };
 		A836B1B12A6E567B00D9F02F /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836B1B02A6E567B00D9F02F /* FontManager.swift */; };
@@ -29,6 +31,8 @@
 		A871A75E2A71881100DD7F8B /* ArchiveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A871A75D2A71881100DD7F8B /* ArchiveModel.swift */; };
 		A871A7602A7189B600DD7F8B /* ArchiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A871A75F2A7189B600DD7F8B /* ArchiveView.swift */; };
 		A871A7622A72161100DD7F8B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A871A7612A72161100DD7F8B /* Constants.swift */; };
+		A8CA836D2A7451A700D2FC01 /* NewPracticeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CA836C2A7451A700D2FC01 /* NewPracticeListView.swift */; };
+		A8CA83752A76595C00D2FC01 /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CA83742A76595C00D2FC01 /* UIApplication+.swift */; };
 		C50198672A665A9C00B0AAFF /* UploadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198662A665A9C00B0AAFF /* UploadingView.swift */; };
 		C50198692A67A49200B0AAFF /* UploadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198682A67A49200B0AAFF /* UploadingViewModel.swift */; };
 		C501986B2A67A5FA00B0AAFF /* VideoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C501986A2A67A5F900B0AAFF /* VideoPickerView.swift */; };
@@ -56,6 +60,8 @@
 		07F97BB62A65195A00149583 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		07F97BB82A65195C00149583 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07F97BBB2A65195C00149583 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A82E495F2A736AEB00082608 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
+		A82E49652A73933500082608 /* ArchiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveViewModel.swift; sourceTree = "<group>"; };
 		A836B19F2A6E4AE200D9F02F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A836B1A22A6E4E6300D9F02F /* GLPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLPopupView.swift; sourceTree = "<group>"; };
 		A836B1B02A6E567B00D9F02F /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
@@ -67,6 +73,8 @@
 		A871A75D2A71881100DD7F8B /* ArchiveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveModel.swift; sourceTree = "<group>"; };
 		A871A75F2A7189B600DD7F8B /* ArchiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveView.swift; sourceTree = "<group>"; };
 		A871A7612A72161100DD7F8B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A8CA836C2A7451A700D2FC01 /* NewPracticeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPracticeListView.swift; sourceTree = "<group>"; };
+		A8CA83742A76595C00D2FC01 /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
 		C50198662A665A9C00B0AAFF /* UploadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingView.swift; sourceTree = "<group>"; };
 		C50198682A67A49200B0AAFF /* UploadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingViewModel.swift; sourceTree = "<group>"; };
 		C501986A2A67A5F900B0AAFF /* VideoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPickerView.swift; sourceTree = "<group>"; };
@@ -140,6 +148,7 @@
 		A836B19E2A6E4AA800D9F02F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A8CA83732A76594600D2FC01 /* Extension */,
 				A836B1A42A6E554300D9F02F /* Fonts */,
 				A836B1A12A6E4C4900D9F02F /* Components */,
 				A836B19F2A6E4AE200D9F02F /* Colors.swift */,
@@ -204,8 +213,18 @@
 			isa = PBXGroup;
 			children = (
 				A871A75F2A7189B600DD7F8B /* ArchiveView.swift */,
+				A82E495F2A736AEB00082608 /* ContainerView.swift */,
+				A8CA836C2A7451A700D2FC01 /* NewPracticeListView.swift */,
 			);
 			path = Archive;
+			sourceTree = "<group>";
+		};
+		A8CA83732A76594600D2FC01 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A8CA83742A76595C00D2FC01 /* UIApplication+.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		C50198632A651A5300B0AAFF /* Views */ = {
@@ -227,6 +246,7 @@
 				C50198B72A7102BD00B0AAFF /* mainViewModel.swift */,
 				C50198752A6907DE00B0AAFF /* RecordingViewModel.swift */,
 				075666C22A72170000AB5777 /* AnalysisViewModel.swift */,
+				A82E49652A73933500082608 /* ArchiveViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -330,16 +350,20 @@
 				A871A7622A72161100DD7F8B /* Constants.swift in Sources */,
 				C50198822A6FB9C400B0AAFF /* PresentationModel.swift in Sources */,
 				C50198842A6FB9D300B0AAFF /* DirectoryModel.swift in Sources */,
+				A8CA836D2A7451A700D2FC01 /* NewPracticeListView.swift in Sources */,
 				C50198762A6907DE00B0AAFF /* RecordingViewModel.swift in Sources */,
+				A82E49662A73933500082608 /* ArchiveViewModel.swift in Sources */,
 				0734582D2A691169006CEEDE /* TestAudioRecorderView.swift in Sources */,
 				C501987E2A691AF100B0AAFF /* DecibelViewModel.swift in Sources */,
 				C50198672A665A9C00B0AAFF /* UploadingView.swift in Sources */,
 				A871A7602A7189B600DD7F8B /* ArchiveView.swift in Sources */,
 				C501986B2A67A5FA00B0AAFF /* VideoPickerView.swift in Sources */,
+				A82E49602A736AEB00082608 /* ContainerView.swift in Sources */,
 				C50198802A691AFA00B0AAFF /* DecibelView.swift in Sources */,
 				A871A75E2A71881100DD7F8B /* ArchiveModel.swift in Sources */,
 				075666C82A738A1900AB5777 /* AnalysisView.swift in Sources */,
 				C50198BA2A7102CA00B0AAFF /* mainView.swift in Sources */,
+				A8CA83752A76595C00D2FC01 /* UIApplication+.swift in Sources */,
 				A836B1A32A6E4E6300D9F02F /* GLPopupView.swift in Sources */,
 				C5D183722A711107009407C6 /* ModalView.swift in Sources */,
 				A836B1A02A6E4AE200D9F02F /* Colors.swift in Sources */,
