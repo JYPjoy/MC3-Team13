@@ -343,11 +343,8 @@ class AnalysisViewModel: ObservableObject {
         return String(format: "%02d:%02d.%02d", minutes, seconds, milliseconds)
     }
     
-    func detailWpmImageName(index: Int) -> String {
-        guard index < record.detailWpms.count else {
-            return "로딩중"
-        }
-        switch record.detailWpms[index] {
+    func detailWpmImageName(wpm: Int) -> String {
+        switch wpm {
         case ..<80:
             return "ic_speed_1"
         case 80..<90:
@@ -369,11 +366,8 @@ class AnalysisViewModel: ObservableObject {
         return "\(String(format: "%02d", startTime)):00~\(String(format: "%02d", endTime)):00"
     }
     
-    func cellSpeedText(index: Int) -> String {
-        guard index < record.detailWpms.count else {
-            return "분석중"
-        }
-        switch record.wpm {
+    func cellSpeedText(wpm: Int) -> String {
+        switch wpm {
         case ..<80:
             return "너무 느려요"
         case 80..<90:

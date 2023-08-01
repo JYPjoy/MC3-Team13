@@ -10,9 +10,6 @@ import SwiftUI
 struct DetailWpmsListView: View {
     @EnvironmentObject var vm: AnalysisViewModel
     
-    //Array(vm.record.detailWpms.enumerated())
-    let testArray = [70, 80, 90, 100, 110, 120]
-    
     var body: some View {
         ZStack{
             
@@ -22,9 +19,9 @@ struct DetailWpmsListView: View {
             
             ScrollView {
                 VStack(alignment: .center, spacing: 0) {
-                    ForEach(Array(testArray.enumerated()), id: \.element) { index, wpms in
-                        DetailWpmsListCellView(index: index)
-                        if index < testArray.count - 1 {
+                    ForEach(Array(vm.record.detailWpms.enumerated()), id: \.element) { index, wpm in
+                        DetailWpmsListCellView(index: index, wpm: wpm)
+                        if index < vm.record.detailWpms.count - 1 {
                             scrollDevider
                         }
                     }
@@ -39,10 +36,11 @@ struct DetailWpmsListView: View {
     private struct DetailWpmsListCellView: View {
         @EnvironmentObject var vm: AnalysisViewModel
         var index: Int
+        var wpm: Int
         
         var body: some View {
             HStack(alignment: .top, spacing: 12) {
-                Image("\(vm.detailWpmImageName(index: index))")
+                Image("\(vm.detailWpmImageName(wpm: wpm))")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 48, height: 48)
@@ -58,13 +56,13 @@ struct DetailWpmsListView: View {
                     }
                     
                     HStack(spacing: 6) {
-                        Text("아주 좋아요")
+                        Text("\(vm.cellSpeedText(wpm: wpm))")
                             .font(FontManager.shared.appleSDGothicNeo(.semibold, 16))
                             .foregroundColor(Color(hex: "FFFFFF"))
                         Text("・")
                             .font(FontManager.shared.appleSDGothicNeo(.semibold, 16))
                             .foregroundColor(Color(hex: "FFFFFF"))
-                        Text("420 w/min")
+                        Text("\(wpm) w/min")
                             .font(FontManager.shared.appleSDGothicNeo(.semibold, 16))
                             .foregroundColor(Color(hex: "FFFFFF"))
                         Spacer()
@@ -95,6 +93,5 @@ struct DetailWpmsListView_Previews: PreviewProvider {
     static var previews: some View {
         DetailWpmsListView()
             .environmentObject(testEnvObject)
-//        HomeView()
     }
 }
