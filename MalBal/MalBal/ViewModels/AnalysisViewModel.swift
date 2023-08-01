@@ -144,7 +144,6 @@ class AnalysisViewModel: ObservableObject {
         let numberOfURLs = splitURLs.count
         
         loopTransURL(urls: splitURLs, idx: idx, numbersOfURLs: numberOfURLs)
-        
     }
     
     /// 음성파일배열 순회transcribe 
@@ -273,18 +272,35 @@ class AnalysisViewModel: ObservableObject {
         return strings.joined(separator: separator)
     }
     
-    func clearFiles() {
+    func clearSplitFiles() {
         let fileManager = FileManager.default
-        
-        for url in splitURLs {
-            do {
-                try fileManager.removeItem(at: url)
-                print("Deleted file at: \(url)")
-            } catch {
-                print("Error: Deleting file at - \(url), \(error.localizedDescription)")
-            }
+
+        guard let documentsDirectoryURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            print("Error: Unable to access Document Directory.")
+            return
         }
-        print("Completed: Clear Files")
+
+        // Document Directory에 있는 모든 파일 목록 가져오기
+        do {
+            let directoryContents = try fileManager.contentsOfDirectory(at: documentsDirectoryURL, includingPropertiesForKeys: nil, options: [])
+
+            //MalBal.m4a 제외 하고는 모두 삭제
+            let malBalFileName = "MalBal.m4a"
+            for fileURL in directoryContents {
+                if fileURL.lastPathComponent != malBalFileName {
+                    do {
+                        try fileManager.removeItem(at: fileURL)
+                        print("Deleted file at: \(fileURL)")
+                    } catch {
+                        print("Error: Deleting file at - \(fileURL), \(error.localizedDescription)")
+                    }
+                }
+            }
+
+            print("Completed: Delete All Files Except MalBal.m4a")
+        } catch {
+            print("Error: Unable to access contents of Document Directory - \(error.localizedDescription)")
+        }
     }
     
     //MARK: - AnalysisView UI 관련 메소드

@@ -31,6 +31,7 @@ struct AnalysisView: View {
         .environmentObject(self.vm)
         .onAppear{
             recordingVM.stopRecord()
+            vm.clearSplitFiles()
             vm.setupAudioPlayer()
             vm.setDetailWPMs()
         }
