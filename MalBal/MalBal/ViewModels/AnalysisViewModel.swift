@@ -193,7 +193,9 @@ class AnalysisViewModel: ObservableObject {
                                 self.transcripts.append(res)
                                 // detail Wpms 추가
                                 self.addDetailWpms(textPerMinute: res)
-                                print(res)
+                                print(">>>###***>>>\(res)")
+                                print(">>>###***>>>>>>###***>>>>>>###***>>>")
+                                print(self.transcripts)
                                 completion(true)
                             }
                         }
@@ -397,6 +399,48 @@ class AnalysisViewModel: ObservableObject {
         default:
             return "오류"
         }
+    }
+    
+    func testSTTScript() {
+//        self.transcribe(url: record.fileURL) { success in
+//            <#code#>
+//        }
+        guard let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "ko_KR")) else {
+            print("Speech recognizer is not available for this locale!")
+            return
+        }
+
+        if !speechRecognizer.isAvailable {
+            print("Speech recognizer is not available for this device!")
+            return
+        }
+
+        SFSpeechRecognizer.requestAuthorization { authStatus in
+            print(">> transcripts Waits")
+            if (authStatus == .authorized) {
+                let fileURL = self.record.fileURL
+                let request = SFSpeechURLRecognitionRequest(url: fileURL)
+                print(">>>### URL: \(fileURL)")
+                
+                let task = speechRecognizer.recognitionTask(
+                    with: request,
+                    resultHandler: { (result, error) in
+                        if result == nil {
+                            print("대화없음")
+                        } else if (result?.isFinal)! {
+                            if let res = result?.bestTranscription.formattedString {
+                                print(">>>###***>>>>>>###***>>>>>>###***>>>FULL SCRIPT")
+                                print(">>>###***>>>\(res)")
+                                print(">>>###***>>>>>>###***>>>>>>###***>>>FULL SCRIPT")
+                                print(self.transcripts)
+                            }
+                        }
+                    })
+            } else {
+                print("Error: Speech-API not authorized!");
+            }
+        }
+        
     }
     
 }

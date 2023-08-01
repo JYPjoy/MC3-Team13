@@ -143,7 +143,7 @@ class RecordingViewModel: ObservableObject {
         self.deleteRecord()
         self.record = Record(fileURL: recordedFileURL, createdAt: Date())
         let bundle = Bundle.main
-        guard let bundleAudioURL = bundle.url(forResource: "M4A_SampleFile", withExtension: "m4a") else {
+        guard let bundleAudioURL = bundle.url(forResource: "test2", withExtension: "m4a") else {
             print("Error: Bundle audio file not found.")
             return
         }

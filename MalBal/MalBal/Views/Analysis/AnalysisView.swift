@@ -31,9 +31,10 @@ struct AnalysisView: View {
         .environmentObject(self.vm)
         .onAppear{
             recordingVM.stopRecord()
-            vm.clearSplitFiles()
-            vm.setupAudioPlayer()
-            vm.setDetailWPMs()
+//            vm.clearSplitFiles()
+//            vm.setupAudioPlayer()
+//            vm.setDetailWPMs()
+            vm.testSTTScript()
         }
         .onDisappear(perform: vm.stopAudioPlayer)
         .onReceive(Timer.publish(every: 0.1, on: .main, in: .common).autoconnect(), perform: { _ in
@@ -42,7 +43,11 @@ struct AnalysisView: View {
         .onChange(of: vm.isAnalysisComplete) { newValue in
             if newValue {
                 vm.setRecordWPM()
-                print(vm.transcripts)
+                for transcript in vm.transcripts {
+                    print(">>>>>>>>>>>>>>>>>>>>>>>>>>>")
+                    print(transcript)
+                }
+                print(String(vm.transcripts.count))
             }
         }
     }
