@@ -13,9 +13,13 @@ class RecordingViewModel: ObservableObject {
     
     @Published var record: Record?
     @Published var isRecording: Bool = false
+    @Published var isRecordingStage: Bool = false
     
     private var session: AVAudioSession?
     private var audioRecorder: AVAudioRecorder?
+    
+    @Published var timeElapsed: TimeInterval = 0
+    private var timer: Timer?
     
     let recordedFileURL: URL = {
         let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
@@ -44,6 +48,9 @@ class RecordingViewModel: ObservableObject {
         
         if record == nil {
             
+            record = Record(createdAt: Date())
+            isRecordingStage = true
+            
             let settings: [String : Any] = [
                 
                 AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -57,6 +64,7 @@ class RecordingViewModel: ObservableObject {
                 self.audioRecorder = try AVAudioRecorder(url: recordedFileURL, settings: settings)
                 self.audioRecorder?.record()
                 isRecording = true
+                
             }catch {
                 print(error.localizedDescription)
             }
@@ -65,12 +73,15 @@ class RecordingViewModel: ObservableObject {
             resumeRecord()
         }
         
+        self.timerStart()
+        
     }
     
     /// 녹음 일시정지
     func pauseRecord() {
         self.audioRecorder?.pause()
         isRecording = false
+        self.timerPause()
     }
     
     /// 녹음 끝마치기
@@ -78,6 +89,7 @@ class RecordingViewModel: ObservableObject {
         self.audioRecorder?.stop()
         isRecording = false
         saveRecord()
+        self.timerReset()
     }
     
     /// 녹음 삭제
@@ -88,6 +100,7 @@ class RecordingViewModel: ObservableObject {
                 try FileManager.default.removeItem(at: recordedFileURL)
                 self.audioRecorder = nil
                 self.isRecording = false
+                isRecordingStage = false
                 self.record = nil
             }
         } catch {
@@ -98,6 +111,23 @@ class RecordingViewModel: ObservableObject {
     
     func saveRecord() {
         self.record = Record(createdAt: Date())
+    }
+    
+    private func timerStart() {
+        timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { _ in
+            self.timeElapsed += 0.01
+        }
+    }
+    
+    private func timerPause() {
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    private func timerReset() {
+        timer?.invalidate()
+        timer = nil
+        timeElapsed = 0
     }
     
     /// 녹음 재개 (pause 후에 녹음하는 경우)
@@ -127,6 +157,8 @@ class RecordingViewModel: ObservableObject {
         } catch {
             print("Error: Copying test audio file - \(error.localizedDescription)")
         }
+        
+        self.isRecordingStage = true
     }
     
 }
