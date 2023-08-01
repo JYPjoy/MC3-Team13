@@ -11,6 +11,7 @@ import RealmSwift
 struct ArchiveView: View {
     
     @Environment(\.realm) var realm
+    @Environment(\.dismiss) var dismiss
     @ObservedResults(ArchiveRealmModel.self) var archiveData
 
     var body: some View {
@@ -53,7 +54,7 @@ struct ArchiveView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
-                        
+                        dismiss()
                     }, label: { Image(systemName: "chevron.down").foregroundColor(.white)})
                 }
             }
