@@ -25,6 +25,7 @@ struct AnalysisView: View {
                     DetailWpmsListView()
                 }
             }
+            .scrollIndicators(.hidden)
         }
         .environmentObject(self.vm)
         .onAppear{
