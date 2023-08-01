@@ -39,21 +39,22 @@ struct DetailWpmsListView: View {
         var wpm: Int
         
         var body: some View {
-            HStack(alignment: .top, spacing: 12) {
+            HStack(alignment: .top, spacing: 0) {
+                
                 Image("\(vm.detailWpmImageName(wpm: wpm))")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 48, height: 48)
-                    .padding(.leading, 29.5)
+                    .padding(.leading, 50)
                     .padding(.top, 7)
+                    .padding(.trailing, 12)
                 
-                VStack(spacing: 4) {
-                    HStack {
-                        Text("\(vm.cellTimeText(index: index))")
-                            .font(FontManager.shared.appleSDGothicNeo(.medium, 12))
-                            .foregroundColor(Color(hex: "FFFFFF").opacity(0.4))
-                        Spacer()
-                    }
+                
+                VStack(alignment: .leading, spacing: 4) {
+                    
+                    Text("\(vm.cellTimeText(index: index))")
+                        .font(FontManager.shared.appleSDGothicNeo(.medium, 12))
+                        .foregroundColor(Color(hex: "FFFFFF").opacity(0.4))
                     
                     HStack(spacing: 6) {
                         Text("\(vm.cellSpeedText(wpm: wpm))")
@@ -62,16 +63,31 @@ struct DetailWpmsListView: View {
                         Text("・")
                             .font(FontManager.shared.appleSDGothicNeo(.semibold, 16))
                             .foregroundColor(Color(hex: "FFFFFF"))
-                        Text("\(wpm) w/min")
-                            .font(FontManager.shared.appleSDGothicNeo(.semibold, 16))
-                            .foregroundColor(Color(hex: "FFFFFF"))
-                        Spacer()
+                        HStack(spacing: 0) {
+                            Text("\(wpm)")
+                                .font(FontManager.shared.appleSDGothicNeo(.semibold, 16))
+                                .foregroundColor(Color(hex: "FFFFFF"))
+                            Text("w/min")
+                                .font(FontManager.shared.appleSDGothicNeo(.semibold, 10))
+                                .foregroundColor(Color(hex: "FFFFFF"))
+                        }
                     }
+                        
                 }
                 .frame(height: 32)
                 .padding(.top, 15)
+                
+                Spacer()
+                
+                Image(systemName: "checkmark")
+                    .font(FontManager.shared.appleSDGothicNeo(.semibold, 24))
+                    .foregroundColor(Color(hex: "FFFFFF"))
+                    .frame(width: 23, height: 22)
+                    .padding(.top, 20)
+                    .padding(.trailing, 44)
+                
             }
-            .frame(width: 347, height: 64)
+            .frame(width: 393, height: 64)
         }
         
     }
