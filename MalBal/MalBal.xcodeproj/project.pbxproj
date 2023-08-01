@@ -12,6 +12,7 @@
 		075666C62A72192300AB5777 /* M4A_SampleFile.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 075666C52A72192100AB5777 /* M4A_SampleFile.m4a */; };
 		075666C82A738A1900AB5777 /* AnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075666C72A738A1900AB5777 /* AnalysisView.swift */; };
 		075666CA2A7392C300AB5777 /* AnalysisCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075666C92A7392C300AB5777 /* AnalysisCardView.swift */; };
+		07A0A7CE2A77597F00EA5620 /* DetailWpmsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A0A7CD2A77597F00EA5620 /* DetailWpmsListView.swift */; };
 		07A0A7D22A77BBD400EA5620 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A0A7D12A77BBD400EA5620 /* HomeView.swift */; };
 		07B0F8F32A755F3D0062A67E /* AnalysisAudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B0F8F22A755F3D0062A67E /* AnalysisAudioView.swift */; };
 		07F97BB52A65195A00149583 /* MalBalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F97BB42A65195A00149583 /* MalBalApp.swift */; };
@@ -57,6 +58,7 @@
 		075666C52A72192100AB5777 /* M4A_SampleFile.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = M4A_SampleFile.m4a; sourceTree = "<group>"; };
 		075666C72A738A1900AB5777 /* AnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisView.swift; sourceTree = "<group>"; };
 		075666C92A7392C300AB5777 /* AnalysisCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisCardView.swift; sourceTree = "<group>"; };
+		07A0A7CD2A77597F00EA5620 /* DetailWpmsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWpmsListView.swift; sourceTree = "<group>"; };
 		07A0A7D12A77BBD400EA5620 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		07B0F8F22A755F3D0062A67E /* AnalysisAudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisAudioView.swift; sourceTree = "<group>"; };
 		07F97BB12A65195A00149583 /* MalBal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MalBal.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -197,6 +199,7 @@
 				075666C72A738A1900AB5777 /* AnalysisView.swift */,
 				075666C92A7392C300AB5777 /* AnalysisCardView.swift */,
 				07B0F8F22A755F3D0062A67E /* AnalysisAudioView.swift */,
+				07A0A7CD2A77597F00EA5620 /* DetailWpmsListView.swift */,
 			);
 			path = Analysis;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				A871A7622A72161100DD7F8B /* Constants.swift in Sources */,
 				C50198822A6FB9C400B0AAFF /* PresentationModel.swift in Sources */,
 				C50198842A6FB9D300B0AAFF /* DirectoryModel.swift in Sources */,
+				07A0A7CE2A77597F00EA5620 /* DetailWpmsListView.swift in Sources */,
 				A8CA836D2A7451A700D2FC01 /* NewPracticeListView.swift in Sources */,
 				C50198762A6907DE00B0AAFF /* RecordingViewModel.swift in Sources */,
 				A82E49662A73933500082608 /* ArchiveViewModel.swift in Sources */,

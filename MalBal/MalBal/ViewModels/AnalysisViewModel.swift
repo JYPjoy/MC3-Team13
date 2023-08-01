@@ -342,6 +342,45 @@ class AnalysisViewModel: ObservableObject {
         let milliseconds = Int((self.currentTime.truncatingRemainder(dividingBy: 1)) * 100)
         return String(format: "%02d:%02d.%02d", minutes, seconds, milliseconds)
     }
-
+    
+    func detailWpmImageName(wpm: Int) -> String {
+        switch wpm {
+        case ..<80:
+            return "ic_speed_1"
+        case 80..<90:
+            return "ic_speed_2"
+        case 90..<110:
+            return "ic_speed_3"
+        case 110..<130:
+            return "ic_speed_4"
+        case 130...:
+            return "ic_speed_5"
+        default:
+            return "오류"
+        }
+    }
+    
+    func cellTimeText(index: Int) -> String {
+        let startTime = index * 1
+        let endTime = (index + 1) * 1
+        return "\(String(format: "%02d", startTime)):00~\(String(format: "%02d", endTime)):00"
+    }
+    
+    func cellSpeedText(wpm: Int) -> String {
+        switch wpm {
+        case ..<80:
+            return "너무 느려요"
+        case 80..<90:
+            return "조금 느려요"
+        case 90..<110:
+            return "아주 좋아요!"
+        case 110..<130:
+            return "조금 빨라요"
+        case 130...:
+            return "너무 빨라요"
+        default:
+            return "오류"
+        }
+    }
     
 }

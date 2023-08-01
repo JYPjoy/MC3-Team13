@@ -15,9 +15,17 @@ struct AnalysisView: View {
     }
     
     var body: some View {
-        VStack(spacing: 8) {
-            AnalysisCardView()
-            AnalysisAudioView()
+        ZStack{
+            Color.main2.edgesIgnoringSafeArea(.all)
+            
+            ScrollView {
+                VStack(spacing: 8) {
+                    AnalysisCardView()
+                    AnalysisAudioView()
+                    DetailWpmsListView()
+                }
+            }
+            .scrollIndicators(.hidden)
         }
         .environmentObject(self.vm)
         .onAppear{
