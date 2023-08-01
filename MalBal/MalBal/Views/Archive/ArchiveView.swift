@@ -38,7 +38,7 @@ struct ArchiveView: View {
                         
                         // 추가 버튼
                         NavigationLink {
-                            NewPracticeListView(archive: ArchiveRealmModel())
+                            PracticeListView(archive: ArchiveRealmModel())
                         } label: {
                             RoundedRectangle(cornerRadius: 16)
                                 .fill(Color(UIColor(Color.main4)))
@@ -59,12 +59,6 @@ struct ArchiveView: View {
             }
         }
     }
-                                              
-      func getIndex(item: ArchiveRealmModel)->Int{
-          return archiveData.firstIndex { (item1) -> Bool in
-              return item.id == item1.id
-          } ?? 0
-      }
 }
 
 
