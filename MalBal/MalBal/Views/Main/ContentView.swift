@@ -3,8 +3,7 @@ import RealmSwift
 
 struct ContentView: View {
     var body: some View {
-        //mainView()
-        ArchiveView()
+        SplashView()
             .onAppear(perform: UIApplication.shared.addTapGestureRecognizer)
     }
 }

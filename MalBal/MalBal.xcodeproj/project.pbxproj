@@ -42,6 +42,7 @@
 		A8CA83852A76979500D2FC01 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CA83842A76979500D2FC01 /* NavigationBar.swift */; };
 		A8CA83912A778C4F00D2FC01 /* PracticeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CA83902A778C4F00D2FC01 /* PracticeListView.swift */; };
 		A8CA84032A78E54900D2FC01 /* ToastBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CA84022A78E54900D2FC01 /* ToastBanner.swift */; };
+		A8CA84092A793E8C00D2FC01 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CA84082A793E8C00D2FC01 /* SplashView.swift */; };
 		C50198672A665A9C00B0AAFF /* UploadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198662A665A9C00B0AAFF /* UploadingView.swift */; };
 		C50198692A67A49200B0AAFF /* UploadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198682A67A49200B0AAFF /* UploadingViewModel.swift */; };
 		C501986B2A67A5FA00B0AAFF /* VideoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C501986A2A67A5F900B0AAFF /* VideoPickerView.swift */; };
@@ -92,6 +93,7 @@
 		A8CA83842A76979500D2FC01 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		A8CA83902A778C4F00D2FC01 /* PracticeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeListView.swift; sourceTree = "<group>"; };
 		A8CA84022A78E54900D2FC01 /* ToastBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastBanner.swift; sourceTree = "<group>"; };
+		A8CA84082A793E8C00D2FC01 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		C50198662A665A9C00B0AAFF /* UploadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingView.swift; sourceTree = "<group>"; };
 		C50198682A67A49200B0AAFF /* UploadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingViewModel.swift; sourceTree = "<group>"; };
 		C501986A2A67A5F900B0AAFF /* VideoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPickerView.swift; sourceTree = "<group>"; };
@@ -258,9 +260,18 @@
 			path = Practice;
 			sourceTree = "<group>";
 		};
+		A8CA84072A793E6500D2FC01 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				A8CA84082A793E8C00D2FC01 /* SplashView.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
 		C50198632A651A5300B0AAFF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A8CA84072A793E6500D2FC01 /* Splash */,
 				A8CA83832A76970000D2FC01 /* Practice */,
 				A84E0B342A724AA200B0B6E8 /* Archive */,
 				A84E0B332A724A9D00B0B6E8 /* Main */,
@@ -386,6 +397,7 @@
 				C50198842A6FB9D300B0AAFF /* DirectoryModel.swift in Sources */,
 				07A0A7CE2A77597F00EA5620 /* DetailWpmsListView.swift in Sources */,
 				C50198762A6907DE00B0AAFF /* RecordingViewModel.swift in Sources */,
+				A8CA84092A793E8C00D2FC01 /* SplashView.swift in Sources */,
 				A82E49662A73933500082608 /* ArchiveViewModel.swift in Sources */,
 				0734582D2A691169006CEEDE /* TestAudioRecorderView.swift in Sources */,
 				C501987E2A691AF100B0AAFF /* DecibelViewModel.swift in Sources */,
