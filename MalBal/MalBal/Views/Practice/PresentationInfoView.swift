@@ -22,7 +22,7 @@ struct PresentationInfoView: View {
                             Spacer().frame(height:11)
                             HStack{
                                 Spacer().frame(width: 16)
-                                Text("발표 주제를 써 주세요")
+                                Text("발표 주제를 적어보아요")
                                     .foregroundColor(.white)
                                     .font(FontManager.shared.appleSDGothicNeo(.medium, 12))
                                     .frame(maxWidth: .infinity, alignment: .leading)

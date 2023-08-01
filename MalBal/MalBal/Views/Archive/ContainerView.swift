@@ -95,7 +95,7 @@ struct ContainerView: View {
         
         return ActionSheet(
         title: Text("보관함 삭제"),
-        message: Text("보관함 안에 있는 모든 연습리스트가 삭제돼버려요."),
+        message: Text("보관함 안에 있는 모든 연습이 함께 삭제돼요."),
         buttons: [ deleteButton, cancelButton ]
         )
     }
