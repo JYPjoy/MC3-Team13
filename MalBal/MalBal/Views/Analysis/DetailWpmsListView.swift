@@ -10,19 +10,30 @@ import SwiftUI
 struct DetailWpmsListView: View {
     @EnvironmentObject var vm: AnalysisViewModel
     
+    //Array(vm.record.detailWpms.enumerated())
+    let testArray = [70, 80, 90, 100, 110, 120]
+    
     var body: some View {
-        List(0..<(Int(vm.totalTime) / 60 + 1), id: \.self) { minute in
-            Button(action: {
-                vm.seekToMinute(minute)
-            }) {
-                HStack{
-                    Text("\(minute)-\(minute + 1)분")
-                    Spacer()
-                    Text("\(vm.record.detailWpms.indices.contains(minute) ? vm.record.detailWpms[minute] : -1)")
+        ZStack{
+            
+            Rectangle()
+                .foregroundColor(.main4)
+                .frame(width: 347, height: 191)
+            
+            ScrollView {
+                VStack(alignment: .center, spacing: 0) {
+                    ForEach(Array(testArray.enumerated()), id: \.element) { index, wpms in
+                        DetailWpmsListCellView(index: index)
+                        if index < testArray.count - 1 {
+                            scrollDevider
+                        }
+                    }
                 }
+                .frame(width: 337)
             }
         }
-        .listStyle(.plain)
+        .frame(width: 347, height: 191)
+        .clipShape(RoundedRectangle(cornerRadius: 16))
     }
     
     private struct DetailWpmsListCellView: View {
@@ -30,16 +41,21 @@ struct DetailWpmsListView: View {
         var index: Int
         
         var body: some View {
-            HStack(spacing: 12) {
+            HStack(alignment: .top, spacing: 12) {
                 Image("\(vm.detailWpmImageName(index: index))")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 48, height: 48)
+                    .padding(.leading, 29.5)
+                    .padding(.top, 7)
                 
-                VStack(alignment: .center, spacing: 4) {
-                    Text("\(vm.cellTimeText(index: index))")
-                        .font(FontManager.shared.appleSDGothicNeo(.medium, 12))
-                        .foregroundColor(Color(hex: "FFFFFF").opacity(0.4))
+                VStack(spacing: 4) {
+                    HStack {
+                        Text("\(vm.cellTimeText(index: index))")
+                            .font(FontManager.shared.appleSDGothicNeo(.medium, 12))
+                            .foregroundColor(Color(hex: "FFFFFF").opacity(0.4))
+                        Spacer()
+                    }
                     
                     HStack(spacing: 6) {
                         Text("아주 좋아요")
@@ -51,12 +67,23 @@ struct DetailWpmsListView: View {
                         Text("420 w/min")
                             .font(FontManager.shared.appleSDGothicNeo(.semibold, 16))
                             .foregroundColor(Color(hex: "FFFFFF"))
+                        Spacer()
                     }
-                    
                 }
+                .frame(height: 32)
+                .padding(.top, 15)
             }
+            .frame(width: 347, height: 64)
         }
+        
     }
+    
+    private var scrollDevider: some View {
+        Rectangle()
+            .frame(width: 319, height: 0.5)
+            .foregroundColor(Color(hex: "FFFFFF").opacity(0.3))
+    }
+    
 }
 
 struct DetailWpmsListView_Previews: PreviewProvider {
@@ -68,5 +95,6 @@ struct DetailWpmsListView_Previews: PreviewProvider {
     static var previews: some View {
         DetailWpmsListView()
             .environmentObject(testEnvObject)
+//        HomeView()
     }
 }

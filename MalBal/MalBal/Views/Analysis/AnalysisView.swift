@@ -18,6 +18,7 @@ struct AnalysisView: View {
         VStack(spacing: 8) {
             AnalysisCardView()
             AnalysisAudioView()
+            DetailWpmsListView()
         }
         .environmentObject(self.vm)
         .onAppear{

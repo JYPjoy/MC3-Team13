@@ -369,4 +369,24 @@ class AnalysisViewModel: ObservableObject {
         return "\(String(format: "%02d", startTime)):00~\(String(format: "%02d", endTime)):00"
     }
     
+    func cellSpeedText(index: Int) -> String {
+        guard index < record.detailWpms.count else {
+            return "분석중"
+        }
+        switch record.wpm {
+        case ..<80:
+            return "너무 느려요"
+        case 80..<90:
+            return "조금 느려요"
+        case 90..<110:
+            return "아주 좋아요!"
+        case 110..<130:
+            return "조금 빨라요"
+        case 130...:
+            return "너무 빨라요"
+        default:
+            return "오류"
+        }
+    }
+    
 }
