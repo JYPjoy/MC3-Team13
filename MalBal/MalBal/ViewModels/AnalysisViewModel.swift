@@ -184,19 +184,29 @@ class AnalysisViewModel: ObservableObject {
                     resultHandler: { (result, error) in
                         // MARK: 음성을 차례대로 정확하게 변환하기 위해
                         if result == nil {
-                            self.transcripts.append("(대화 없음)")
+//                            self.transcripts.append("(대화 없음)")
                             completion(true)
+                            print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+                            print("대화없음")
+                            self.addDetailWpms(textPerMinute: " ")
+                            print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+                            print(self.record.detailWpms)
+                            print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+                            
                         } else if (result?.isFinal)! {
                             if let res = result?.bestTranscription.formattedString {
-                                // 결과 Transcripts 추가
-//                                self.transcripts.append(res)
                                 // detail Wpms 추가
+                                print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+                                print("\(res)")
                                 self.addDetailWpms(textPerMinute: res)
-                                print(">>>###***>>>>>>###***>>>>>>###***>>>")
-                                print(">>>###***>>>\(res)")
-                                print(">>>###***>>>>>>###***>>>>>>###***>>>")
+                                print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
                                 print(self.record.detailWpms)
-                                print(">>>###***>>>>>>###***>>>>>>###***>>>")
+                                print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+//                              결과 Transcripts 추가 -- 아니 이거 진짜 왜 값이 이상해지는 건지 도당체 모르겠음
+//                                self.transcripts.append(res)
+//                                print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+//                                print(self.transcripts)
+//                                print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
                                 completion(true)
                             }
                         }

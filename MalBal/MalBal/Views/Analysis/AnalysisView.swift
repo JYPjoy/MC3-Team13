@@ -31,10 +31,10 @@ struct AnalysisView: View {
         .environmentObject(self.vm)
         .onAppear{
             recordingVM.stopRecord()
-//            vm.clearSplitFiles()
-//            vm.setupAudioPlayer()
-//            vm.setDetailWPMs()
-            vm.testSTTScript()
+            vm.clearSplitFiles()
+            vm.setupAudioPlayer()
+            vm.setDetailWPMs()
+//            vm.testSTTScript()
         }
         .onDisappear(perform: vm.stopAudioPlayer)
         .onReceive(Timer.publish(every: 0.1, on: .main, in: .common).autoconnect(), perform: { _ in
