@@ -180,6 +180,7 @@ struct mainView: View {
                 }
                 
             }
+            .navigationBarBackButtonHidden(true)
             .navigationTitle("MalPal")
         }
     }

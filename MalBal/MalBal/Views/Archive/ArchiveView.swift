@@ -58,6 +58,7 @@ struct ArchiveView: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
