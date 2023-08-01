@@ -20,7 +20,12 @@ struct DetailWpmsListView: View {
             ScrollView {
                 VStack(alignment: .center, spacing: 0) {
                     ForEach(Array(vm.record.detailWpms.enumerated()), id: \.element) { index, wpm in
-                        DetailWpmsListCellView(index: index, wpm: wpm)
+                        
+                        Button {
+                            vm.seekToMinute(index)
+                        } label: {
+                            DetailWpmsListCellView(index: index, wpm: wpm)
+                        }
                         if index < vm.record.detailWpms.count - 1 {
                             scrollDevider
                         }
@@ -79,13 +84,14 @@ struct DetailWpmsListView: View {
                 
                 Spacer()
                 
-                Image(systemName: "checkmark")
-                    .font(FontManager.shared.appleSDGothicNeo(.semibold, 24))
-                    .foregroundColor(Color(hex: "FFFFFF"))
-                    .frame(width: 23, height: 22)
-                    .padding(.top, 20)
-                    .padding(.trailing, 44)
-                
+                if index == Int(vm.currentTime) / 60 {
+                    Image(systemName: "checkmark")
+                        .font(FontManager.shared.appleSDGothicNeo(.semibold, 24))
+                        .foregroundColor(Color(hex: "FFFFFF"))
+                        .frame(width: 23, height: 22)
+                        .padding(.top, 20)
+                        .padding(.trailing, 44)
+                }
             }
             .frame(width: 393, height: 64)
         }
