@@ -256,9 +256,7 @@ struct HomeView: View {
             Spacer()
             NavigationLink {
                 AnalysisView(record: recordingVM.record ?? Record(createdAt: Date()))
-                    .onAppear{
-                        recordingVM.stopRecord()
-                    }
+                    .environmentObject(self.recordingVM)
             } label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 16)

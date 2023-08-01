@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AnalysisView: View {
     @StateObject var vm: AnalysisViewModel
+    @EnvironmentObject var recordingVM: RecordingViewModel
     
     init(record: Record) {
         _vm = StateObject(wrappedValue: AnalysisViewModel(record: record))
@@ -29,6 +30,7 @@ struct AnalysisView: View {
         }
         .environmentObject(self.vm)
         .onAppear{
+            recordingVM.stopRecord()
             vm.setupAudioPlayer()
             vm.setDetailWPMs()
         }
@@ -48,6 +50,7 @@ struct AnalysisView: View {
 struct AnalysisView_Previews: PreviewProvider {
     static var previews: some View {
         AnalysisView(record: Record(createdAt: Date()))
+            .environmentObject(RecordingViewModel())
     }
 }
 
