@@ -123,14 +123,13 @@ class AnalysisViewModel: ObservableObject {
     //MARK: - Wpm 연산
     /// 전체 WPM 계산 함수
     func setRecordWPM() {
-        let wordCount = Double(combineTranscripts(transcripts).split(separator: " ").count)
+        var words: Int = 0
         
-        guard self.totalTime > 0 else {
-            self.record.wpm = -1
-            return
+        for detailWpm in record.detailWpms {
+            words += detailWpm
         }
         
-        let wps = wordCount/self.totalTime
+        let wps = Double(words)/self.totalTime
         self.record.wpm = Int(wps * 60)
     }
     
@@ -190,12 +189,14 @@ class AnalysisViewModel: ObservableObject {
                         } else if (result?.isFinal)! {
                             if let res = result?.bestTranscription.formattedString {
                                 // 결과 Transcripts 추가
-                                self.transcripts.append(res)
+//                                self.transcripts.append(res)
                                 // detail Wpms 추가
                                 self.addDetailWpms(textPerMinute: res)
+                                print(">>>###***>>>>>>###***>>>>>>###***>>>")
                                 print(">>>###***>>>\(res)")
                                 print(">>>###***>>>>>>###***>>>>>>###***>>>")
-                                print(self.transcripts)
+                                print(self.record.detailWpms)
+                                print(">>>###***>>>>>>###***>>>>>>###***>>>")
                                 completion(true)
                             }
                         }
