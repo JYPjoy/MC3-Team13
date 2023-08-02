@@ -46,6 +46,7 @@
 		A8CA84092A793E8C00D2FC01 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CA84082A793E8C00D2FC01 /* SplashView.swift */; };
 		A8CA840D2A79CD5B00D2FC01 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CA840C2A79CD5B00D2FC01 /* LottieView.swift */; };
 		A8CA84102A79CE3600D2FC01 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A8CA840F2A79CE3600D2FC01 /* Lottie */; };
+		A8CA84182A7A296D00D2FC01 /* SplashLottieFiles.json in Resources */ = {isa = PBXBuildFile; fileRef = A8CA84172A7A296D00D2FC01 /* SplashLottieFiles.json */; };
 		C50198672A665A9C00B0AAFF /* UploadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198662A665A9C00B0AAFF /* UploadingView.swift */; };
 		C50198692A67A49200B0AAFF /* UploadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50198682A67A49200B0AAFF /* UploadingViewModel.swift */; };
 		C501986B2A67A5FA00B0AAFF /* VideoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C501986A2A67A5F900B0AAFF /* VideoPickerView.swift */; };
@@ -99,6 +100,7 @@
 		A8CA84022A78E54900D2FC01 /* ToastBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastBanner.swift; sourceTree = "<group>"; };
 		A8CA84082A793E8C00D2FC01 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		A8CA840C2A79CD5B00D2FC01 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		A8CA84172A7A296D00D2FC01 /* SplashLottieFiles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SplashLottieFiles.json; sourceTree = "<group>"; };
 		C50198662A665A9C00B0AAFF /* UploadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingView.swift; sourceTree = "<group>"; };
 		C50198682A67A49200B0AAFF /* UploadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingViewModel.swift; sourceTree = "<group>"; };
 		C501986A2A67A5F900B0AAFF /* VideoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPickerView.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				07F97BB42A65195A00149583 /* MalBalApp.swift */,
 				07F97BB82A65195C00149583 /* Assets.xcassets */,
 				075666C52A72192100AB5777 /* M4A_SampleFile.m4a */,
+				A8CA84172A7A296D00D2FC01 /* SplashLottieFiles.json */,
 				A836B19E2A6E4AA800D9F02F /* Resources */,
 				07F97BBA2A65195C00149583 /* Preview Content */,
 			);
@@ -385,6 +388,7 @@
 				A836B1CC2A6E6C6A00D9F02F /* AppleSDGothicNeoM.ttf in Resources */,
 				07F97BBC2A65195C00149583 /* Preview Assets.xcassets in Resources */,
 				A836B1C82A6E6C4500D9F02F /* AppleSDGothicNeoB.ttf in Resources */,
+				A8CA84182A7A296D00D2FC01 /* SplashLottieFiles.json in Resources */,
 				07F97BB92A65195C00149583 /* Assets.xcassets in Resources */,
 				075666C62A72192300AB5777 /* M4A_SampleFile.m4a in Resources */,
 				A836B1D12A6E6FF300D9F02F /* AppleSDGothicNeoEB.ttf in Resources */,
