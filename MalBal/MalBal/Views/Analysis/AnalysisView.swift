@@ -19,15 +19,19 @@ struct AnalysisView: View {
         ZStack{
             Color.main2.edgesIgnoringSafeArea(.all)
             
-            ScrollView {
-                VStack(spacing: 8) {
-                    AnalysisCardView()
-                    AnalysisAudioView()
-                    DetailWpmsListView()
+            VStack(spacing: 0) {
+                NavToolBar(navBarTitle: "분석결과", backButtonActive: false)
+                ScrollView {
+                    VStack(spacing: 8) {
+                        AnalysisCardView()
+                        AnalysisAudioView()
+                        DetailWpmsListView()
+                    }
                 }
+                .scrollIndicators(.hidden)
             }
-            .scrollIndicators(.hidden)
         }
+        .navigationBarHidden(true)
         .environmentObject(self.vm)
         .onAppear{
             recordingVM.stopRecord()
