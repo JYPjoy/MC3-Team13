@@ -55,6 +55,7 @@ struct HomeView: View {
             }
             
         }
+        .navigationBarBackButtonHidden(true)
         .onAppear{
             recordingVM.prepareRecording { status in
                 if !status {
@@ -281,10 +282,16 @@ struct HomeView: View {
                     .frame(width: .infinity, height: 145)
                     .offset(y: 26)
                 
-                Text("연습 보관함")
-                    .font(FontManager.shared.appleSDGothicNeo(.semibold, 20))
-                    .foregroundColor(Color(hex: "FFFFFF"))
-                    .offset(y: -5)
+                NavigationLink {
+                    ArchiveView()
+                } label: {
+                    Text("연습 보관함")
+                        .font(FontManager.shared.appleSDGothicNeo(.semibold, 20))
+                        .foregroundColor(Color(hex: "FFFFFF"))
+                        .offset(y: -5)
+                }
+
+                
                 
             }
             .clipShape(Rectangle())

@@ -11,6 +11,7 @@ import RealmSwift
 struct ArchiveView: View {
     
     @Environment(\.realm) var realm
+    @Environment(\.dismiss) var dismiss
     @ObservedResults(ArchiveRealmModel.self) var archiveData
 
     var body: some View {
@@ -30,7 +31,7 @@ struct ArchiveView: View {
                     ScrollView {
                         LazyVStack(spacing: 16) {
                             ForEach(archiveData) { archive in
-                                ContainerView(item: archive)
+                                ContainerView(viewModel: ArchiveViewModel(item: archive), item: archive)
                             }
                         }
                     
@@ -38,6 +39,7 @@ struct ArchiveView: View {
                         
                         // 추가 버튼
                         NavigationLink {
+  
                             PracticeListView(archive: ArchiveRealmModel())
                         } label: {
                             RoundedRectangle(cornerRadius: 16)
@@ -53,11 +55,12 @@ struct ArchiveView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
-                        
+                        dismiss()
                     }, label: { Image(systemName: "chevron.down").foregroundColor(.white)})
                 }
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

@@ -20,7 +20,7 @@ struct ExerciseListView: View {
                 }
                 
                 ScrollView{
-                    Text("아직 발표연습 리스트가 없어요")
+                    Text("발표 연습 리스트가 없어요")
                         .foregroundColor(.white.opacity(0.4))
                         .font(FontManager.shared.appleSDGothicNeo(.semibold, 16))
                 }
