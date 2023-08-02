@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PresentationInfoView: View {
     @Binding var practiceTopic: String
+    @Binding var selectedDate: String
    // @Binding var selectedDate: String
     
     var body: some View {
@@ -45,10 +46,14 @@ struct PresentationInfoView: View {
                                     .font(FontManager.shared.appleSDGothicNeo(.medium, 12))
                                     .frame(maxWidth: .infinity, alignment: .leading)
                             }
-                            Spacer() // TODO: 데이트피커
+                            Spacer()
+                            // TODO: 데이트피커로 바꾸기
                             //                        DatePicker("", selection: $selectedDate)
                             //                            .datePickerStyle(.compact)
                             //                            .padding()
+                            TextField("", text: $selectedDate).padding()
+                                .foregroundColor(.white)
+                                .font(FontManager.shared.appleSDGothicNeo(.semibold, 16))
                         }
                     )
             }

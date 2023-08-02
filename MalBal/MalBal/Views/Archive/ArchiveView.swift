@@ -39,6 +39,7 @@ struct ArchiveView: View {
                         
                         // 추가 버튼
                         NavigationLink {
+  
                             PracticeListView(archive: ArchiveRealmModel())
                         } label: {
                             RoundedRectangle(cornerRadius: 16)

@@ -9,8 +9,6 @@ import SwiftUI
 import RealmSwift
 
 struct ContainerView: View {
-    
-    @Environment(\.realm) var realm
     @StateObject var viewModel: ArchiveViewModel
     @State var showActionSheet: Bool = false
     let item: ArchiveRealmModel
@@ -83,22 +81,9 @@ struct ContainerView: View {
             .offset(x: item.offset)
             .gesture(DragGesture().onChanged(viewModel.onChanged(value:)).onEnded(viewModel.onEnd(value:)))
             .actionSheet(isPresented: $showActionSheet) {
-                getActionSheet()
+                viewModel.getActionSheet()
             }
         }
-    }
-    
-    func getActionSheet() -> ActionSheet {
-        let deleteButton: ActionSheet.Button = .destructive(Text("삭제하기")) {
-            viewModel.deleteItem()
-        }
-        let cancelButton: ActionSheet.Button = .cancel()
-        
-        return ActionSheet(
-        title: Text("보관함 삭제"),
-        message: Text("보관함 안에 있는 모든 연습이 함께 삭제돼요."),
-        buttons: [ deleteButton, cancelButton ]
-        )
     }
 }
 
