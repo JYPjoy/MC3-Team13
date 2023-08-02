@@ -19,8 +19,8 @@ struct DetailWpmsListView: View {
             
             ScrollView {
                 VStack(alignment: .center, spacing: 0) {
-                    ForEach(Array(vm.record.detailWpms.enumerated()), id: \.element) { index, wpm in
-                        
+                    ForEach(vm.record.detailWpms.indices, id:  \.self) { index in
+                        let wpm = vm.record.detailWpms[index]
                         Button {
                             vm.seekToMinute(index)
                         } label: {

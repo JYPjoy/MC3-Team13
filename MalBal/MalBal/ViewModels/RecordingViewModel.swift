@@ -143,6 +143,7 @@ class RecordingViewModel: ObservableObject {
         self.deleteRecord()
         self.record = Record(fileURL: recordedFileURL, createdAt: Date())
         let bundle = Bundle.main
+        //Test m4a파일 변경하는 부분입니다 M4A_SampleFile
         guard let bundleAudioURL = bundle.url(forResource: "M4A_SampleFile", withExtension: "m4a") else {
             print("Error: Bundle audio file not found.")
             return

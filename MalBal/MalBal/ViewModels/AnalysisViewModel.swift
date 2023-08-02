@@ -123,15 +123,24 @@ class AnalysisViewModel: ObservableObject {
     //MARK: - Wpm 연산
     /// 전체 WPM 계산 함수
     func setRecordWPM() {
-        let wordCount = Double(combineTranscripts(transcripts).split(separator: " ").count)
+        var words: Int = 0
         
-        guard self.totalTime > 0 else {
-            self.record.wpm = -1
-            return
+        for detailWpm in record.detailWpms {
+            words += detailWpm
         }
         
-        let wps = wordCount/self.totalTime
+        let wps = Double(words)/self.totalTime
         self.record.wpm = Int(wps * 60)
+        self.adjustLastDetailWPM()
+    }
+    
+    func adjustLastDetailWPM() {
+        var words: Int = record.detailWpms.removeLast()
+        let lastSeconds = Int(self.totalTime) % 60
+        
+        let wps = Double(words)/Double(lastSeconds)
+        record.detailWpms.append(Int(wps * 60))
+        
     }
     
     //MARK: - detailWpms 연산
@@ -144,7 +153,6 @@ class AnalysisViewModel: ObservableObject {
         let numberOfURLs = splitURLs.count
         
         loopTransURL(urls: splitURLs, idx: idx, numbersOfURLs: numberOfURLs)
-        
     }
     
     /// 음성파일배열 순회transcribe 
@@ -186,15 +194,29 @@ class AnalysisViewModel: ObservableObject {
                     resultHandler: { (result, error) in
                         // MARK: 음성을 차례대로 정확하게 변환하기 위해
                         if result == nil {
-                            self.transcripts.append("(대화 없음)")
+//                            self.transcripts.append("(대화 없음)")
                             completion(true)
+                            print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+                            print("대화없음")
+                            self.addDetailWpms(textPerMinute: " ")
+                            print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+                            print(self.record.detailWpms)
+                            print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+                            
                         } else if (result?.isFinal)! {
                             if let res = result?.bestTranscription.formattedString {
-                                // 결과 Transcripts 추가
-                                self.transcripts.append(res)
                                 // detail Wpms 추가
+                                print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+                                print("\(res)")
                                 self.addDetailWpms(textPerMinute: res)
-                                print(res)
+                                print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+                                print(self.record.detailWpms)
+                                print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+//                              결과 Transcripts 추가 -- 아니 이거 진짜 왜 값이 이상해지는 건지 도당체 모르겠음
+//                                self.transcripts.append(res)
+//                                print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+//                                print(self.transcripts)
+//                                print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
                                 completion(true)
                             }
                         }
@@ -273,18 +295,35 @@ class AnalysisViewModel: ObservableObject {
         return strings.joined(separator: separator)
     }
     
-    func clearFiles() {
+    func clearSplitFiles() {
         let fileManager = FileManager.default
-        
-        for url in splitURLs {
-            do {
-                try fileManager.removeItem(at: url)
-                print("Deleted file at: \(url)")
-            } catch {
-                print("Error: Deleting file at - \(url), \(error.localizedDescription)")
-            }
+
+        guard let documentsDirectoryURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            print("Error: Unable to access Document Directory.")
+            return
         }
-        print("Completed: Clear Files")
+
+        // Document Directory에 있는 모든 파일 목록 가져오기
+        do {
+            let directoryContents = try fileManager.contentsOfDirectory(at: documentsDirectoryURL, includingPropertiesForKeys: nil, options: [])
+
+            //MalBal.m4a 제외 하고는 모두 삭제
+            let malBalFileName = "MalBal.m4a"
+            for fileURL in directoryContents {
+                if fileURL.lastPathComponent != malBalFileName {
+                    do {
+                        try fileManager.removeItem(at: fileURL)
+                        print("Deleted file at: \(fileURL)")
+                    } catch {
+                        print("Error: Deleting file at - \(fileURL), \(error.localizedDescription)")
+                    }
+                }
+            }
+
+            print("Completed: Delete All Files Except MalBal.m4a")
+        } catch {
+            print("Error: Unable to access contents of Document Directory - \(error.localizedDescription)")
+        }
     }
     
     //MARK: - AnalysisView UI 관련 메소드
@@ -381,6 +420,48 @@ class AnalysisViewModel: ObservableObject {
         default:
             return "오류"
         }
+    }
+    
+    func testSTTScript() {
+//        self.transcribe(url: record.fileURL) { success in
+//            <#code#>
+//        }
+        guard let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "ko_KR")) else {
+            print("Speech recognizer is not available for this locale!")
+            return
+        }
+
+        if !speechRecognizer.isAvailable {
+            print("Speech recognizer is not available for this device!")
+            return
+        }
+
+        SFSpeechRecognizer.requestAuthorization { authStatus in
+            print(">> transcripts Waits")
+            if (authStatus == .authorized) {
+                let fileURL = self.record.fileURL
+                let request = SFSpeechURLRecognitionRequest(url: fileURL)
+                print(">>>### URL: \(fileURL)")
+                
+                let task = speechRecognizer.recognitionTask(
+                    with: request,
+                    resultHandler: { (result, error) in
+                        if result == nil {
+                            print("대화없음")
+                        } else if (result?.isFinal)! {
+                            if let res = result?.bestTranscription.formattedString {
+                                print(">>>###***>>>>>>###***>>>>>>###***>>>FULL SCRIPT")
+                                print(">>>###***>>>\(res)")
+                                print(">>>###***>>>>>>###***>>>>>>###***>>>FULL SCRIPT")
+                                print(self.transcripts)
+                            }
+                        }
+                    })
+            } else {
+                print("Error: Speech-API not authorized!");
+            }
+        }
+        
     }
     
 }
