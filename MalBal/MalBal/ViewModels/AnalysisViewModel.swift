@@ -131,6 +131,16 @@ class AnalysisViewModel: ObservableObject {
         
         let wps = Double(words)/self.totalTime
         self.record.wpm = Int(wps * 60)
+        self.adjustLastDetailWPM()
+    }
+    
+    func adjustLastDetailWPM() {
+        var words: Int = record.detailWpms.removeLast()
+        let lastSeconds = Int(self.totalTime) % 60
+        
+        let wps = Double(words)/Double(lastSeconds)
+        record.detailWpms.append(Int(wps * 60))
+        
     }
     
     //MARK: - detailWpms 연산
