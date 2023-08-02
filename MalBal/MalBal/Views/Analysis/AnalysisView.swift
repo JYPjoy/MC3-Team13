@@ -10,6 +10,7 @@ import SwiftUI
 struct AnalysisView: View {
     @StateObject var vm: AnalysisViewModel
     @EnvironmentObject var recordingVM: RecordingViewModel
+    @Environment(\.presentationMode) var presentationMode
     
     init(record: Record) {
         _vm = StateObject(wrappedValue: AnalysisViewModel(record: record))
@@ -26,6 +27,7 @@ struct AnalysisView: View {
                         AnalysisCardView()
                         AnalysisAudioView()
                         DetailWpmsListView()
+                        saveButton
                     }
                 }
                 .scrollIndicators(.hidden)
@@ -55,6 +57,24 @@ struct AnalysisView: View {
             }
         }
     }
+    
+    private var saveButton: some View {
+        Button {
+            //TODO: 저장 로직 추가
+            //self.vm.record 모델 접근 가능
+            presentationMode.wrappedValue.dismiss()
+        } label: {
+            ZStack {
+                RoundedRectangle(cornerRadius: 16)
+                    .foregroundColor(.main3)
+                Text("보관함에 저장")
+                    .font(FontManager.shared.appleSDGothicNeo(.bold, 20))
+                    .foregroundColor(Color.white)
+            }
+        }
+        .frame(width: 345, height: 64)
+    }
+    
 }
 
 struct AnalysisView_Previews: PreviewProvider {
