@@ -24,6 +24,7 @@ struct AnalysisAudioView: View {
                         vm.seekAudio()
                     }
                 }
+                .tint(Color(hex: "FFFFFF"))
                 .frame(width: 297, height: 64)
                 
                 //Current Time Text

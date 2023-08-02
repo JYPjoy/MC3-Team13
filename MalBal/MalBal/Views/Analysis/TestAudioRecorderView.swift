@@ -167,7 +167,7 @@ struct TestRecordAnalysisView: View {
             HStack{
                 Spacer()
                 Button {
-                    vm.clearFiles()
+                    vm.clearSplitFiles()
                 } label: {
                     Image(systemName: "trash.circle.fill")
                         .resizable()
