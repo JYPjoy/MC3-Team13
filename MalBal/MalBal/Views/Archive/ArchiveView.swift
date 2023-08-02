@@ -31,7 +31,7 @@ struct ArchiveView: View {
                     ScrollView {
                         LazyVStack(spacing: 16) {
                             ForEach(archiveData) { archive in
-                                ContainerView(item: archive)
+                                ContainerView(viewModel: ArchiveViewModel(item: archive), item: archive)
                             }
                         }
                     

@@ -11,6 +11,7 @@ import RealmSwift
 struct ContainerView: View {
     
     @Environment(\.realm) var realm
+    @StateObject var viewModel: ArchiveViewModel
     @State var showActionSheet: Bool = false
     let item: ArchiveRealmModel
     
@@ -80,7 +81,7 @@ struct ContainerView: View {
                     )
             }
             .offset(x: item.offset)
-            .gesture(DragGesture().onChanged(onChanged(value:)).onEnded(onEnd(value:)))
+            .gesture(DragGesture().onChanged(viewModel.onChanged(value:)).onEnded(viewModel.onEnd(value:)))
             .actionSheet(isPresented: $showActionSheet) {
                 getActionSheet()
             }
@@ -89,7 +90,7 @@ struct ContainerView: View {
     
     func getActionSheet() -> ActionSheet {
         let deleteButton: ActionSheet.Button = .destructive(Text("삭제하기")) {
-            deleteItem()
+            viewModel.deleteItem()
         }
         let cancelButton: ActionSheet.Button = .cancel()
         
@@ -98,27 +99,6 @@ struct ContainerView: View {
         message: Text("보관함 안에 있는 모든 연습이 함께 삭제돼요."),
         buttons: [ deleteButton, cancelButton ]
         )
-    }
-
-    func onChanged(value: DragGesture.Value){
-        try? realm.write {
-            item.thaw()?.setValue(value.translation.width, forKey: "offset")
-        }
-    }
-
-    func onEnd(value: DragGesture.Value){
-        withAnimation(.easeOut) {
-            let offset = value.translation.width > 80 ? 88 : 0
-            try? realm.write { item.thaw()?.setValue(offset, forKey: "offset") }
-        }
-    }
-
-    func deleteItem() {
-        let thawedItem = item.thaw()
-        if thawedItem?.isInvalidated == false { //☑️ Validation 체크
-            let thawedRealm = thawedItem!.realm! // realm 불러오기
-            try? thawedRealm.write { thawedRealm.delete(thawedItem ?? ArchiveRealmModel()) }
-        }
     }
 }
 
