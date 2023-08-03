@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GLPopupView: View {
+struct PopupView: View {
     
     let iconName: String
     let popupTitle: String
@@ -16,6 +16,15 @@ struct GLPopupView: View {
     
     let didTapCancel: (() -> Void)?
     let didTapConfirm: (() -> Void)?
+    
+    public init(iconName: String, popupTitle: String, contentsText: String, confirmText: String, didTapCancel: ( () -> Void)?, didTapConfirm: (() -> Void)?) {
+        self.iconName = iconName
+        self.popupTitle = popupTitle
+        self.contentsText = contentsText
+        self.confirmText = confirmText
+        self.didTapCancel = didTapCancel
+        self.didTapConfirm = didTapConfirm
+    }
     
     var body: some View {
         ZStack {
@@ -46,7 +55,7 @@ struct GLPopupView: View {
                         
                         HStack {
                             Button{
-                           
+                                didTapCancel?()
                             }label: {
                                 Text("취소")
                                     .font(FontManager.shared.appleSDGothicNeo(.semibold, 16))
@@ -62,7 +71,7 @@ struct GLPopupView: View {
                                 .frame(width: 15)
                             
                             Button{
-                           
+                                didTapConfirm?()
                             }label: {
                                 Text(confirmText)
                                     .font(FontManager.shared.appleSDGothicNeo(.semibold, 16))
