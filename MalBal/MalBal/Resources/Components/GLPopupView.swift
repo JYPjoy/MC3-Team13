@@ -14,8 +14,8 @@ struct GLPopupView: View {
     let contentsText: String
     let confirmText: String
     
-    let didTapCancel: () -> Void
-    let didTapConfirm: () -> Void
+    let didTapCancel: (() -> Void)?
+    let didTapConfirm: (() -> Void)?
     
     var body: some View {
         ZStack {
@@ -46,7 +46,7 @@ struct GLPopupView: View {
                         
                         HStack {
                             Button{
-                                didTapCancel()
+                           
                             }label: {
                                 Text("취소")
                                     .font(FontManager.shared.appleSDGothicNeo(.semibold, 16))
@@ -62,7 +62,7 @@ struct GLPopupView: View {
                                 .frame(width: 15)
                             
                             Button{
-                                didTapConfirm()
+                           
                             }label: {
                                 Text(confirmText)
                                     .font(FontManager.shared.appleSDGothicNeo(.semibold, 16))
