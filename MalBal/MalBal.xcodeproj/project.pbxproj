@@ -23,7 +23,7 @@
 		A82E49602A736AEB00082608 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82E495F2A736AEB00082608 /* ContainerView.swift */; };
 		A82E49662A73933500082608 /* ArchiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82E49652A73933500082608 /* ArchiveViewModel.swift */; };
 		A836B1A02A6E4AE200D9F02F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836B19F2A6E4AE200D9F02F /* Colors.swift */; };
-		A836B1A32A6E4E6300D9F02F /* GLPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836B1A22A6E4E6300D9F02F /* GLPopupView.swift */; };
+		A836B1A32A6E4E6300D9F02F /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836B1A22A6E4E6300D9F02F /* PopupView.swift */; };
 		A836B1B12A6E567B00D9F02F /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836B1B02A6E567B00D9F02F /* FontManager.swift */; };
 		A836B1C42A6E6C3500D9F02F /* AppleSDGothicNeoR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A836B1C32A6E6C3500D9F02F /* AppleSDGothicNeoR.ttf */; };
 		A836B1C82A6E6C4500D9F02F /* AppleSDGothicNeoB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A836B1C62A6E6C4500D9F02F /* AppleSDGothicNeoB.ttf */; };
@@ -35,6 +35,7 @@
 		A871A75E2A71881100DD7F8B /* ArchiveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A871A75D2A71881100DD7F8B /* ArchiveModel.swift */; };
 		A871A7602A7189B600DD7F8B /* ArchiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A871A75F2A7189B600DD7F8B /* ArchiveView.swift */; };
 		A871A7622A72161100DD7F8B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A871A7612A72161100DD7F8B /* Constants.swift */; };
+		A8ADA1552A7BF59E00A7CEE4 /* AnalysisPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ADA1542A7BF59E00A7CEE4 /* AnalysisPopupView.swift */; };
 		A8CA83752A76595C00D2FC01 /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CA83742A76595C00D2FC01 /* UIApplication+.swift */; };
 		A8CA837A2A7678A700D2FC01 /* PracticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CA83792A7678A700D2FC01 /* PracticeModel.swift */; };
 		A8CA837E2A76799A00D2FC01 /* TimeInterval+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CA837D2A76799A00D2FC01 /* TimeInterval+.swift */; };
@@ -80,7 +81,7 @@
 		A82E495F2A736AEB00082608 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		A82E49652A73933500082608 /* ArchiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveViewModel.swift; sourceTree = "<group>"; };
 		A836B19F2A6E4AE200D9F02F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		A836B1A22A6E4E6300D9F02F /* GLPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLPopupView.swift; sourceTree = "<group>"; };
+		A836B1A22A6E4E6300D9F02F /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		A836B1B02A6E567B00D9F02F /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		A836B1C32A6E6C3500D9F02F /* AppleSDGothicNeoR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoR.ttf; sourceTree = "<group>"; };
 		A836B1C62A6E6C4500D9F02F /* AppleSDGothicNeoB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoB.ttf; sourceTree = "<group>"; };
@@ -90,6 +91,7 @@
 		A871A75D2A71881100DD7F8B /* ArchiveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveModel.swift; sourceTree = "<group>"; };
 		A871A75F2A7189B600DD7F8B /* ArchiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveView.swift; sourceTree = "<group>"; };
 		A871A7612A72161100DD7F8B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A8ADA1542A7BF59E00A7CEE4 /* AnalysisPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisPopupView.swift; sourceTree = "<group>"; };
 		A8CA83742A76595C00D2FC01 /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
 		A8CA83792A7678A700D2FC01 /* PracticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeModel.swift; sourceTree = "<group>"; };
 		A8CA837D2A76799A00D2FC01 /* TimeInterval+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+.swift"; sourceTree = "<group>"; };
@@ -187,7 +189,7 @@
 		A836B1A12A6E4C4900D9F02F /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				A836B1A22A6E4E6300D9F02F /* GLPopupView.swift */,
+				A836B1A22A6E4E6300D9F02F /* PopupView.swift */,
 				A8CA83842A76979500D2FC01 /* NavigationBar.swift */,
 				0785017E2A79D289007843BC /* NavToolBar.swift */,
 				A8CA84022A78E54900D2FC01 /* ToastBanner.swift */,
@@ -225,6 +227,7 @@
 				075666C92A7392C300AB5777 /* AnalysisCardView.swift */,
 				07B0F8F22A755F3D0062A67E /* AnalysisAudioView.swift */,
 				07A0A7CD2A77597F00EA5620 /* DetailWpmsListView.swift */,
+				A8ADA1542A7BF59E00A7CEE4 /* AnalysisPopupView.swift */,
 			);
 			path = Analysis;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				07A0A7D22A77BBD400EA5620 /* HomeView.swift in Sources */,
 				A82E49602A736AEB00082608 /* ContainerView.swift in Sources */,
 				A8CA837A2A7678A700D2FC01 /* PracticeModel.swift in Sources */,
+				A8ADA1552A7BF59E00A7CEE4 /* AnalysisPopupView.swift in Sources */,
 				C50198802A691AFA00B0AAFF /* DecibelView.swift in Sources */,
 				A871A75E2A71881100DD7F8B /* ArchiveModel.swift in Sources */,
 				A8CA83912A778C4F00D2FC01 /* PracticeListView.swift in Sources */,
@@ -431,7 +435,7 @@
 				C50198BA2A7102CA00B0AAFF /* mainView.swift in Sources */,
 				A8CA83852A76979500D2FC01 /* NavigationBar.swift in Sources */,
 				A8CA83752A76595C00D2FC01 /* UIApplication+.swift in Sources */,
-				A836B1A32A6E4E6300D9F02F /* GLPopupView.swift in Sources */,
+				A836B1A32A6E4E6300D9F02F /* PopupView.swift in Sources */,
 				C5D183722A711107009407C6 /* ModalView.swift in Sources */,
 				A836B1A02A6E4AE200D9F02F /* Colors.swift in Sources */,
 				A8CA837E2A76799A00D2FC01 /* TimeInterval+.swift in Sources */,
