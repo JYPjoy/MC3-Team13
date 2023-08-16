@@ -30,8 +30,8 @@ struct HomeView: View {
                     
                     //Navigation Title
                     homeHeaderView
-                    .frame(width: .infinity, height: 68)
-                    .padding(.bottom, 10)
+                        .frame(width: GLConstants.glScreenWidth, height: 68)
+                        .padding(.bottom, 10)
                     
                     //녹음 버튼
                     recordButtonView
@@ -279,7 +279,7 @@ struct HomeView: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 20)
                     .foregroundColor(.main3)
-                    .frame(width: .infinity, height: 145)
+                    .frame(width: GLConstants.glScreenWidth, height: 145)
                     .offset(y: 26)
                 
                 NavigationLink {
