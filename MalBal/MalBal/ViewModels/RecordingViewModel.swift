@@ -94,7 +94,7 @@ class RecordingViewModel: ObservableObject {
     
     /// 녹음 삭제
     func deleteRecord() {
-        
+        self.stopRecord()
         do {
             if FileManager.default.fileExists(atPath: recordedFileURL.path) {
                 try FileManager.default.removeItem(at: recordedFileURL)
