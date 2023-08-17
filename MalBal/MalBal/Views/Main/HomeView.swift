@@ -105,7 +105,7 @@ struct HomeView: View {
                             endPoint: UnitPoint(x: 0.5, y: 1)
                         )
                     )
-                    .frame(width: 520, height: 520)
+                    .frame(width: 550, height: 550)
                 
                 Circle()
                     .fill(
@@ -115,7 +115,7 @@ struct HomeView: View {
                             endPoint: UnitPoint(x: 0.5, y: 1)
                         )
                     )
-                    .frame(width: 416.63, height: 416.63)
+                    .frame(width: 440, height: 440)
                 
                 Circle()
                     .fill(
@@ -155,7 +155,7 @@ struct HomeView: View {
             }
             
         }
-        .frame(width: 346, height: 256)
+        .frame(width: GLConstants.glScreenWidth - 48, height: 256)
         .clipShape(RoundedRectangle(cornerRadius: 30))
     }
     
@@ -190,7 +190,7 @@ struct HomeView: View {
                 .foregroundColor(Color(hex: "FFFFFF"))
             
         }
-        .frame(width: 346, height: 256)
+        .frame(width: GLConstants.glScreenWidth - 48, height: 256)
         .clipShape(RoundedRectangle(cornerRadius: 30))
     }
     
@@ -202,7 +202,6 @@ struct HomeView: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 30)
                     .foregroundColor(.main4)
-                    .frame(width: 346, height: 72)
                 HStack(spacing: 5) {
                     Image(systemName: "tray.full.fill")
                         .font(FontManager.shared.appleSDGothicNeo(.semibold, 20))
@@ -214,6 +213,8 @@ struct HomeView: View {
                         .font(FontManager.shared.appleSDGothicNeo(.semibold, 20))
                 }
             }
+            .frame(width: GLConstants.glScreenWidth - 48, height: 72)
+            
         }
 
     }
@@ -229,7 +230,7 @@ struct HomeView: View {
                 ZStack {
                     RoundedRectangle(cornerRadius: 30)
                         .foregroundColor(.main4)
-                        .frame(width: 81, height: 72)
+                        .frame(maxWidth: 81)
                     Image(systemName: "trash.fill")
                         .foregroundColor(Color(hex: "FFFFFF"))
                         .font(FontManager.shared.appleSDGothicNeo(.semibold, 20))
@@ -240,7 +241,7 @@ struct HomeView: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 30)
                     .foregroundColor(.main4)
-                    .frame(width: 255, height: 72)
+                    .frame(maxWidth: .infinity)
                 Text(formattedTime)
                     .fontDesign(.monospaced)
                     .fontWeight(.semibold)
@@ -249,6 +250,7 @@ struct HomeView: View {
             }
             
         }
+        .frame(width: GLConstants.glScreenWidth - 48, height: 72)
         
     }
     
@@ -262,11 +264,11 @@ struct HomeView: View {
                 ZStack {
                     RoundedRectangle(cornerRadius: 16)
                         .foregroundColor(.main5)
-                        .frame(width: 345, height: 64)
                     Text("녹음 마치고 분석하기")
                         .font(FontManager.shared.appleSDGothicNeo(.semibold, 20))
                         .foregroundColor(Color(hex: "FFFFFF"))
                 }
+                .frame(width: GLConstants.glScreenWidth - 48, height: 64)
                 .padding(.bottom, 55)
             }
         }
