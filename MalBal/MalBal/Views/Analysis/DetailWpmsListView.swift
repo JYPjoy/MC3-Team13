@@ -15,7 +15,6 @@ struct DetailWpmsListView: View {
             
             Rectangle()
                 .foregroundColor(.main4)
-                .frame(width: 347, height: 191)
             
             ScrollView {
                 VStack(alignment: .center, spacing: 0) {
@@ -31,10 +30,11 @@ struct DetailWpmsListView: View {
                         }
                     }
                 }
-                .frame(width: 337)
+                .frame(width: GLConstants.glScreenWidth - 48)
+
             }
         }
-        .frame(width: 347, height: 191)
+        .frame(width: GLConstants.glScreenWidth - 48, height: 191)
         .clipShape(RoundedRectangle(cornerRadius: 16))
     }
     
@@ -93,7 +93,8 @@ struct DetailWpmsListView: View {
                         .padding(.trailing, 44)
                 }
             }
-            .frame(width: 393, height: 64)
+            .frame(maxWidth: 393)
+            .frame(height: 64)
         }
         
     }

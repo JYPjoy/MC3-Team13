@@ -18,7 +18,7 @@ struct AnalysisCardView: View {
     private let durationAndDelay : CGFloat
     private let cornerRadius: CGFloat
     
-    init(size: CGSize = CGSize(width: 345, height: 200),
+    init(size: CGSize = CGSize(width: GLConstants.glScreenWidth - 48, height: 200),
          durationAndDelay: CGFloat = 0.3,
          cornerRadius: CGFloat = 16) {
         self.size = size
@@ -28,8 +28,8 @@ struct AnalysisCardView: View {
     
     var body: some View {
         ZStack{
-            AnalysisCardFrontView(degree: $frontDegree, cornerRadius: self.cornerRadius)
-            AnalysisCardBackView(degree: $backDegree, cornerRadius: self.cornerRadius)
+            AnalysisCardFrontView(degree: $frontDegree, size: self.size, cornerRadius: self.cornerRadius)
+            AnalysisCardBackView(degree: $backDegree, size: self.size, cornerRadius: self.cornerRadius)
         }.onTapGesture {
             flipCard ()
         }

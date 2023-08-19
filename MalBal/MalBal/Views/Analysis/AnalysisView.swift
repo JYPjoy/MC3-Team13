@@ -72,7 +72,7 @@ struct AnalysisView: View {
                     .foregroundColor(Color.white)
             }
         }
-        .frame(width: 345, height: 64)
+        .frame(width: GLConstants.glScreenWidth - 48, height: 64)
     }
     
 }

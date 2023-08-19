@@ -10,7 +10,7 @@ import SwiftUI
 struct AnalysisAudioView: View {
     @EnvironmentObject var vm: AnalysisViewModel
     
-    private let size: CGSize = CGSize(width: 345, height: 323)
+    private let size: CGSize = CGSize(width: GLConstants.glScreenWidth - 48, height: 323)
     private let cornerRadius: CGFloat = 16
     
     var body: some View {
